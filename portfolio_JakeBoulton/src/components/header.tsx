@@ -1,25 +1,28 @@
+import { Link } from "react-router-dom";
 import HamburgerMenu from "./hamburgerMenu";
 
 const Header: React.FC = () => {
 
+  const linkClasses = "text-base md:text-2xl"
+
     return (
         <header className="[ Nav ] [ container mx-auto ]">
-        <nav className="p-4 flex justify-between ">
+        <nav className="p-8 flex justify-between items-center ">
           <div className="[ logo ] [  ]">
-            <h1 className="text-2xl">Jake Boulton</h1>
+            <h1 className="text-[2.5rem] text-nowrap">Jake Boulton</h1>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="[ nav--buttons ] [ hidden md:flex gap-5 items-center ]">
-            <a href="/" className="text-base">
+          <div className="[ nav--buttons ] [ hidden md:flex gap-5 text-base]">
+            <Link to="/" className={linkClasses}>
               Home
-            </a>
-            <a href="/about" className="text-base">
+            </Link>
+            <Link to="/about" className={linkClasses}>
               About
-            </a>
-            <a href="/contact" className="text-base">
+            </Link>
+            <Link to="/contact" className={linkClasses}>
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* Hamburger Menu for Mobile */}

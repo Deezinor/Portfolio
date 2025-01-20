@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
 const HamburgerMenu: React.FC = () => {
@@ -30,34 +31,30 @@ const HamburgerMenu: React.FC = () => {
 
       {/* Navigation Menu */}
       <div
-        className={`absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${
+        className={`absolute z-[999] right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${
           isOpen ? 'block' : 'hidden'
         }`}
       >
-        <a
-          href="#home"
+        <Link to="/"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Home
-        </a>
-        <a
-          href="#about"
+        </Link>
+        <Link to="/about"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           About
-        </a>
-        <a
-          href="#services"
+        </Link>
+        <Link to="/services"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Services
-        </a>
-        <a
-          href="#contact"
+        </Link>
+        <Link to="/contact"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Contact
-        </a>
+        </Link>
       </div>
     </div>
   );
