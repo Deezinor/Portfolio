@@ -8,7 +8,7 @@ const Gallery: React.FC = () => {
       title: "BeatBox Studio",
       description: "Description for Project 1",
       bgColor: "bg-black",
-      extraClasses: "bg-contain m-4"
+      extraClasses: "bg-contain"
     },
     {
       image: "src/Assets/Images/Projects/Habibi-Logo.png",
