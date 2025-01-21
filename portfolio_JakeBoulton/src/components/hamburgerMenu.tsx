@@ -45,15 +45,10 @@ const HamburgerMenu: React.FC = () => {
         >
           About
         </Link>
-        <Link to="/services"
+        <Link to="/cv"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
-          Services
-        </Link>
-        <Link to="/contact"
-          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
-        >
-          Contact
+          CV
         </Link>
       </div>
     </div>

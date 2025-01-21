@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ image }) => {
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "50% 20%",
       }}
     >
       {/* Dark Overlay */}

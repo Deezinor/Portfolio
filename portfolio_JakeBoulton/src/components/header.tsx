@@ -20,8 +20,8 @@ const Header: React.FC = () => {
             <Link to="/about" className={linkClasses}>
               About
             </Link>
-            <Link to="/contact" className={linkClasses}>
-              Contact
+            <Link to="/cv" className={linkClasses}>
+              CV
             </Link>
           </div>
 

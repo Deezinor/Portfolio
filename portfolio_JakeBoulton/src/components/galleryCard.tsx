@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 
 interface GalleryCardProps {
@@ -6,6 +7,7 @@ interface GalleryCardProps {
   title: string;
   description: string;
   bgColor: string;
+  link: string;
   extraClasses?: string;
 }
 
@@ -14,10 +16,11 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   title,
   description,
   extraClasses,
+  link,
   bgColor,
 }) => {
   return (
-    <div>
+    <Link to={link} className="block">
       <div
         className={clsx(
           "relative mx-auto w-full h-[400px] overflow-hidden group",
@@ -48,7 +51,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
         <h3 className="text-lg font-bold mt-4">{title}</h3>
         <p className="text-base text-gray-600">{description}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

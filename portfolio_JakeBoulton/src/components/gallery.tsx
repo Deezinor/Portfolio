@@ -8,13 +8,15 @@ const Gallery: React.FC = () => {
       title: "BeatBox Studio",
       description: "Description for Project 1",
       bgColor: "bg-black",
-      extraClasses: "bg-contain"
+      link: "/Beatbox",
+      extraClasses: "bg-contain",
     },
     {
       image: "src/Assets/Images/Projects/Habibi-Logo.png",
       title: "Habibi",
       description: "Description for Project 2",
       bgColor: "bg-black",
+      link: "/Habibi",
       extraClasses: "bg-contain"
     },
     {
@@ -22,6 +24,7 @@ const Gallery: React.FC = () => {
       title: "Midgnight at the Pagoda",
       description: "Description for Project 3",
       bgColor: "bg-black",
+      link: "/Midnight_at_the_Pagoda",
       extraClasses: "bg-contain"
     },
     {
@@ -29,6 +32,7 @@ const Gallery: React.FC = () => {
       title: "GoFish",
       description: "Description for Project 3",
       bgColor: "bg-black",
+      link: "/GoFish",
       extraClasses: "bg-contain"
     },
     {
@@ -36,6 +40,7 @@ const Gallery: React.FC = () => {
       title: "Altilium",
       description: "Description for Project 4",
       bgColor: "bg-black",
+      link: "/Altilium",
       extraClasses: "bg-contain"
     },
   ];
@@ -50,6 +55,7 @@ const Gallery: React.FC = () => {
             title={project.title}
             description={project.description}
             extraClasses={project.extraClasses}
+            link={project.link}
             bgColor={project.bgColor}
           />
         ))}
