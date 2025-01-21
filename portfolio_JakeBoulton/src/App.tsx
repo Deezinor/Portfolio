@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Beatbox from "./pages/projects/BeatBox";
 import Habibi from "./pages/projects/Habibi";
 import Altilium from "./pages/projects/Altilium";
+import Midnight_at_the_Pagoda from "./pages/projects/Midnight_at_the_Pagoda";
 import NotFoundPage from "./pages/404";
 
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/BeatBox" element={<Beatbox />} />
+        <Route path="/Midnight_at_the_Pagoda" element={<Midnight_at_the_Pagoda />} />
         <Route path="/Habibi" element={<Habibi />} />
         <Route path="/Altilium" element={<Altilium />} />
         <Route path="*" element={<NotFoundPage />} />
