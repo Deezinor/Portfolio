@@ -26,7 +26,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/portfolio_JakeBoulton/',
+  base: '/',
   plugins: [
     react(),
     tsconfigPaths(),
