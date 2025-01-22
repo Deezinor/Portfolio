@@ -26,15 +26,16 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/portfolio_JakeBoulton/',
   plugins: [
     react(),
     tsconfigPaths(),
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Your App Name',
-        short_name: 'App',
-        description: 'Your app description',
+        name: 'Jake Boulton',
+        short_name: 'Portfolio',
+        description: 'Portfolio of Jake Boulton, a designer and problem solver.',
         theme_color: '#ffffff',
         icons: [
           {
