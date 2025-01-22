@@ -1,27 +1,30 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Beatbox from "./pages/projects/BeatBox";
-import Habibi from "./pages/projects/Habibi";
-import Altilium from "./pages/projects/Altilium";
-import Midnight_at_the_Pagoda from "./pages/projects/Midnight_at_the_Pagoda";
-import NotFoundPage from "./pages/404";
 
-
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Beatbox = lazy(() => import("./pages/projects/BeatBox"));
+const Habibi = lazy(() => import("./pages/projects/Habibi"));
+const Altilium = lazy(() => import("./pages/projects/Altilium"));
+const Midnight_at_the_Pagoda = lazy(() => import("./pages/projects/Midnight_at_the_Pagoda"));
+const GoFish = lazy(() => import("./pages/projects/GoFish"));
+const NotFoundPage = lazy(() => import("./pages/404"));
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/BeatBox" element={<Beatbox />} />
-        <Route path="/Midnight_at_the_Pagoda" element={<Midnight_at_the_Pagoda />} />
-        <Route path="/Habibi" element={<Habibi />} />
-        <Route path="/Altilium" element={<Altilium />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/BeatBox" element={<Beatbox />} />
+          <Route path="/Midnight_at_the_Pagoda" element={<Midnight_at_the_Pagoda />} />
+          <Route path="/Habibi" element={<Habibi />} />
+          <Route path="/Altilium" element={<Altilium />} />
+          <Route path="/GoFish" element={<GoFish />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };

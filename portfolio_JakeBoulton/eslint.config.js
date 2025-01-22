@@ -1,28 +1,36 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+/** @type {import('eslint').Linter.FlatConfig[]} */
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    ignores: ["node_modules/**", "dist/**"], // Proper glob patterns
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], // Include file patterns
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      parser: tseslint, // Use the TypeScript parser
+      globals: globals.browser, // Include browser globals
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      "react/react-in-jsx-scope": "off", // No need for React import in JSX
+      "react/no-unescaped-entities": "off", // Disable unescaped entities rule
     },
   },
-)
+  {
+    files: ["**/*.js"],
+    languageOptions: {
+      sourceType: "commonjs", // Allow CommonJS modules for JS files
+    },
+  },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended, // Add TypeScript recommended rules
+  {
+    ...pluginReact.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect", // Automatically detect React version
+      },
+    },
+  },
+];

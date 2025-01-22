@@ -4,7 +4,7 @@ import GalleryCard from "./galleryCard";
 const Gallery: React.FC = () => {
   const projects = [
     {
-      image: "src/Assets/Images/Projects/BeatBox_VR-Logo.png", // Replace with your image URL
+      image: "src/Assets/Images/Projects/BeatBox_VR-Logo.png",
       title: "BeatBox Studio",
       description: "Description for Project 1",
       bgColor: "bg-black",

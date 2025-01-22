@@ -1,16 +1,20 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+export default {
+  purge: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'], // Purge unused styles
+  content: [
+    './pages/**/*.{html,css,js,ts}',
+    './components/**/*.{html,css,js,ts}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans]
+        barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],
       },
       screens: {
-        'xs': '480px'
-      }
+        xs: '480px',
+      },
     },
   },
   plugins: [],

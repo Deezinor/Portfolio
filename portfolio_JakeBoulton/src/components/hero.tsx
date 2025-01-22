@@ -22,12 +22,12 @@ const Hero: React.FC<HeroProps> = ({ image }) => {
       <div className="[ container ] [ relative z-10 mx-auto px-5 lg:px-40 text-white text-center ]">
         <div className="[ hero--paragraph ] [ flex justify-center ]">
           <h1 className="[ hero--title ] [ mb-5 text-5xl sm:text-8xl ]">
-            Hi, I'm Jake Boulton. Designer and problem solver.
+            Hi, I&apos;m Jake Boulton. Designer and problem solver.
           </h1>
         </div>
         <div className="[ hero--paragraph ] [ flex justify-center ]">
           <p className="[ w-[65ch] mt-5 text-gray-300 text-base md:text-lg lg:text-xl ]">
-            Welcome to my portfolio! I'm a freelance designer from Dunmow, UK,
+            Welcome to my portfolio! I&apos;m a freelance designer from Dunmow, UK,
             creating immersive, user-focused 3D experiences. Explore my work and
             ideas!
           </p>

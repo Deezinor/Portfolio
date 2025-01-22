@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectTemplate from "../../components/ProjectTemplate";
 
-const BeatBox: React.FC = () => {
+const GoFish: React.FC = () => {
   const data = {
     title: "GoFish",
     projectDescription: "An immersive VR drumming education tool.",
@@ -14,9 +14,10 @@ const BeatBox: React.FC = () => {
       "https://placehold.co/600x400",
       "https://placehold.co/600x400",
     ],
+    projectLogo: "https://placehold.co/600x400"
   };
 
   return <ProjectTemplate {...data} />;
 };
 
-export default BeatBox;
+export default GoFish;
