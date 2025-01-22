@@ -4,7 +4,7 @@ import GalleryCard from "./galleryCard";
 const Gallery: React.FC = () => {
   const projects = [
     {
-      image: "src/Assets/Images/Projects/BeatBox_VR-Logo.png",
+      image: "./Assets/Images/Projects/BeatBox_VR-Logo.png",
       title: "BeatBox Studio",
       description: "Description for Project 1",
       bgColor: "bg-black",
@@ -12,7 +12,7 @@ const Gallery: React.FC = () => {
       extraClasses: "bg-contain",
     },
     {
-      image: "src/Assets/Images/Projects/Habibi-Logo.png",
+      image: "./Assets/Images/Projects/Habibi-Logo.png",
       title: "Habibi",
       description: "Description for Project 2",
       bgColor: "bg-black",
@@ -20,7 +20,7 @@ const Gallery: React.FC = () => {
       extraClasses: "bg-contain"
     },
     {
-      image: "src/Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
+      image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
       title: "Midgnight at the Pagoda",
       description: "Description for Project 3",
       bgColor: "bg-black",
@@ -28,7 +28,7 @@ const Gallery: React.FC = () => {
       extraClasses: "bg-contain"
     },
     {
-      image: "src/Assets/Images/Projects/GoFish-Logo.png",
+      image: "./Assets/Images/Projects/GoFish-Logo.png",
       title: "GoFish",
       description: "Description for Project 3",
       bgColor: "bg-black",
@@ -36,7 +36,7 @@ const Gallery: React.FC = () => {
       extraClasses: "bg-contain"
     },
     {
-      image: "src/Assets/Images/Projects/Altilium-Logo.png",
+      image: "./Assets/Images/Projects/Altilium-Logo.png",
       title: "Altilium",
       description: "Description for Project 4",
       bgColor: "bg-black",
