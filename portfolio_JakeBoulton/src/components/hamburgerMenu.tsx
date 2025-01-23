@@ -4,7 +4,9 @@ import React, { useState } from "react";
 const HamburgerMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    return setIsOpen(!isOpen);
+  };
 
   return (
     <div className="relative">
@@ -32,20 +34,23 @@ const HamburgerMenu: React.FC = () => {
       {/* Navigation Menu */}
       <div
         className={`absolute z-[999] right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${
-          isOpen ? 'block' : 'hidden'
+          isOpen ? "block" : "hidden"
         }`}
       >
-        <Link to="/"
+        <Link
+          to="/"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Home
         </Link>
-        <Link to="/about"
+        <Link
+          to="/about"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           About
         </Link>
-        <Link to="/cv"
+        <Link
+          to="/cv"
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           CV

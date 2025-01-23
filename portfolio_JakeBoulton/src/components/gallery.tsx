@@ -17,7 +17,7 @@ const Gallery: React.FC = () => {
       description: "Description for Project 2",
       bgColor: "bg-black",
       link: "/Habibi",
-      extraClasses: "bg-contain"
+      extraClasses: "bg-contain",
     },
     {
       image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
@@ -25,7 +25,7 @@ const Gallery: React.FC = () => {
       description: "Description for Project 3",
       bgColor: "bg-black",
       link: "/Midnight_at_the_Pagoda",
-      extraClasses: "bg-contain"
+      extraClasses: "bg-contain",
     },
     {
       image: "./Assets/Images/Projects/GoFish-Logo.png",
@@ -33,7 +33,7 @@ const Gallery: React.FC = () => {
       description: "Description for Project 3",
       bgColor: "bg-black",
       link: "/GoFish",
-      extraClasses: "bg-contain"
+      extraClasses: "bg-contain",
     },
     {
       image: "./Assets/Images/Projects/Altilium-Logo.png",
@@ -41,24 +41,26 @@ const Gallery: React.FC = () => {
       description: "Description for Project 4",
       bgColor: "bg-black",
       link: "/Altilium",
-      extraClasses: "bg-contain"
+      extraClasses: "bg-contain",
     },
   ];
 
   return (
     <section className="container mx-auto px-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
-        {projects.map((project, index) => (
-          <GalleryCard
-            key={index}
-            image={project.image}
-            title={project.title}
-            description={project.description}
-            extraClasses={project.extraClasses}
-            link={project.link}
-            bgColor={project.bgColor}
-          />
-        ))}
+        {projects.map((project, index) => {
+          return (
+            <GalleryCard
+              key={index}
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              extraClasses={project.extraClasses}
+              link={project.link}
+              bgColor={project.bgColor}
+            />
+          );
+        })}
       </div>
     </section>
   );

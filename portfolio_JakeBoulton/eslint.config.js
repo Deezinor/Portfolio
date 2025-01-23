@@ -3,34 +3,21 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
+  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
-    ignores: ["node_modules/**", "dist/**"], // Proper glob patterns
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"], // Include file patterns
-    languageOptions: {
-      parser: tseslint, // Use the TypeScript parser
-      globals: globals.browser, // Include browser globals
-    },
-    rules: {
-      "react/react-in-jsx-scope": "off", // No need for React import in JSX
-      "react/no-unescaped-entities": "off", // Disable unescaped entities rule
-    },
+    ignores: ["dist/**/*", "node_modules/*"],
   },
-  {
-    files: ["**/*.js"],
-    languageOptions: {
-      sourceType: "commonjs", // Allow CommonJS modules for JS files
-    },
-  },
+  { settings: { react: { version: "detect" } } },
+  { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
-  ...tseslint.configs.recommended, // Add TypeScript recommended rules
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
   {
-    ...pluginReact.configs.flat.recommended,
-    settings: {
-      react: {
-        version: "detect", // Automatically detect React version
-      },
+    rules: {
+      "no-unused-vars": "warn",
+      "arrow-body-style": ["error", "always"],
     },
   },
 ];
