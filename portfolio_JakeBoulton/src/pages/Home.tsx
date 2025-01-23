@@ -5,7 +5,7 @@ import Hero from "../components/hero";
 import { FaArrowUpLong } from "react-icons/fa6";
 
 const Home: React.FC = () => {
-  const heroImage = "src/Assets/Images/Jake_Boulton.JPG";
+  // const heroImage = "../Assets/Images/Jake_Boulton.JPG";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -13,8 +13,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="font-barlow">
-      <Hero image={heroImage} />
+      <Hero />
+      {/* <Hero image={heroImage} /> */}
       <Header />
+      {/* My Photo to be added as section here */}
       <Gallery />
 
       <section className="container mx-auto text-center text-gray-600 my-28">

@@ -75,11 +75,11 @@ const BeatBox: React.FC = () => {
       </>
     ),
     images: [
-      "./public/Assets/Images/Projects/BeatBox/BBVR-Freeplay.gif",
-      "./public/Assets/Images/Projects/BeatBox/BBVR-customize_environment.gif",
-      "./public/Assets/Images/Projects/BeatBox/DrumKit-NoTexture.png",
+      "../Assets/Images/Projects/BeatBox/BBVR-Freeplay.gif",
+      "../Assets/Images/Projects/BeatBox/BBVR-customize_environment.gif",
+      "../Assets/Images/Projects/BeatBox/DrumKit-NoTexture.png",
     ],
-    projectLogo: "./public/Assets/Images/Projects/BeatBox/BBVR-logo.gif",
+    projectLogo: "../Assets/Images/Projects/BeatBox/BBVR-logo.gif",
   };
 
   return <ProjectTemplate {...data} />;
