@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => {
   return import("./pages/Home");
@@ -32,6 +33,7 @@ const NotFoundPage = lazy(() => {
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />

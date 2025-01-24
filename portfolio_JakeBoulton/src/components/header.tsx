@@ -15,7 +15,7 @@ const Header: React.FC = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase md:text-2xl text-gray-600">
+        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase  text-gray-600">
           <Link to="/" className="hover:text-black">
             Home
           </Link>
