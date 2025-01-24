@@ -1,7 +1,74 @@
+/* Existing code */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define Custom Properties for Reusability */
+:root {
+  --button-padding-inline: 1.5rem;
+  --button-padding-block: 0.75rem;
+  --button-border-width: 2px;
+  --button-font-size: 1rem;
+  --button-font-weight: 600;
+  --button-transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Base Button Styles */
+.button {
+  display: inline-block;
+  padding: var(--button-padding-block) var(--button-padding-inline);
+  border: var(--button-border-width) solid;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--button-transition);
+}
+
 body {
-    font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
+}
+
+.section {
+  margin-bottom: 3.75rem; /* 60px */
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 5rem; /* 80px */
+  }
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 6.25rem; /* 100px */
+  }
+}
+/* Color Variants with Dynamic Inversion */
+.button--black {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.button--black:hover {
+  background-color: white;
+  color: black;
+}
+.button--black-on-white {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.button--black-on-white:hover {
+  background-color: white;
+  color: black;
+}
+
+.button--white {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.button--white:hover {
+  background-color: black;
+  color: white;
 }

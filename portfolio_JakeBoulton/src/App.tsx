@@ -7,6 +7,9 @@ const Home = lazy(() => {
 const About = lazy(() => {
   return import("./pages/About");
 });
+const Contact = lazy(() => {
+  return import("./pages/contact");
+});
 const Beatbox = lazy(() => {
   return import("./pages/projects/BeatBox");
 });
@@ -33,6 +36,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/BeatBox" element={<Beatbox />} />
           <Route
             path="/Midnight_at_the_Pagoda"

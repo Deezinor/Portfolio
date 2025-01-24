@@ -46,7 +46,7 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <section className="container mx-auto px-4">
+    <section className="section container mx-auto px-4">
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
         {projects.map((project, index) => {
           return (
