@@ -1,6 +1,27 @@
 import React from "react";
 import ProjectTemplate from "../../components/ProjectTemplate";
 
+const media: { type: "image" | "video" | "iframe"; src: string }[] = [
+  { type: "image", src: "./Assets/Images/Projects/GoFish/Boat_NoTexture.png" },
+  { type: "image", src: "./Assets/Images/Projects/GoFish/Boat_Textured.png" },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/GoFish/Playspace_NoTexture.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/GoFish/Playspace_textured.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/GoFish/SeaGullAnimations.gif",
+  },
+  {
+    type: "iframe",
+    src: "https://www.youtube.com/embed/RyLfjP4dyPw?si=T0L6dlHTbzSd1PNE",
+  },
+];
+
 const GoFish: React.FC = () => {
   const data = {
     title: "GoFish",
@@ -19,33 +40,41 @@ const GoFish: React.FC = () => {
       <>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <span className="font-medium text-black">UX Design:</span> I created intuitive interfaces and interaction designs to
-            ensure seamless and engaging gameplay in the mixed reality
-            environment.
+            <span className="font-medium text-black">UX Design:</span> I created
+            intuitive interfaces and interaction designs to ensure seamless and
+            engaging gameplay in the mixed reality environment.
           </li>
 
           <li>
-            <span className="font-medium text-black">2D/3D Art:</span> I contributed to the artistic direction by designing both
-            2D and 3D assets for the project.
+            <span className="font-medium text-black">2D/3D Art:</span> I
+            contributed to the artistic direction by designing both 2D and 3D
+            assets for the project.
           </li>
 
           <li>
-            <span className="font-medium text-black">Project Administration:</span> I managed administrative tasks, including
-            maintaining the project on Devpost, preparing PDF documentation, and
-            handling competition-related submissions.
+            <span className="font-medium text-black">
+              Project Administration:
+            </span>{" "}
+            I managed administrative tasks, including maintaining the project on
+            Devpost, preparing PDF documentation, and handling
+            competition-related submissions.
           </li>
 
           <li>
-            <span className="font-medium text-black">Concept Ideation:</span> I worked closely with the team on brainstorming
-            and ideation, introducing the overarching concept of developing a
-            GoFish remake in XR, which was further refined and developed
-            collaboratively.
+            <span className="font-medium text-black">Concept Ideation:</span> I
+            worked closely with the team on brainstorming and ideation,
+            introducing the overarching concept of developing a GoFish remake in
+            XR, which was further refined and developed collaboratively.
           </li>
         </ul>
       </>
     ),
-    projectBrief:
-      "GoFish was conceptualized as a demonstration of how traditional games can be revitalized through the use of XR technologies. The goal was to create a playful yet innovative product that would appeal to all ages, demonstrating the potential of augmented and mixed reality in entertainment and beyond.",
+    projectBrief: (
+      <>
+        Design and develop a Mixed Reality game for the Meta Quest 3 within the
+        3 day event.
+      </>
+    ),
     teamMembers: (
       <>
         Mai Ye{" "}
@@ -69,16 +98,15 @@ const GoFish: React.FC = () => {
         </span>
       </>
     ),
-    images: [
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-    ],
-    projectLogo: "https://placehold.co/600x400",
+    media: media,
+    projectLogo: "./Assets/Images/Projects/GoFish-Logo.png",
   };
 
-  return <ProjectTemplate {...data} />;
+  return (
+    <>
+      <ProjectTemplate {...data} />
+    </>
+  );
 };
 
 export default GoFish;

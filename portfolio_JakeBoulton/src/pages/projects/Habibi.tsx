@@ -57,7 +57,7 @@ const Habibi: React.FC = () => {
       "https://placehold.co/600x400",
       "https://placehold.co/600x400",
     ],
-    projectLogo: "https://placehold.co/600x400",
+    projectLogo: "./Assets/Images/Projects/Habibi-Logo.png",
   };
 
   return <ProjectTemplate {...data} />;
