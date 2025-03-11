@@ -23,7 +23,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
     <Link to={link} className="block">
       <div
         className={clsx(
-          "relative mx-auto w-full h-[400px] overflow-hidden group",
+          "relative mx-auto w-full h-[400px] overflow-hidden group rounded-lg",
           bgColor
         )}
       >

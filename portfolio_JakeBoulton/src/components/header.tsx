@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   // const linkClasses = "text-base md:text-2xl";
 
   return (
-    <header className="container mx-auto">
+    <header className="container mx-auto" id="header">
       <nav className="mx-4 my-8 flex justify-between items-center ">
         <div>
           <h1 className="text-4xl font-medium text-nowrap uppercase">

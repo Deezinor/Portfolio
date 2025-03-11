@@ -1,11 +1,12 @@
 import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen text-center text-white bg-black"
+      className="relative w-full h-screen py-24 text-center text-white bg-black"
       // style={{
       //   backgroundImage: `url(${image})`,
       //   backgroundSize: "cover",
@@ -26,7 +27,7 @@ const Hero: React.FC = () => {
           <img
             src="./Assets/Images/Jake_Boulton.JPG"
             alt="Jake Boulton wearing a graduation cap & gown and a blue suit."
-            className="h-96"
+            className="h-96 rounded-lg"
           />
         </div>
         <div className="flex justify-center">
@@ -37,24 +38,29 @@ const Hero: React.FC = () => {
           </p>
         </div>
         <div className="mx-auto mt-5">
-          <button
-            onClick={() => {
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
+          <Link
+            to="/contact"
             className="button button--black-on-white text-base uppercase md:text-lg lg:text-xl"
           >
             ask me a question
-          </button>
+          </Link>
         </div>
       </div>
       {/* Arrow */}
       <button
         onClick={() => {
-          document
-            .getElementById("gallery")
-            ?.scrollIntoView({ behavior: "smooth" });
+          const headerElement = document.getElementById("header");
+          if (headerElement) {
+            const offset = 100; // Adjust this value to control how far off the top it stops
+            const elementPosition =
+              headerElement.getBoundingClientRect().top + window.scrollY;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
         }}
         className="absolute bottom-5 left-1/2 z-10 transform -translate-x-1/2"
       >

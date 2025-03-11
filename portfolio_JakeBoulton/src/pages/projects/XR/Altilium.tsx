@@ -8,6 +8,10 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   },
   {
     type: "image",
+    src: "public/Assets/Images/Projects/Altilium/Altilium-BaseColours.jpg",
+  },
+  {
+    type: "image",
     src: "public/Assets/Images/Projects/Altilium/InductionCoil_Layout.jpg",
   },
   {
@@ -29,10 +33,6 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   {
     type: "image",
     src: "public/Assets/Images/Projects/Altilium/Altilium_Drawing-GlassTop.jpg",
-  },
-  {
-    type: "image",
-    src: "public/Assets/Images/Projects/Altilium/Altilium-BaseColours.jpg",
   },
 ];
 

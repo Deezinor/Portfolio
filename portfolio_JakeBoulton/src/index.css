@@ -45,6 +45,7 @@ body {
   background-color: black;
   color: white;
   border-color: black;
+  border-radius: 8px;
 }
 
 .button--black:hover {
@@ -55,6 +56,7 @@ body {
   background-color: black;
   color: white;
   border-color: white;
+  border-radius: 8px;
 }
 
 .button--black-on-white:hover {
@@ -66,6 +68,7 @@ body {
   background-color: white;
   color: black;
   border-color: black;
+  border-radius: 8px;
 }
 
 .button--white:hover {

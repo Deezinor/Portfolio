@@ -95,7 +95,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
           <img
             src={projectLogo}
             alt={`logo for ${title}`}
-            className="h-auto max-w-full"
+            className="h-auto max-w-full rounded-lg"
           />
         </div>
 
@@ -147,12 +147,40 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
 
       {/* Media Grid (Images, Videos & Iframes) */}
       <section>
-        <div className="grid grid-cols-1 lg:grid-cols-3 w-3/4 gap-6 mx-auto mt-12">
+        <div className="flex flex-wrap justify-center items-center w-full md:w-3/4 mx-auto mt-12 gap-4">
           {media.map((item, index) => {
+            const [imageSize, setImageSize] = useState<{
+              width: number;
+              height: number;
+            } | null>(null);
+
+            useEffect(() => {
+              if (item.type === "image") {
+                const img = new Image();
+                img.src = item.src;
+                img.onload = () => {
+                  setImageSize({
+                    width: img.naturalWidth,
+                    height: img.naturalHeight,
+                  });
+                };
+              }
+            }, [item.src]);
+
             return (
               <div
                 key={index}
-                className="mx-auto h-auto max-h-[50dvh] w-full bg-gray-100 flex justify-center items-center cursor-pointer"
+                className="flex flex-1 justify-center items-center cursor-pointer"
+                style={{
+                  flexGrow: 1,
+                  flexBasis: imageSize
+                    ? imageSize.width > imageSize.height
+                      ? "45%"
+                      : "30%"
+                    : "30%",
+                  minWidth: "150px",
+                  maxWidth: "400px",
+                }}
                 onClick={() => {
                   return item.type === "image" && openModal(index);
                 }}
@@ -161,10 +189,16 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
                   <img
                     src={item.src}
                     alt={`Media ${index + 1}`}
-                    className="h-full w-full object-contain"
+                    className="w-full h-auto object-cover"
+                    style={{
+                      aspectRatio: imageSize
+                        ? `${imageSize.width} / ${imageSize.height}`
+                        : "1 / 1",
+                      borderRadius: "8px",
+                    }}
                   />
                 ) : item.type === "video" ? (
-                  <video controls className="h-full w-full object-contain">
+                  <video controls className="w-full h-auto object-contain">
                     <source src={item.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
