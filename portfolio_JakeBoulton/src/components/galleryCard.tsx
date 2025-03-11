@@ -4,8 +4,8 @@ import clsx from "clsx";
 
 interface GalleryCardProps {
   image: string;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   bgColor: string;
   link: string;
   extraClasses?: string;

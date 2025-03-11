@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSwipeable } from "react-swipeable";
+
 import Header from "./header";
+import {
+  IoMdArrowDroprightCircle,
+  IoMdArrowDropleftCircle,
+} from "react-icons/io";
+import { IoIosCloseCircle } from "react-icons/io";
 
 interface MediaItem {
   type: "image" | "video" | "iframe";
@@ -10,7 +17,7 @@ interface ProjectTemplateProps {
   title: string;
   projectDescription: React.ReactNode;
   roleTitle?: string;
-  roleDescription: React.ReactNode;
+  roleDescription?: React.ReactNode;
   teamMembers?: React.ReactNode;
   projectBrief?: React.ReactNode;
   media: MediaItem[];
@@ -27,6 +34,59 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
   media,
   projectLogo,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const openModal = (index: number) => {
+    setSelectedIndex(index);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedIndex(null);
+  };
+
+  const nextImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prevIndex) => {
+        return (prevIndex! + 1) % media.length;
+      });
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prevIndex) => {
+        return (prevIndex! - 1 + media.length) % media.length;
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeModal();
+      } else if (event.key === "ArrowRight") {
+        nextImage();
+      } else if (event.key === "ArrowLeft") {
+        prevImage();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      return document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedIndex]);
+
+  // Swipe handlers
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: nextImage,
+    onSwipedRight: prevImage,
+    trackMouse: true,
+  });
+
   return (
     <>
       <Header />
@@ -87,12 +147,15 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
 
       {/* Media Grid (Images, Videos & Iframes) */}
       <section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-3/4 gap-6 mx-auto mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-3/4 gap-6 mx-auto mt-12">
           {media.map((item, index) => {
             return (
               <div
                 key={index}
-                className="mx-auto h-auto max-h-[50dvh] w-full bg-gray-100 flex justify-center items-center"
+                className="mx-auto h-auto max-h-[50dvh] w-full bg-gray-100 flex justify-center items-center cursor-pointer"
+                onClick={() => {
+                  return item.type === "image" && openModal(index);
+                }}
               >
                 {item.type === "image" ? (
                   <img
@@ -106,7 +169,6 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
                     Your browser does not support the video tag.
                   </video>
                 ) : (
-                  // Handle iframe inside the grid
                   <iframe
                     src={item.src}
                     width="100%"
@@ -122,6 +184,39 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
           })}
         </div>
       </section>
+
+      {/* Lightbox Modal with Navigation */}
+      {isOpen && selectedIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
+          {...swipeHandlers}
+        >
+          {/* Close Button */}
+          <IoIosCloseCircle
+            className="absolute top-36 right-36 text-white text-4xl cursor-pointer"
+            onClick={closeModal}
+          />
+
+          {/* Left Arrow Button (Hidden on small screens) */}
+          <IoMdArrowDropleftCircle
+            className="hidden lg:flex absolute left-16 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
+            onClick={prevImage}
+          />
+
+          {/* Image Display */}
+          <img
+            src={media[selectedIndex].src}
+            alt="Enlarged media"
+            className="max-w-[90vw] max-h-[80vh] object-contain"
+          />
+
+          {/* Right Arrow Button (Hidden on small screens) */}
+          <IoMdArrowDroprightCircle
+            className="hidden lg:flex absolute right-16 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
+            onClick={nextImage}
+          />
+        </div>
+      )}
     </>
   );
 };

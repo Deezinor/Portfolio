@@ -16,7 +16,6 @@ const Home: React.FC = () => {
       <Hero />
       {/* <Hero image={heroImage} /> */}
       <Header />
-      {/* My Photo to be added as section here */}
       <Gallery />
 
       <section className="container mx-auto text-center text-gray-600 my-28">

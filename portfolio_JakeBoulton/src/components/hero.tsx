@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-full py-60 text-center text-white bg-black"
+      className="relative w-full h-screen text-center text-white bg-black"
       // style={{
       //   backgroundImage: `url(${image})`,
       //   backgroundSize: "cover",
@@ -23,10 +23,17 @@ const Hero: React.FC = () => {
           </h1>
         </div>
         <div className="flex justify-center">
+          <img
+            src="./Assets/Images/Jake_Boulton.JPG"
+            alt="Jake Boulton wearing a graduation cap & gown and a blue suit."
+            className="h-96"
+          />
+        </div>
+        <div className="flex justify-center">
           <p className="w-[65ch] mt-5 text-base text-gray-300 md:text-lg lg:text-xl">
-            Welcome to my portfolio! I&apos;m a freelance designer from Dunmow,
-            UK, creating immersive, user-focused 3D experiences. Explore my work
-            and ideas!
+            Welcome to my portfolio! I&apos;m a designer from Dunmow, UK,
+            creating immersive, user-focused 3D experiences. Explore my work and
+            ideas!
           </p>
         </div>
         <div className="mx-auto mt-5">
@@ -43,9 +50,16 @@ const Hero: React.FC = () => {
         </div>
       </div>
       {/* Arrow */}
-      <div className="absolute bottom-5 left-1/2 z-10 transform -translate-x-1/2">
+      <button
+        onClick={() => {
+          document
+            .getElementById("gallery")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="absolute bottom-5 left-1/2 z-10 transform -translate-x-1/2"
+      >
         <IoIosArrowDown className="text-3xl text-white" />
-      </div>
+      </button>
     </section>
   );
 };
