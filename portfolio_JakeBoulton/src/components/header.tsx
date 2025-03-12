@@ -22,9 +22,12 @@ const Header: React.FC = () => {
           <Link to="/cv" className="hover:text-black">
             CV
           </Link>
-          <Link to="/about" className="hover:text-black">
-            About
+          <Link to="/Gallery" className="hover:text-black">
+            Gallery
           </Link>
+          {/* <Link to="/about" className="hover:text-black">
+            About
+          </Link> */}
           <Link to="/contact" className="button button--black">
             Contact
           </Link>

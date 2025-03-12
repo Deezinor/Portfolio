@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Eager-loaded core pages (fast initial load)
 import Home from "./pages/Home";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Contact from "./pages/contact";
+import Gallery from "./pages/ImageGallery";
 
 // Lazy-loaded pages (only loaded when visited)
 const Beatbox = lazy(() => {
@@ -62,8 +63,9 @@ const App: React.FC = () => {
         <Routes>
           {/* Eager-loaded pages */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/about" element={<About />} /> */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/Gallery" element={<Gallery />} />
 
           {/* Lazy-loaded pages */}
           <Route path="/BeatBox" element={<Beatbox />} />

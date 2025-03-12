@@ -27,8 +27,9 @@ const data = {
   projectDescription: (
     <>
       <span className="font-medium text-gray-950">BeatBox Studio</span> is a VR
-      drumming simulator and educational platform, offering freeplay, structured
-      lessons, and rhythm-based game modes for players of all skill levels.
+      drumming simulator and educational platform, offering free-play,
+      structured lessons, and rhythm-based game modes for players of all skill
+      levels.
     </>
   ),
   roleTitle: "Lead Artist and Designer",
@@ -38,7 +39,7 @@ const data = {
       <span className="font-medium text-gray-950">
         Lead Artist and Designer
       </span>
-      , overseeing the development and integration of 3D modeling, UI, and UX
+      , overseeing the development and integration of 3D modelling, UI, and UX
       design.
       <br />
       <br />
