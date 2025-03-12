@@ -1,19 +1,12 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
 
-// Main Pages
-const Home = lazy(() => {
-  return import("./pages/Home");
-});
-const About = lazy(() => {
-  return import("./pages/About");
-});
-const Contact = lazy(() => {
-  return import("./pages/contact");
-});
+// Eager-loaded core pages (fast initial load)
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/contact";
 
-// XR Pages
+// Lazy-loaded pages (only loaded when visited)
 const Beatbox = lazy(() => {
   return import("./pages/projects/XR/BeatBox");
 });
@@ -30,37 +23,49 @@ const GoFish = lazy(() => {
   return import("./pages/projects/XR/GoFish");
 });
 
-// Archviz Pages
 const CaspianHouse = lazy(() => {
   return import("./pages/projects/Archviz/CaspianHouse");
 });
 const Mon58 = lazy(() => {
   return import("./pages/projects/Archviz/Mon58");
 });
-// const ExteriorMasterclass = lazy(() => {
-//   return import("./pages/projects/ExteriorMasterclass
-// });
 
-// Other Pages
-const NotFoundPage = lazy(() => {
-  return import("./pages/404");
-});
 const CV = lazy(() => {
   return import("./pages/CV");
 });
+const NotFoundPage = lazy(() => {
+  return import("./pages/404");
+});
 
 const App: React.FC = () => {
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem("scrollPosition");
+    if (savedPosition) {
+      window.scrollTo(0, parseInt(savedPosition, 10));
+      sessionStorage.removeItem("scrollPosition");
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    const saveScrollPosition = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY.toString());
+    };
+
+    window.addEventListener("beforeunload", saveScrollPosition);
+    return () => {
+      return window.removeEventListener("beforeunload", saveScrollPosition);
+    };
+  }, []);
   return (
     <Router>
-      <ScrollToTop />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          {/* Main Projects */}
+          {/* Eager-loaded pages */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* XR Projects */}
+          {/* Lazy-loaded pages */}
           <Route path="/BeatBox" element={<Beatbox />} />
           <Route
             path="/Midnight_at_the_Pagoda"
@@ -73,7 +78,6 @@ const App: React.FC = () => {
           {/* Archviz Projects */}
           <Route path="/CaspianHouse" element={<CaspianHouse />} />
           <Route path="/Mon58" element={<Mon58 />} />
-          {/* <Route path="/CaspianHouse" element={<ExteriorMasterclass />} /> */}
 
           {/* Other */}
           <Route path="/CV" element={<CV />} />

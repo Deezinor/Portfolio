@@ -1,5 +1,11 @@
 import React from "react";
-import ProjectTemplate from "../../components/ProjectTemplate";
+import ProjectTemplate from "../../../components/ProjectTemplate";
+
+const media: { type: "image" | "video" | "iframe"; src: string }[] = [
+  { type: "image", src: "https://via.placeholder.com/600x400" },
+  { type: "image", src: "https://via.placeholder.com/600x400" },
+  { type: "image", src: "https://via.placeholder.com/600x400" },
+];
 
 const Habibi: React.FC = () => {
   const data = {
@@ -15,7 +21,7 @@ const Habibi: React.FC = () => {
         personal touch to their shared experience.
       </>
     ),
-    roleTitle: "XR Deisgner and Developer",
+    roleTitle: "XR Designer and Developer",
     roleDescription: (
       <>
         Role Description: My responsibilities included crafting an emotionally
@@ -36,7 +42,7 @@ const Habibi: React.FC = () => {
         </span>
         <br />
         Mohamed El Eryan{" "}
-        <span className="text-itali text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-gray-400">
           (Video Production/UX Design)
         </span>
         <br />
@@ -51,13 +57,8 @@ const Habibi: React.FC = () => {
         </span>
       </>
     ),
-    images: [
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-      "https://placehold.co/600x400",
-    ],
     projectLogo: "./Assets/Images/Projects/Habibi-Logo.png",
+    media: media,
   };
 
   return <ProjectTemplate {...data} />;

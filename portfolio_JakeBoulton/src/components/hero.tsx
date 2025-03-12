@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 mx-auto px-5 lg:px-40 text-center text-white">
         <div className="flex justify-center">
           <h1 className="mb-5 text-5xl sm:text-8xl">
-            Hi, I&apos;m Jake Boulton. <br /> Designer and problem solver.
+            Hi, I&apos;m Jake Boulton. <br /> Designer and Problem Solver.
           </h1>
         </div>
         <div className="flex justify-center">

@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectTemplate from "../../components/ProjectTemplate";
+import ProjectTemplate from "../../../components/ProjectTemplate";
 
 // Define media items explicitly
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [

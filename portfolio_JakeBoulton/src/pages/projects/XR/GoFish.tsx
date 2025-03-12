@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectTemplate from "../../components/ProjectTemplate";
+import ProjectTemplate from "../../../components/ProjectTemplate";
 
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   { type: "image", src: "./Assets/Images/Projects/GoFish/Boat_NoTexture.png" },
@@ -83,7 +83,7 @@ const GoFish: React.FC = () => {
         </span>
         <br />
         Nathan Thomas-Benke{" "}
-        <span className="text-itali text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-gray-400">
           (Developer/Audio)
         </span>
         <br />

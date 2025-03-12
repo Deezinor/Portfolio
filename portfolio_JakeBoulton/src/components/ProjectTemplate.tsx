@@ -91,16 +91,16 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
     <>
       <Header />
       <section className="container mx-auto md:mb-10 flex flex-col gap-6 lg:flex-row lg:items-start lg:w-3/4">
-        <div className="flex w-full lg:w-1/2">
+        <div className="flex w-full lg:w-1/2 justify-center">
           <img
             src={projectLogo}
             alt={`logo for ${title}`}
-            className="h-auto max-w-full rounded-lg"
+            className="h-auto max-h-[50vh] max-w-full rounded-lg"
           />
         </div>
 
         {/* Project Description */}
-        <div className="px-4 md:px-0 lg:w-1/2">
+        <div className="px-4 md:px-0 lg:w-1/2 justify-center">
           <h1 className="mb-2 text-4xl font-bold uppercase sm:text-5xl lg:text-6xl">
             {title}
           </h1>
@@ -128,8 +128,11 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
           {projectBrief && (
             <>
               <h3 className="mb-1 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
-                {projectBrief}
+                Project Brief
               </h3>
+              <p className="mb-8 text-base text-gray-500 sm:text-xl">
+                {projectBrief}
+              </p>
             </>
           )}
           {teamMembers && (
@@ -146,40 +149,17 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
       </section>
 
       {/* Media Grid (Images, Videos & Iframes) */}
-      <section>
+      <section className="section">
         <div className="flex flex-wrap justify-center items-center w-full md:w-3/4 mx-auto mt-12 gap-4">
           {media.map((item, index) => {
-            const [imageSize, setImageSize] = useState<{
-              width: number;
-              height: number;
-            } | null>(null);
-
-            useEffect(() => {
-              if (item.type === "image") {
-                const img = new Image();
-                img.src = item.src;
-                img.onload = () => {
-                  setImageSize({
-                    width: img.naturalWidth,
-                    height: img.naturalHeight,
-                  });
-                };
-              }
-            }, [item.src]);
-
             return (
               <div
                 key={index}
-                className="flex flex-1 justify-center items-center cursor-pointer"
+                className="flex justify-center items-center cursor-pointer"
                 style={{
-                  flexGrow: 1,
-                  flexBasis: imageSize
-                    ? imageSize.width > imageSize.height
-                      ? "45%"
-                      : "30%"
-                    : "30%",
-                  minWidth: "150px",
-                  maxWidth: "400px",
+                  height: "35vh", // Fixed height
+                  flex: "0 1 auto", // Allow natural width, no stretching
+                  overflow: "hidden",
                 }}
                 onClick={() => {
                   return item.type === "image" && openModal(index);
@@ -189,16 +169,10 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
                   <img
                     src={item.src}
                     alt={`Media ${index + 1}`}
-                    className="w-full h-auto object-cover"
-                    style={{
-                      aspectRatio: imageSize
-                        ? `${imageSize.width} / ${imageSize.height}`
-                        : "1 / 1",
-                      borderRadius: "8px",
-                    }}
+                    className="h-full w-auto object-contain rounded-lg"
                   />
                 ) : item.type === "video" ? (
-                  <video controls className="w-full h-auto object-contain">
+                  <video controls className="h-full object-contain">
                     <source src={item.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>

@@ -273,7 +273,7 @@ const CV: React.FC = () => {
         </section>
 
         {/* Summary */}
-        <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto my-5 px-5">
+        {/* <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="text-xl text-red-600 font-medium">Summary</h2>
           <p>
             Award-winning immersive designer with a proven track record of
@@ -284,7 +284,7 @@ const CV: React.FC = () => {
             about designing seamless, functional, and visually compelling spaces
             that bridge the gap between users and technology.
           </p>
-        </section>
+        </section> */}
 
         {/* Experience */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
@@ -320,6 +320,7 @@ const CV: React.FC = () => {
             <SkillEntry skill="Git" expertise={4} />
             <SkillEntry skill="Source Control" expertise={4} />
             <SkillEntry skill="Blender" expertise={4} selfTaught />
+            <SkillEntry skill="DaVinci Resolve" expertise={2} selfTaught />
             <SkillEntry skill="Maya" expertise={3} />
             <SkillEntry skill="Figma" expertise={3} selfTaught />
             <SkillEntry skill="Adobe Photoshop" expertise={3} />

@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectTemplate from "../../components/ProjectTemplate";
+import ProjectTemplate from "../../../components/ProjectTemplate";
 
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   {
@@ -46,7 +46,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
         Immersive Cultural Heritage Maker Competition.
       </>
     ),
-    roleTitle: "Lead Artist and Deisgner",
+    roleTitle: "Lead Artist and Designer",
     roleDescription: (
       <>
         <div className="text-lg/[1.75]">
@@ -54,7 +54,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             As the Lead Artist and Designer for Midnight at the Pagoda, I was
             responsible for shaping the visual, narrative, and interactive
             experience of the project. My role encompassed concept development,
-            3D modeling, UX design, environment design, historical research,
+            3D modelling, UX design, environment design, historical research,
             scripting support, and scene assembly within Unity.
           </p>
           <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-black font-medium">
@@ -116,7 +116,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             </li>
             <li>
               <span className="font-medium text-gray-7.00">Blender</span> – 3D
-              modeling & renders
+              modelling & renders
             </li>
             <li>
               <span className="font-medium text-gray-7.00">

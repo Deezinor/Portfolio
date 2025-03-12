@@ -3,66 +3,78 @@ import GalleryCard from "./galleryCard";
 
 const Gallery: React.FC = () => {
   const projects = [
+    // Mon58
     {
-      image: "./Assets/Images/Projects/Boulton_Jake-Logo.png",
+      image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
       title: "Mon 58 House Associati",
       description:
-        "Mon 58 House recreated in Blender for architectural visualization study.",
+        "Interior Architectural Visualization | Blender & DaVinci Resolve",
       bgColor: "bg-black",
       link: "/Mon58",
-      extraClasses: "bg-contain",
+      extraClasses: "bg-cover",
     },
+
+    // Caspian House
     {
-      image: "./Assets/Images/Projects/Boulton_Jake-Logo.png",
+      image: "./Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
       title: "Caspian House",
-      description: "Domestic Kitchen Visualisation",
+      description:
+        "Interior Architectural Visualization | Blender & DaVinci Resolve",
       bgColor: "bg-black",
       link: "/CaspianHouse",
-      extraClasses: "bg-contain",
+      extraClasses: "bg-cover",
     },
+
+    // BeatBox Studio
     {
       image: "./Assets/Images/Projects/BeatBox_VR-Logo.png",
       title: "BeatBox Studio",
-      description:
-        "VR drumming simulation combining interactive learning, rhythm games, and music creation.",
+      description: "VR drumming simulation | Unity, Blender & Meta Quest 3",
       bgColor: "bg-black",
       link: "/Beatbox",
       extraClasses: "bg-contain",
     },
+
+    // Habibi
     {
       image: "./Assets/Images/Projects/Habibi-Logo.png",
       title: "Habibi",
       description:
-        "XR platform enabling long-distance connections through AI-generated notes and interactive virtual spaces.",
+        "XR Communication Tool | Unity, OpenAI, Blender & Meta Quest 3",
       bgColor: "bg-black",
       link: "/Habibi",
       extraClasses: "bg-contain",
     },
+
+    // Midnight at the Pagoda
     {
       image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
       title: "Midnight at the Pagoda",
-      description:
-        "VR heritage experience recreating the Great Bao'en Temple with interactive storytelling.",
+      description: "Virtual Reality Digital Heritage Exhibit | Unity & Blender",
       bgColor: "bg-black",
       link: "/Midnight_at_the_Pagoda",
       extraClasses: "bg-contain",
     },
+
+    // GoFish
     {
       image: "./Assets/Images/Projects/GoFish-Logo.png",
       title: "GoFish",
-      description:
-        "Mixed reality fishing game utilizing spatial interaction for an immersive experience.",
+      description: "Mixed Reality Fishing Game | Unity & Blender",
       bgColor: "bg-black",
       link: "/GoFish",
-      extraClasses: "bg-contain",
+      extraClasses: "bg-cover",
     },
+
+    // Altilium
     {
       image: "./Assets/Images/Projects/Altilium-Logo.png",
       title: "Altilium",
-      description: "Portable-battery powered induction stove for camping.",
+      description:
+        "Portable-battery powered induction stove for camping | Adobe Suite, SolidWorks & KeyShot",
       bgColor: "bg-black",
       link: "/Altilium",
-      extraClasses: "bg-contain",
+      extraClasses: "bg-cover",
     },
   ];
 
