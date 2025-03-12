@@ -1,0 +1,35 @@
+{
+  "images": [
+    {"src":"Projects/CaspianHouse/CaspianHouse_viewport.png", "category": ["Archviz", "Caspian House"]},
+    {"src":"Projects/CaspianHouse/Kitchen_001.png", "category": ["Archviz", "Caspian House"]},
+    
+    {"src":"Projects/Mon58/Kitchen_View_graded.png", "category": "Archviz"},
+    {"src":"Projects/Mon58/LivingSpace_Graded.png", "category": "Archviz"},
+    {"src":"Projects/Mon58/Mon58-LogoImage_02.png", "category": "Archviz"},
+    {"src":"Projects/Mon58/PureRef-Screenshot.png", "category": "Archviz"},
+    
+    {"src":"Projects/BeatBox/BBVR-customize_environment.gif", "category": ["VR", "BeatBox"]},
+    {"src":"Projects/BeatBox/BBVR-Freeplay.gif", "category": ""},
+    {"src":"Projects/BeatBox/BBVR-logo.gif", "category": ""},
+    {"src":"Projects/BeatBox/DrumKit-NoTexture.png", "category": ""},
+    {"src":"Projects/BeatBox/DrumStick_NoTexture.png", "category": ""},
+    {"src":"Projects/BeatBox/DrumStick_textured.png", "category": ""},
+    
+    
+    
+    {"src":"Projects/Midnight at the Pagoda/ArchModel.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene-Model.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene-Render.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/FirstScene-TopDown.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/Lantern and podium.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/LanternModel.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/SecondScene.png", "category": ""},
+    
+    {"src":"Projects/GoFish/", "category": ""},
+    
+    {"src":"Projects/Altilium/Altilium Logo.jpg", "category": ""},
+    {"src":"Projects/Altilium/Altilium_Drawing-GlassTop.jpg", "category": ""},
+    {"src":"Projects/Altilium/Altilium_ExplodedView.jpg", "category": ""}
+  ]
+}

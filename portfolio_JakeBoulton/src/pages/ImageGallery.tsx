@@ -1,40 +1,105 @@
 import React, { useState, useEffect } from "react";
 
+const IMAGE_PATH = "/Assets/Images"; // Directory pathway
+
+interface ImageData {
+  src: string;
+  category: string[];
+}
+
 const ImageGallery: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<ImageData[]>([]);
+  const [filteredImages, setFilteredImages] = useState<ImageData[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/.netlify/functions/listImages") // Fetch from Netlify Function
+    fetch("/images.json")
       .then((response) => {
-        return response.json();
-      })
+        return response.json() as Promise<{ images: ImageData[] }>;
+      }) // ✅ Type assertion
       .then((data) => {
-        setImages(data.images);
+        const imagesWithPath = data.images.map((image) => {
+          return {
+            ...image,
+            src: `${IMAGE_PATH}/${image.src}`,
+          };
+        });
+
+        setImages(imagesWithPath);
+        setFilteredImages(imagesWithPath);
+
+        const uniqueCategories: string[] = [
+          "All",
+          ...Array.from(
+            new Set(
+              imagesWithPath.flatMap((img) => {
+                return img.category;
+              })
+            )
+          ),
+        ];
+
+        setCategories(uniqueCategories);
       })
       .catch((error) => {
         return console.error("Error loading images:", error);
       });
   }, []);
 
+  // Filter images based on selected category
+  const handleFilter = (category: string) => {
+    setActiveCategory(category);
+    setFilteredImages(
+      category === "All"
+        ? images
+        : images.filter((image) => {
+            return image.category.includes(category);
+          })
+    );
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-6">Image Gallery</h1>
+      <h1 className="text-4xl font-bold text-center mb-6">Gallery</h1>
 
-      <div className="flex flex-wrap justify-center gap-4">
-        {images.map((image, index) => {
+      {/* Filter Buttons */}
+      <div className="flex justify-center gap-4 mb-6 flex-wrap">
+        {categories.map((category) => {
+          return (
+            <button
+              key={category}
+              className={`px-4 py-2 rounded-lg ${
+                activeCategory === category
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200"
+              }`}
+              onClick={() => {
+                return handleFilter(category);
+              }}
+            >
+              {category}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Masonry Layout using CSS Columns */}
+      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        {filteredImages.map((image, index) => {
           return (
             <div
               key={index}
-              className="w-1/4 md:w-1/5 p-2 cursor-pointer"
+              className="relative overflow-hidden cursor-pointer rounded-lg break-inside-avoid"
               onClick={() => {
-                return setLightbox(image);
+                return setLightbox(image.src);
               }}
             >
               <img
-                src={image}
+                src={image.src}
                 alt={`Gallery image ${index + 1}`}
-                className="w-full h-auto object-cover rounded-lg shadow-md"
+                className="w-full h-auto object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
               />
             </div>
           );
