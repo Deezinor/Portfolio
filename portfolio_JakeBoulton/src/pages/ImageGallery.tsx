@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/header";
 
-const IMAGE_PATH = "/Assets/Images"; // Directory pathway
+const IMAGE_PATH = "/Assets/Images";
 
 interface ImageData {
   src: string;
@@ -19,7 +19,7 @@ const ImageGallery: React.FC = () => {
     fetch("/images.json")
       .then((response) => {
         return response.json() as Promise<{ images: ImageData[] }>;
-      }) // ✅ Type assertion
+      })
       .then((data) => {
         const imagesWithPath = data.images.map((image) => {
           return {
@@ -49,7 +49,6 @@ const ImageGallery: React.FC = () => {
       });
   }, []);
 
-  // Filter images based on selected category
   const handleFilter = (category: string) => {
     setActiveCategory(category);
     setFilteredImages(
