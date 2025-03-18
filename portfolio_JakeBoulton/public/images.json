@@ -8,28 +8,28 @@
     {"src":"Projects/Mon58/Mon58-LogoImage_02.png", "category": "Archviz"},
     {"src":"Projects/Mon58/PureRef-Screenshot.png", "category": "Archviz"},
     
-    {"src":"Projects/BeatBox/BBVR-customize_environment.gif", "category": ["VR", "BeatBox"]},
-    {"src":"Projects/BeatBox/BBVR-Freeplay.gif", "category": ""},
-    {"src":"Projects/BeatBox/BBVR-logo.gif", "category": ""},
-    {"src":"Projects/BeatBox/DrumKit-NoTexture.png", "category": ""},
-    {"src":"Projects/BeatBox/DrumStick_NoTexture.png", "category": ""},
-    {"src":"Projects/BeatBox/DrumStick_textured.png", "category": ""},
+    {"src":"Projects/BeatBox/BBVR-customize_environment.gif", "category": ["Virtual Reality", "BeatBox"]},
+    {"src":"Projects/BeatBox/BBVR-Freeplay.gif", "category": ["Virtual Reality", "BeatBox"]},
+    {"src":"Projects/BeatBox/BBVR-logo.gif", "category": ["Virtual Reality", "BeatBox"]},
+    {"src":"Projects/BeatBox/DrumKit-NoTexture.png", "category": ["Virtual Reality", "BeatBox"]},
+    {"src":"Projects/BeatBox/DrumStick_NoTexture.png", "category": ["Virtual Reality", "BeatBox"]},
+    {"src":"Projects/BeatBox/DrumStick_textured.png", "category": ["Virtual Reality", "BeatBox"]},
     
     
     
-    {"src":"Projects/Midnight at the Pagoda/ArchModel.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/FinalScene-Model.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/FinalScene-Render.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/FinalScene.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/FirstScene-TopDown.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/Lantern and podium.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/LanternModel.png", "category": ""},
-    {"src":"Projects/Midnight at the Pagoda/SecondScene.png", "category": ""},
+    {"src":"Projects/Midnight at the Pagoda/ArchModel.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene-Model.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene-Render.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/FinalScene.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/FirstScene-TopDown.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/Lantern and podium.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/LanternModel.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
+    {"src":"Projects/Midnight at the Pagoda/SecondScene.png", "category": ["Virtual Reality", "Midnight at the Pagoda", "Digital Heritage"]},
     
-    {"src":"Projects/GoFish/", "category": ""},
+    {"src":"Projects/GoFish/", "category": ["Mixed Reality", "GoFish", "XR Hack"]},
     
-    {"src":"Projects/Altilium/Altilium Logo.jpg", "category": ""},
-    {"src":"Projects/Altilium/Altilium_Drawing-GlassTop.jpg", "category": ""},
-    {"src":"Projects/Altilium/Altilium_ExplodedView.jpg", "category": ""}
+    {"src":"Projects/Altilium/Altilium Logo.jpg", "category": "Product Design"},
+    {"src":"Projects/Altilium/Altilium_Drawing-GlassTop.jpg", "category": "Product Design"},
+    {"src":"Projects/Altilium/Altilium_ExplodedView.jpg", "category": "Product Design"}
   ]
 }

@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const Hero: React.FC = () => {
+  useEffect(() => {
+    window.dispatchEvent(new Event("resize"));
+  }, []);
   return (
     <section
       id="hero"
-      className="relative w-full h-screen py-24 text-center text-white bg-black"
+      className="relative w-full h-[var(--vh)] py-24 text-center text-white bg-black"
       // style={{
       //   backgroundImage: `url(${image})`,
       //   backgroundSize: "cover",

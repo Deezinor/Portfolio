@@ -11,6 +11,7 @@
   --button-font-size: 1rem;
   --button-font-weight: 600;
   --button-transition: background-color 0.3s ease, color 0.3s ease;
+  --vh: 100dvh;
 }
 
 /* Base Button Styles */
