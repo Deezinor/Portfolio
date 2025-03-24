@@ -1,5 +1,41 @@
 {
   "images": [
+    {"src": "Projects/GS_Weapons/Model 1/Model_01_Turnaround_front.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 1/Model_01_Turnaround_left.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 1/Model_01_Turnaround_right.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 1/Model_01_Turnaround.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 1/Model_01_wireframe.png", "category":"3D Art"},
+
+    {"src": "Projects/GS_Weapons/Model 6/Model_06_Turnaround.png", "category":"3D Art"},
+    
+    {"src": "Projects/GS_Weapons/Model 7/2024_02_Turnaround_front.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 7/2024_02_Turnaround_left.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 7/2024_02_Turnaround_right.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 7/2024_02_Wireframe.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 7/Model_07_Turnaround.png", "category":"3D Art"},
+    
+    {"src": "Projects/GS_Weapons/Model 8/2024_02_Turnaround_front.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 8/2024_02_Turnaround_left.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 8/2024_02_Turnaround_right.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 8/2024_02_Wireframe.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 8/Model_08_Turnaround.png", "category":"3D Art"},
+    
+    {"src": "Projects/GS_Weapons/Model 11/2024_02_Turnaround_front.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 11/2024_02_Turnaround_left.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 11/2024_02_Turnaround_right.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 11/2024_02_Wireframe.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 11/Model_11_Turnaround.png", "category":"3D Art"},
+    
+    {"src": "Projects/GS_Weapons/Model 6/Model_06_BeautyRender.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 7/Model_07_BeautyRender.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 8/Model_08_BeautyRender.png", "category":"3D Art"},
+    {"src": "Projects/GS_Weapons/Model 11/Model_11_BeautyRender.png", "category":"3D Art"},
+    
+    {"src": "Projects/GS_Weapons/Model 6/Model_06_Texture_Presentation.png", "category":["3D Art", "Texture Map"]},
+    {"src": "Projects/GS_Weapons/Model 7/Model_07_Texture_Presentation.png", "category":["3D Art", "Texture Map"]},
+    {"src": "Projects/GS_Weapons/Model 8/Model_08_Texture_Presentation.png", "category":["3D Art", "Texture Map"]},
+    {"src": "Projects/GS_Weapons/Model 11/Model_11_Texture_Presentation.png", "category":["3D Art", "Texture Map"]},
+
     {"src":"Projects/CaspianHouse/CaspianHouse_viewport.png", "category": ["Archviz", "Caspian House"]},
     {"src":"Projects/CaspianHouse/Kitchen_001.png", "category": ["Archviz", "Caspian House"]},
     
@@ -30,6 +66,6 @@
     
     {"src":"Projects/Altilium/Altilium Logo.jpg", "category": "Product Design"},
     {"src":"Projects/Altilium/Altilium_Drawing-GlassTop.jpg", "category": "Product Design"},
-    {"src":"Projects/Altilium/Altilium_ExplodedView.jpg", "category": "Product Design"}
+    {"src":"Projects/Altilium/Altilium_ExplodedView.jpg", "category": "Product Design"}  
   ]
 }

@@ -25,6 +25,16 @@ const Gallery: React.FC = () => {
       extraClasses: "bg-cover",
     },
 
+    // Goldsmiths Weapons Set
+    {
+      image: "./Assets/Images/Projects/GS_Weapons/GS_Weapons_Logo.png",
+      title: "Guild Wars 2 - Weapons Set",
+      description: "3D Art | Blender & Substance Painter",
+      bgColor: "bg-black",
+      link: "/GS_Weapons",
+      extraClasses: "bg-contain",
+    },
+
     // BeatBox Studio
     {
       image: "./Assets/Images/Projects/BeatBox_VR-Logo.png",

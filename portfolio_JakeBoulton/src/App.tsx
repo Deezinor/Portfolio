@@ -30,6 +30,9 @@ const CaspianHouse = lazy(() => {
 const Mon58 = lazy(() => {
   return import("./pages/projects/Archviz/Mon58");
 });
+const GS_Weapons = lazy(() => {
+  return import("./pages/projects/3D Art/Goldsmiths_weapons");
+});
 
 const CV = lazy(() => {
   return import("./pages/CV");
@@ -67,7 +70,8 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/Gallery" element={<Gallery />} />
 
-          {/* Lazy-loaded pages */}
+          {/* Lazy-Loaded Pages */}
+          {/* XR Projects */}
           <Route path="/BeatBox" element={<Beatbox />} />
           <Route
             path="/Midnight_at_the_Pagoda"
@@ -80,6 +84,9 @@ const App: React.FC = () => {
           {/* Archviz Projects */}
           <Route path="/CaspianHouse" element={<CaspianHouse />} />
           <Route path="/Mon58" element={<Mon58 />} />
+
+          {/* 3D Art Project */}
+          <Route path="/GS_Weapons" element={<GS_Weapons />} />
 
           {/* Other */}
           <Route path="/CV" element={<CV />} />
