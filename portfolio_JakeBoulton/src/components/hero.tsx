@@ -36,9 +36,10 @@ const Hero: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <p className="w-[65ch] mt-5 text-base text-gray-300 md:text-lg lg:text-xl">
-            Welcome to my portfolio! I&apos;m a designer from Dunmow, UK,
-            creating immersive, user-focused 3D experiences. Explore my work and
-            ideas!
+            Welcome to my portfolio! I’m a Dunmow-based XR Designer & Artist
+            specializing in immersive, user-centered 3D experiences. From
+            virtual reality applications to interactive visualizations and
+            archviz. Explore my work and ideas!
           </p>
         </div>
         <div className="mx-auto mt-5">
