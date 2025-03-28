@@ -41,19 +41,16 @@ const CV: React.FC = () => {
     link: "https://www.flexigroupuk.com/",
     description: [
       {
-        item: "Researched new products, including manufacturing jigs and ventilation grillages, based on user requirements and industry needs.",
-      },
-      {
-        item: "Designed jigs to enhance manufacturing, improving efficiency and reducing health risks for end users.",
+        item: " Product & Process Research: Manufacture Jigs & Tools, Ventilation grillages, and Balcony manufacture and assembly.",
       },
       {
         item: "Managed design and prototyping stages, integrating user feedback for refinement.",
       },
       {
-        item: "Communicated designs using CAD and digital tools, ensuring clear understanding for stakeholders.",
+        item: "Communicated designs using CAD and digital tools, for stakeholder understanding.",
       },
       {
-        item: "Coordinated manufacturing and delivery of parts and materials, prioritizing seamless user implementation.",
+        item: "Coordinated manufacture and delivery of parts and materials.",
       },
       {
         item: "Sourced information, guidelines, and standards, aligning new technologies with user and industry requirements.",
@@ -62,18 +59,25 @@ const CV: React.FC = () => {
   };
   const PowerCon = {
     name: "Power Construction Hertz Ltd",
-    role: "Labourer",
+    role: "3D Visualiser & Labourer",
     dates: "June 2016 - September 2023",
     location: "Dunmow, Essex, UK",
     description: [
       {
-        item: "The position was held on holidays, while at university, with a break in employment from 2021-22 while teaching at Felsted and on a ski instructor course. Employment ended when I started my Master’s in September 2023",
+        item: "Created visual mock-ups for domestic small builds (extensions and renovations) to support client communication and presentations.",
       },
       {
-        item: "This role included setting up sites for skilled workers such as carpenters and bricklayers. Alongside this, I would aid them in their daily tasks and help clean up throughout and at the end of the day.",
+        item: "Assisted in developing clear and compelling visual concepts for project proposals.",
       },
       {
-        item: "Driving a tipper lorry was also part of my responsibilities. This required me to load waste material for disposal, pick up and deliver materials to the site and deliver tools.",
+        item: "Set up construction sites for skilled workers (carpenters and bricklayers).",
+      },
+      { item: "Assisted with daily tasks and site maintenance." },
+      {
+        item: "Operated tipper lorry to transport waste, materials, and tools.",
+      },
+      {
+        item: "Worked during university holidays with a break from 2021 to 2022. (teaching at Felsted and completing a ski instructor course)",
       },
     ],
   };
