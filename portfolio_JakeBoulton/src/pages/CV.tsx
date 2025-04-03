@@ -3,7 +3,7 @@ import Header from "../components/header";
 import ExperienceEntry from "../components/CV-ExperienceEntry";
 import EducationEntry from "../components/CV-EducationEntry";
 import ProjectsEntry from "../components/CV-ProjectsEntry";
-import SkillEntry from "../components/CV-SkillEntry";
+// import SkillEntry from "../components/CV-SkillEntry";
 import ReferenceEntry from "../components/CV-Reference";
 
 import { CiLocationOn, CiMobile1 } from "react-icons/ci";
@@ -15,6 +15,38 @@ const CV: React.FC = () => {
   const mobileNumber = "+44 7919 640 196";
   const email = "jboultonwork@gmail.com";
 
+  const ProfessionalDevelopment = {
+    name: "Professional Development",
+    role: "XR & 3D Designer | Architectural Visualiser",
+    dates: "September 2024 - Present",
+    location: "London, UK",
+    description: [
+      {
+        heading: "XR Design & Development",
+        paragraph:
+          "Working on user experience in 3D spaces, immersive interactions, and spatial UI design for VR, AR, and MR applications.",
+      },
+      {
+        heading: "Architectural Visualization (ArchViz)",
+        paragraph:
+          "Studying CGI lighting, composition, and photography to improve 3D visualization skills.",
+      },
+      {
+        heading: "3D Software & Rendering",
+        bullets: [
+          "Learning 3DS Max & Corona Renderer for architectural visualization and CGI rendering.",
+          "Developing Unreal Engine skills, focusing on XR applications and real-time rendering.",
+        ],
+      },
+      {
+        heading: "Technical & Professional Growth",
+        bullets: [
+          "Exploring human-centred design, spatial UX, and web development with React, TypeScript, and TailwindCSS.",
+        ],
+      },
+    ],
+  };
+
   const Felsted = {
     name: "Felsted School",
     role: "Design & Technology Maternity Cover Teacher",
@@ -23,13 +55,11 @@ const CV: React.FC = () => {
     link: "https://www.felsted.org/",
     description: [
       {
-        item: "Taught students aged 13 - 18, including GCSE, A-level, and International Baccalaureate (IB).",
-      },
-      {
-        item: "Planning lessons for both Theory and Practical sessions.",
-      },
-      {
-        item: "Ensured a safe environment for student to explore their creative and technical passion.",
+        bullets: [
+          "Taught students aged 13 - 18, including GCSE, A-level, and International Baccalaureate (IB).",
+          "Planning lessons for both Theory and Practical sessions.",
+          "Ensured a safe environment for student to explore their creative and technical passion.",
+        ],
       },
     ],
   };
@@ -41,19 +71,14 @@ const CV: React.FC = () => {
     link: "https://www.flexigroupuk.com/",
     description: [
       {
-        item: " Product & Process Research: Manufacture Jigs & Tools, Ventilation grillages, and Balcony manufacture and assembly.",
-      },
-      {
-        item: "Managed design and prototyping stages, integrating user feedback for refinement.",
-      },
-      {
-        item: "Communicated designs using CAD and digital tools, for stakeholder understanding.",
-      },
-      {
-        item: "Coordinated manufacture and delivery of parts and materials.",
-      },
-      {
-        item: "Sourced information, guidelines, and standards, aligning new technologies with user and industry requirements.",
+        bullets: [
+          "Researched new products, including manufacturing jigs and ventilation grillages, based on user requirements and industry needs.",
+          "Designed jigs to enhance manufacturing, improving efficiency and reducing health risks for end users.",
+          "Managed design and prototyping stages, integrating user feedback for refinement.",
+          "Communicated designs using CAD and digital tools, ensuring clear understanding for stakeholders.",
+          "Coordinated manufacturing and delivery of parts and materials, prioritizing seamless user implementation.",
+          "Sourced information, guidelines, and standards, aligning new technologies with user and industry requirements.",
+        ],
       },
     ],
   };
@@ -64,20 +89,11 @@ const CV: React.FC = () => {
     location: "Dunmow, Essex, UK",
     description: [
       {
-        item: "Created visual mock-ups for domestic small builds (extensions and renovations) to support client communication and presentations.",
-      },
-      {
-        item: "Assisted in developing clear and compelling visual concepts for project proposals.",
-      },
-      {
-        item: "Set up construction sites for skilled workers (carpenters and bricklayers).",
-      },
-      { item: "Assisted with daily tasks and site maintenance." },
-      {
-        item: "Operated tipper lorry to transport waste, materials, and tools.",
-      },
-      {
-        item: "Worked during university holidays with a break from 2021 to 2022. (teaching at Felsted and completing a ski instructor course)",
+        bullets: [
+          "The position was held on holidays, while at university, with a break in employment from 2021-22 while teaching at Felsted and on a ski instructor course. Employment ended when I started my Master’s in September 2023",
+          "This role included setting up sites for skilled workers such as carpenters and bricklayers. Alongside this, I would aid them in their daily tasks and help clean up throughout and at the end of the day.",
+          "Driving a tipper lorry was also part of my responsibilities. This required me to load waste material for disposal, pick up and deliver materials to the site and deliver tools.",
+        ],
       },
     ],
   };
@@ -100,8 +116,22 @@ const CV: React.FC = () => {
     award: "Jury Prize - Innovate Immersive Tech Awards 2024",
     description: "Virtual Reality Drum Simulator",
     dates: "March 2023 - Ongoing",
-    summary:
-      "Lead UI/UX designer for a real-time VR drumming simulation game, focusing on intuitive and immersive interfaces for enhanced user engagement.",
+    summary: (
+      <>
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Led UI/UX design for a real-time, interactive VR drumming
+            simulation, ensuring smooth user interaction and immersive
+            engagement.
+          </li>
+          <li>
+            Designed and optimized 3D environments, lighting, and textures for
+            performance in a real-time engine. <br />
+            (Winner of Innovate UK Immersive Tech Awards)
+          </li>
+        </ul>
+      </>
+    ),
     tags: [
       { tag: "VR" },
       { tag: "XR Design" },
@@ -118,11 +148,18 @@ const CV: React.FC = () => {
     dates: "May 2024 - July 2024",
     summary: (
       <>
-        <p>
-          Designed and implemented the UX/UI for an award-winning digital
-          heritage exhibition using AR/VR to bring historical experiences to
-          life for international audiences.
-        </p>
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Designed and implemented interactive UX/UI for a digital heritage
+            exhibition, showcasing historical environments in AR/VR.
+          </li>
+          <li>
+            Focused on realistic texturing, lighting, and immersive scene
+            creation to bring historical architecture to life.
+            <br />
+            (Best Use of Technology at Digital Heritage 2024)
+          </li>
+        </ul>
       </>
     ),
     tags: [
@@ -141,9 +178,18 @@ const CV: React.FC = () => {
     dates: "September 2024",
     summary: (
       <>
-        UX/UI designer for a utility and design-focused AR app, recognized at XR
-        Hack Istanbul, enhancing user interaction through innovative immersive
-        solutions.
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Designed the spatial UI/UX for a mixed reality platform facilitating
+            real-time interaction and digital object sharing.
+          </li>
+          <li>
+            Developed 3D interactive environments optimized for real-time
+            performance and immersive user experiences.
+            <br />
+            (Runner-Up in Utility & Tools, XR Hack Istanbul 2024)
+          </li>
+        </ul>
       </>
     ),
     tags: [
@@ -160,8 +206,20 @@ const CV: React.FC = () => {
     name: "Go Fish MR",
     description: "Mixed Reality Card Game",
     dates: "September 2024",
-    summary:
-      "Designed and implemented intuitive user interfaces and engaging visuals to enhance the player experience. Focused on optimizing usability, accessibility, and visual appeal to create an immersive and seamless interaction flow. Collaborated with developers and designers to refine game mechanics and ensure a cohesive aesthetic and user-friendly experience.",
+    summary: (
+      <>
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Created and refined 3D assets and environments, ensuring smooth
+            real-time interaction in a multiplayer MR setting.
+          </li>
+          <li>
+            Designed immersive spatial interfaces and game mechanics, optimizing
+            for performance and user engagement.
+          </li>
+        </ul>
+      </>
+    ),
     tags: [
       { tag: "MR" },
       { tag: "XR Design" },
@@ -277,22 +335,23 @@ const CV: React.FC = () => {
         </section>
 
         {/* Summary */}
-        {/* <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto my-5 px-5">
+        <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="text-xl text-red-600 font-medium">Summary</h2>
           <p>
-            Award-winning immersive designer with a proven track record of
-            creating intuitive and engaging 3D experiences for XR applications.
-            Skilled in leveraging real-time game platforms, spatial design
-            principles, and architectural understanding to craft user-centric
-            environments that enhance navigation and interaction. Passionate
-            about designing seamless, functional, and visually compelling spaces
-            that bridge the gap between users and technology.
+            A passionate and skilled 3D Artist & XR Designer with a strong
+            foundation in 3D modelling, texturing, shading, lighting, and
+            rendering. Experience spans across XR applications, real-time
+            environments, and immersive experiences. Adept at problem-solving in
+            creative and technical spaces, with a keen eye for detail and
+            composition. Looking to bring expertise in 3D design and interactive
+            experiences into a VFX pipeline setting.
           </p>
-        </section> */}
+        </section>
 
         {/* Experience */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="text-xl text-red-600 font-medium">Experience</h2>
+          <ExperienceEntry {...ProfessionalDevelopment} />
           <ExperienceEntry {...Felsted} />
           <ExperienceEntry {...FlexiGroup} />
           <ExperienceEntry {...PowerCon} />
@@ -317,8 +376,8 @@ const CV: React.FC = () => {
         {/* Skills */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="my-3 text-xl text-red-600 font-medium">Skills</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-            <SkillEntry skill="Unity" expertise={4} />
+          <div className="grid grid-cols-2 gap-5">
+            {/* <SkillEntry skill="Unity" expertise={4} />
             <SkillEntry skill="C++" expertise={4} />
             <SkillEntry skill="C#" expertise={4} />
             <SkillEntry skill="Git" expertise={4} />
@@ -338,7 +397,55 @@ const CV: React.FC = () => {
             <SkillEntry skill="JavaScript" expertise={2} selfTaught />
             <SkillEntry skill="Rhino 3D" expertise={3} />
             <SkillEntry skill="SolidWorks" expertise={4} />
-            <SkillEntry skill="KeyShot 9" expertise={4} selfTaught />
+            <SkillEntry skill="KeyShot 9" expertise={4} selfTaught /> */}
+            <ul className="list-disc ml-5 mt-2 flex flex-col gap-1">
+              <li>
+                <span className="font-medium">3D Modelling & Texturing:</span>{" "}
+                Proficient in creating high-quality assets for real-time and
+                rendered environments.
+              </li>
+              <li>
+                <span className="font-medium">Shading & Look Development:</span>{" "}
+                Experience in setting up shaders and materials for realistic and
+                stylized aesthetics.
+              </li>
+              <li>
+                <span className="font-medium">Lighting & Rendering:</span>{" "}
+                Understanding of lighting principles and rendering techniques
+                for both real-time and pre-rendered workflows.
+              </li>
+              <li>
+                <span className="font-medium">
+                  Scene Assembly & Optimization:
+                </span>{" "}
+                Experience in assembling complex 3D environments while ensuring
+                optimal performance.
+              </li>
+            </ul>
+            <ul className="list-disc ml-5 mt-2 flex flex-col gap-1">
+              <li>
+                <span className="font-medium">Compositing & Refinement:</span>{" "}
+                Basic knowledge of 2D compositing techniques for final render
+                polish.
+              </li>
+              <li>
+                <span className="font-medium">Programming & Scripting:</span>{" "}
+                Comfortable with Python and MEL scripting for automation and
+                workflow improvements.
+              </li>
+              <li>
+                <span className="font-medium">Software Proficiency:</span> 3DS
+                Max, Corona Renderer, Unreal Engine, Unity, Blender, Houdini
+                (learning), Maya (familiar with).
+              </li>
+              <li>
+                <span className="font-medium">
+                  Artistic & Technical Knowledge:
+                </span>{" "}
+                Strong understanding of form, composition, lighting, and spatial
+                UX principles.
+              </li>
+            </ul>
           </div>
         </section>
 

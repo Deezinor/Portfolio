@@ -1,8 +1,10 @@
 import React from "react";
 import { LuLink } from "react-icons/lu";
 
-interface ListItem {
-  item: string;
+interface DescriptionSection {
+  heading?: string;
+  paragraph?: string;
+  bullets?: string[];
 }
 
 interface ExperienceEntryProp {
@@ -11,7 +13,7 @@ interface ExperienceEntryProp {
   dates: string;
   location: string;
   link?: string;
-  description: ListItem[];
+  description: DescriptionSection[];
 }
 
 const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
@@ -26,12 +28,12 @@ const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
     <>
       <div className="mt-5">
         <div className="flex flex-col md:flex-row md:justify-between gap-1">
-          <h3 className="font-semibold">{name}</h3>
-          <h4 className="font-semibold">{dates}</h4>
+          <h3 className="font-semibold text-lg">{name}</h3>
+          <h4 className="font-medium">{dates}</h4>
         </div>
-        <div className="flex flex-col md:flex-row md:justify-between gap-1">
+        <div className="flex flex-col text-sm font-light md:flex-row md:justify-between gap-1">
           <h3>{role}</h3>
-          <h4 className="text-sm">{location}</h4>
+          <h4>{location}</h4>
         </div>
         {link && (
           <div className="flex flex-row items-center">
@@ -41,11 +43,29 @@ const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
             </a>
           </div>
         )}
-        <ul className="flex flex-col gap-1 list-disc mt-4 ml-5">
-          {description.map((listItem, idx) => {
-            return <li key={idx}>{listItem.item}</li>;
+
+        {/* Render flexible content: headings, paragraphs, and bullet lists */}
+        <div className="mt-4 flex flex-col gap-3">
+          {description.map((section, index) => {
+            return (
+              <div key={index}>
+                {section.heading && (
+                  <h5 className="font-normal">{section.heading}</h5>
+                )}
+                {section.paragraph && (
+                  <p className="mt-0 text-sm">{section.paragraph}</p>
+                )}
+                {section.bullets && section.bullets.length > 0 && (
+                  <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+                    {section.bullets.map((item, idx) => {
+                      return <li key={idx}>{item}</li>;
+                    })}
+                  </ul>
+                )}
+              </div>
+            );
           })}
-        </ul>
+        </div>
       </div>
     </>
   );
