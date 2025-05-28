@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header";
-import ContactForm from "../components/contactForm";
+import Header from "../components/Header-Components/header";
+import ContactForm from "../components/Contact_Form-Components/contactForm";
 
 const Contact: React.FC = () => {
   return (

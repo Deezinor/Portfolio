@@ -1,7 +1,7 @@
 import React from "react";
-import Gallery from "../components/gallery";
-import Header from "../components/header";
-import Hero from "../components/hero";
+import Gallery from "../components/Galley-Components/gallery";
+import Header from "../components/Header-Components/header";
+import Hero from "../components/Header-Components/hero";
 import { FaArrowUpLong } from "react-icons/fa6";
 
 const Home: React.FC = () => {

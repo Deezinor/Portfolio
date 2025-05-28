@@ -8,26 +8,26 @@ const Header: React.FC = () => {
   return (
     <header className="container mx-auto" id="header">
       <nav className="mx-4 my-8 flex justify-between items-center ">
-        <div>
+        <Link to="/">
           <h1 className="text-4xl font-medium text-nowrap uppercase">
             Jake Boulton
           </h1>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase  text-gray-600">
           <Link to="/" className="hover:text-black">
             Home
           </Link>
-          <Link to="/cv" className="hover:text-black">
-            CV
+          <Link to="/Projects" className="hover:text-black">
+            Projects
           </Link>
           <Link to="/Gallery" className="hover:text-black">
             Gallery
           </Link>
-          {/* <Link to="/about" className="hover:text-black">
-            About
-          </Link> */}
+          <Link to="/cv" className="hover:text-black">
+            CV
+          </Link>
           <Link to="/contact" className="button button--black">
             Contact
           </Link>

@@ -1,9 +1,11 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import Layout from "./components/Layout";
 
 // Eager-loaded core pages (fast initial load)
 import Home from "./pages/Home";
-// import About from "./pages/About";
+import Projects from "./pages/Projects";
 import Contact from "./pages/contact";
 import Gallery from "./pages/ImageGallery";
 
@@ -44,6 +46,7 @@ const NotFoundPage = lazy(() => {
 });
 
 const App: React.FC = () => {
+  
   useEffect(() => {
     const savedPosition = sessionStorage.getItem("scrollPosition");
     if (savedPosition) {
@@ -64,37 +67,40 @@ const App: React.FC = () => {
   }, []);
   return (
     <Router>
+      <ScrollToTop />
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {/* Eager-loaded pages */}
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/Gallery" element={<Gallery />} />
+        <Layout>
+          <Routes>
+            {/* Eager-loaded pages */}
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/Gallery" element={<Gallery />} />
 
-          {/* Lazy-Loaded Pages */}
-          {/* XR Projects */}
-          <Route path="/BeatBox" element={<Beatbox />} />
-          <Route
-            path="/Midnight_at_the_Pagoda"
-            element={<Midnight_at_the_Pagoda />}
-          />
-          <Route path="/Habibi" element={<Habibi />} />
-          <Route path="/Altilium" element={<Altilium />} />
-          <Route path="/GoFish" element={<GoFish />} />
+            {/* Lazy-Loaded Pages */}
+            {/* XR Projects */}
+            <Route path="/BeatBox" element={<Beatbox />} />
+            <Route
+              path="/Midnight_at_the_Pagoda"
+              element={<Midnight_at_the_Pagoda />}
+            />
+            <Route path="/Habibi" element={<Habibi />} />
+            <Route path="/Altilium" element={<Altilium />} />
+            <Route path="/GoFish" element={<GoFish />} />
 
-          {/* Archviz Projects */}
-          <Route path="/CaspianHouse" element={<CaspianHouse />} />
-          <Route path="/Mon58" element={<Mon58 />} />
+            {/* Archviz Projects */}
+            <Route path="/CaspianHouse" element={<CaspianHouse />} />
+            <Route path="/Mon58" element={<Mon58 />} />
 
-          {/* 3D Art Project */}
-          <Route path="/GS_Weapons" element={<GS_Weapons />} />
-          <Route path="/SavernakeKnife" element={<SavernakeKnife />} />
+            {/* 3D Art Project */}
+            <Route path="/GS_Weapons" element={<GS_Weapons />} />
+            <Route path="/SavernakeKnife" element={<SavernakeKnife />} />
 
-          {/* Other */}
-          <Route path="/CV" element={<CV />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            {/* Other */}
+            <Route path="/CV" element={<CV />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Layout>
       </Suspense>
     </Router>
   );

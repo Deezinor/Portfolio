@@ -1,15 +1,15 @@
 import React from "react";
 
-import Header from "../components/header";
-import ExperienceEntry from "../components/CV-ExperienceEntry";
-import EducationEntry from "../components/CV-EducationEntry";
-import ProjectsEntry from "../components/CV-ProjectsEntry";
+import Header from "../components/Header-Components/header";
+import ExperienceEntry from "../components/CV-Components/CV-ExperienceEntry";
+import EducationEntry from "../components/CV-Components/CV-EducationEntry";
+import ProjectsEntry from "../components/CV-Components/CV-ProjectsEntry";
 // import SkillEntry from "../components/CV-SkillEntry";
-import ReferenceEntry from "../components/CV-Reference";
+import ReferenceEntry from "../components/CV-Components/CV-Reference";
 import { CiLocationOn, CiMobile1 } from "react-icons/ci";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import AwardEntry from "../components/CV-AwardsEntry";
+import AwardEntry from "../components/CV-Components/CV-AwardsEntry";
 
 const CV: React.FC = () => {
   const contentRef = React.useRef<HTMLDivElement>(null);

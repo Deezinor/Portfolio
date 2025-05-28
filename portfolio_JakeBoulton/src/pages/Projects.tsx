@@ -1,7 +1,9 @@
 import React from "react";
-import GalleryCard from "./galleryCard";
+import GalleryCard from "../components/Galley-Components/galleryCard";
+import Header from "../components/Header-Components/header";
+// import Footer from "../components/Footer-Components/footer";
 
-const Gallery: React.FC = () => {
+const Projects: React.FC = () => {
   const projects = [
     // Savernake Knife
     {
@@ -98,24 +100,27 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <section className="section container mx-auto px-4" id="gallery">
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
-        {projects.map((project, index) => {
-          return (
-            <GalleryCard
-              key={index}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-              extraClasses={project.extraClasses}
-              link={project.link}
-              bgColor={project.bgColor}
-            />
-          );
-        })}
-      </div>
-    </section>
+    <>
+      <Header />
+      <section className="section container mx-auto px-4" id="gallery">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
+          {projects.map((project, index) => {
+            return (
+              <GalleryCard
+                key={index}
+                image={project.image}
+                title={project.title}
+                description={project.description}
+                extraClasses={project.extraClasses}
+                link={project.link}
+                bgColor={project.bgColor}
+              />
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 };
 
-export default Gallery;
+export default Projects;
