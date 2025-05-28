@@ -7,7 +7,7 @@ interface Tags {
 interface ProjectEntryProps {
   name: string;
   award?: string;
-  description: string;
+  description?: string;
   dates: string;
   summary: React.ReactNode;
   tags?: Tags[];
@@ -42,6 +42,12 @@ const tagColors: { [key: string]: string } = {
   "3D Graphics": "text-blue-600",
   "Game Design": "text-orange-600",
   "Human-Centered Design": "text-purple-600",
+  "3D Modelling": "text-pink-600",
+  ArchViz: "text-red-600",
+  Blender: "text-orange-500",
+  Rendering: "text-yellow-500",
+  Lighting: "text-green-500",
+  Interior: "text-blue-500",
 };
 
 const getTagColor = (tag: string) => {
@@ -66,18 +72,20 @@ const ProjectsEntry: React.FC<ProjectEntryProps> = ({
           </h4>
         </div>
         <div className="font-medium">{award}</div>
-        <div className="flex flex-col md:flex-row md:justify-between gap-1">
-          <h3>{description}</h3>
-        </div>
+        {description && (
+          <div className="flex flex-col md:flex-row md:justify-between gap-1">
+            <h3>{description}</h3>
+          </div>
+        )}
         <p className="mt-2">{summary}</p>
         {tags && tags.length > 0 && (
           <div className="flex gap-1">
             {tags.map((tag, idx) => {
               return (
-                <p className={`text-xs ${getTagColor(tag.tag)}`} key={idx}>
+                <div className={`text-xs ${getTagColor(tag.tag)}`} key={idx}>
                   {tag.tag}
                   {idx < tags.length - 1 && ", "}
-                </p>
+                </div>
               );
             })}
           </div>

@@ -1,19 +1,24 @@
 import React from "react";
+
 import Header from "../components/header";
 import ExperienceEntry from "../components/CV-ExperienceEntry";
 import EducationEntry from "../components/CV-EducationEntry";
 import ProjectsEntry from "../components/CV-ProjectsEntry";
 // import SkillEntry from "../components/CV-SkillEntry";
 import ReferenceEntry from "../components/CV-Reference";
-
 import { CiLocationOn, CiMobile1 } from "react-icons/ci";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import AwardEntry from "../components/CV-AwardsEntry";
 
 const CV: React.FC = () => {
-  const mobileNumber = "+44 7919 640 196";
-  const email = "jboultonwork@gmail.com";
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const handleDownloadPDF = () => {
+    window.open("./Assets/PDFs/Jake-Boulton-CV.pdf", "CV-Jake-Boulton");
+  };
+
+  const mobileNumber = "+44 7565 312 904";
+  const email = "jboulton@proton.me";
 
   const ProfessionalDevelopment = {
     name: "Professional Development",
@@ -27,21 +32,21 @@ const CV: React.FC = () => {
           "Working on user experience in 3D spaces, immersive interactions, and spatial UI design for VR, AR, and MR applications.",
       },
       {
-        heading: "Architectural Visualization (ArchViz)",
+        heading: "Architectural Visualisation (ArchViz)",
         paragraph:
-          "Studying CGI lighting, composition, and photography to improve 3D visualization skills.",
+          "Studying CGI lighting, composition, and photography to improve 3D visualisation skills.",
       },
       {
         heading: "3D Software & Rendering",
         bullets: [
-          "Learning 3DS Max & Corona Renderer for architectural visualization and CGI rendering.",
+          "Learning 3DS Max & Corona Renderer for architectural visualisation and CGI rendering.",
           "Developing Unreal Engine skills, focusing on XR applications and real-time rendering.",
         ],
       },
       {
         heading: "Technical & Professional Growth",
         bullets: [
-          "Exploring human-centred design, spatial UX, and web development with React, TypeScript, and TailwindCSS.",
+          "Exploring human-centered design, spatial UX, and web development with React, TypeScript, and TailwindCSS.",
         ],
       },
     ],
@@ -57,8 +62,7 @@ const CV: React.FC = () => {
       {
         bullets: [
           "Taught students aged 13 - 18, including GCSE, A-level, and International Baccalaureate (IB).",
-          "Planning lessons for both Theory and Practical sessions.",
-          "Ensured a safe environment for student to explore their creative and technical passion.",
+          "Led lessons combining creative and technical design thinking.",
         ],
       },
     ],
@@ -72,30 +76,18 @@ const CV: React.FC = () => {
     description: [
       {
         bullets: [
-          "Researched new products, including manufacturing jigs and ventilation grillages, based on user requirements and industry needs.",
-          "Designed jigs to enhance manufacturing, improving efficiency and reducing health risks for end users.",
-          "Managed design and prototyping stages, integrating user feedback for refinement.",
-          "Communicated designs using CAD and digital tools, ensuring clear understanding for stakeholders.",
-          "Coordinated manufacturing and delivery of parts and materials, prioritizing seamless user implementation.",
-          "Sourced information, guidelines, and standards, aligning new technologies with user and industry requirements.",
+          "Designed and prototyped new products using CAD.",
+          "Managed user testing and refinement of components.",
+          "Improved production processes through iterative design.",
         ],
       },
     ],
   };
   const PowerCon = {
     name: "Power Construction Hertz Ltd",
-    role: "3D Visualiser & Labourer",
+    role: "Labourer",
     dates: "June 2016 - September 2023",
     location: "Dunmow, Essex, UK",
-    description: [
-      {
-        bullets: [
-          "The position was held on holidays, while at university, with a break in employment from 2021-22 while teaching at Felsted and on a ski instructor course. Employment ended when I started my Master’s in September 2023",
-          "This role included setting up sites for skilled workers such as carpenters and bricklayers. Alongside this, I would aid them in their daily tasks and help clean up throughout and at the end of the day.",
-          "Driving a tipper lorry was also part of my responsibilities. This required me to load waste material for disposal, pick up and deliver materials to the site and deliver tools.",
-        ],
-      },
-    ],
   };
   const Masters = {
     name: "Goldsmiths, University of London",
@@ -110,6 +102,61 @@ const CV: React.FC = () => {
     dates: "September 2016 - May 2020",
     result: "2:1",
     degreeType: "Undergraduate Degree (BSc)",
+  };
+  const Mon58 = {
+    name: "Mon58",
+    description: "Interior Visualisation Project",
+    dates: "February 2025",
+    summary: (
+      <>
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Designed a photorealistic interior visualisation based on the Mon 58
+            House by Studiotamat, focusing on realism and composition for
+            personal development. Responsible for all aspects of the project,
+            including 3D modelling, material creation, lighting, rendering, and
+            post-production.
+          </li>
+          <li>Tools: Blender, Substance Painter, DaVinci Resolve</li>
+        </ul>
+      </>
+    ),
+    tags: [
+      { tag: "3D Modelling" },
+      { tag: "ArchViz" },
+      { tag: "Blender" },
+      { tag: "Rendering" },
+      { tag: "Interior" },
+      { tag: "Lighting" },
+    ],
+  };
+  const CaspianHouse = {
+    name: "Caspian House",
+    description: "Interior Visualisation Project",
+    dates: "January 2025",
+    summary: (
+      <>
+        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+          <li>
+            Created a high-fidelity interior visualization inspired of Caspian
+            House, emphasizing realistic lighting, materials, and composition.
+            Executed the full pipeline independently—from modelling and
+            texturing to final post-production.
+          </li>
+          <li>
+            Tools: Blender, Substance Painter, DaVinci Resolve
+          </li>
+        </ul>
+      </>
+    ),
+    tags: [
+      { tag: "3D Modelling" },
+      { tag: "ArchViz" },
+      { tag: "Blender" },
+      { tag: "Rendering" },
+      { tag: "Interior" },
+      { tag: "Lighting" },
+    ],
   };
   const BeatBox = {
     name: "BeatBox Studio",
@@ -202,33 +249,33 @@ const CV: React.FC = () => {
       { tag: "Communication" },
     ],
   };
-  const GoFish = {
-    name: "Go Fish MR",
-    description: "Mixed Reality Card Game",
-    dates: "September 2024",
-    summary: (
-      <>
-        <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
-          <li>
-            Created and refined 3D assets and environments, ensuring smooth
-            real-time interaction in a multiplayer MR setting.
-          </li>
-          <li>
-            Designed immersive spatial interfaces and game mechanics, optimizing
-            for performance and user engagement.
-          </li>
-        </ul>
-      </>
-    ),
-    tags: [
-      { tag: "MR" },
-      { tag: "XR Design" },
-      { tag: "Unity" },
-      { tag: "Game" },
-      { tag: "Multiplayer" },
-      { tag: "Game Design" },
-    ],
-  };
+  // const GoFish = {
+  //   name: "Go Fish MR",
+  //   description: "Mixed Reality Card Game",
+  //   dates: "September 2024",
+  //   summary: (
+  //     <>
+  //       <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+  //         <li>
+  //           Created and refined 3D assets and environments, ensuring smooth
+  //           real-time interaction in a multiplayer MR setting.
+  //         </li>
+  //         <li>
+  //           Designed immersive spatial interfaces and game mechanics, optimizing
+  //           for performance and user engagement.
+  //         </li>
+  //       </ul>
+  //     </>
+  //   ),
+  //   tags: [
+  //     { tag: "MR" },
+  //     { tag: "XR Design" },
+  //     { tag: "Unity" },
+  //     { tag: "Game" },
+  //     { tag: "Multiplayer" },
+  //     { tag: "Game Design" },
+  //   ],
+  // };
   const Istanbul = {
     name: "Utility & design Runner's Up",
     title: "XR Hack - Istanbul",
@@ -267,16 +314,21 @@ const CV: React.FC = () => {
     job: "Foreman/ Site Supervisor",
     phone: "07934 910240",
   };
-  const Sylvia = {
-    name: "Sylvia Pan",
-    job: "University Lecturer and Thesis supervisor",
-    email: "X.Pan@gold.ac.uk",
+  const Asha = {
+    name: "Asha Easton",
+    job: "Immersive Tech Network Lead",
+    email: "asha.easton@iukbc.org.uk",
   };
+  // const Sylvia = {
+  //   name: "Sylvia Pan",
+  //   job: "University Lecturer and Thesis supervisor",
+  //   email: "X.Pan@gold.ac.uk",
+  // };
 
   return (
     <>
       <Header />
-      <section className="container mx-auto">
+      <section className="container mx-auto bg-white" ref={contentRef}>
         {/* "Header" */}
         <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto px-5 gap-3">
           <div className="flex flex-wrap items-end">
@@ -287,7 +339,7 @@ const CV: React.FC = () => {
             />
             <div className="flex flex-col">
               {/* <h1 className="mb-2 text-4xl">Jake Boulton</h1> */}
-              <h2>UX/UI, XR Designer & 3D Artist</h2>
+              <h2>3D Artist | XR Designer | Visualisation Specialist</h2>
               <div className="flex flex-col">
                 <div className="flex gap-1 items-center">
                   <CiLocationOn className="text-red-600" />
@@ -338,112 +390,57 @@ const CV: React.FC = () => {
         <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="text-xl text-red-600 font-medium">Summary</h2>
           <p>
-            A passionate and skilled 3D Artist & XR Designer with a strong
-            foundation in 3D modelling, texturing, shading, lighting, and
-            rendering. Experience spans across XR applications, real-time
-            environments, and immersive experiences. Adept at problem-solving in
-            creative and technical spaces, with a keen eye for detail and
-            composition. Looking to bring expertise in 3D design and interactive
-            experiences into a VFX pipeline setting.
+            Versatile and creative 3D Artist and XR Designer with experience in
+            modelling, lighting, rendering, and spatial UX for both real-time
+            and pre-rendered environments. Skilled in architectural
+            visualisation, interactive design, and immersive storytelling.
+            Proficient in industry-standard tools and engines.
           </p>
         </section>
 
         {/* Experience */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="text-xl text-red-600 font-medium">Experience</h2>
-          <ExperienceEntry {...ProfessionalDevelopment} />
-          <ExperienceEntry {...Felsted} />
+          <div className="">
+            <ExperienceEntry {...ProfessionalDevelopment} />
+            <ExperienceEntry {...Felsted} />
+          </div>
           <ExperienceEntry {...FlexiGroup} />
           <ExperienceEntry {...PowerCon} />
-        </section>
-
-        {/* Education */}
-        <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
-          <h2 className="text-xl text-red-600 font-medium">Education</h2>
-          <EducationEntry {...Masters} />
-          <EducationEntry {...Undergrad} />
-        </section>
-
-        {/* Projects */}
-        <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
-          <h2 className="text-xl text-red-600 font-medium">Projects</h2>
-          <ProjectsEntry {...BeatBox} />
-          <ProjectsEntry {...Midnight} />
-          <ProjectsEntry {...Habibi} />
-          <ProjectsEntry {...GoFish} />
         </section>
 
         {/* Skills */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="my-3 text-xl text-red-600 font-medium">Skills</h2>
           <div className="grid grid-cols-2 gap-5">
-            {/* <SkillEntry skill="Unity" expertise={4} />
-            <SkillEntry skill="C++" expertise={4} />
-            <SkillEntry skill="C#" expertise={4} />
-            <SkillEntry skill="Git" expertise={4} />
-            <SkillEntry skill="Source Control" expertise={4} />
-            <SkillEntry skill="Blender" expertise={4} selfTaught />
-            <SkillEntry skill="DaVinci Resolve" expertise={2} selfTaught />
-            <SkillEntry skill="Maya" expertise={3} />
-            <SkillEntry skill="Figma" expertise={3} selfTaught />
-            <SkillEntry skill="Adobe Photoshop" expertise={3} />
-            <SkillEntry skill="Adobe Illustrator" expertise={3} />
-            <SkillEntry skill="Adobe InDesign" expertise={4} />
-            <SkillEntry skill="React" expertise={3} selfTaught />
-            <SkillEntry skill="Vite" expertise={3} selfTaught />
-            <SkillEntry skill="SASS/SCSS" expertise={4} selfTaught />
-            <SkillEntry skill="CSS" expertise={4} selfTaught />
-            <SkillEntry skill="HTML5" expertise={4} selfTaught />
-            <SkillEntry skill="JavaScript" expertise={2} selfTaught />
-            <SkillEntry skill="Rhino 3D" expertise={3} />
-            <SkillEntry skill="SolidWorks" expertise={4} />
-            <SkillEntry skill="KeyShot 9" expertise={4} selfTaught /> */}
             <ul className="list-disc ml-5 mt-2 flex flex-col gap-1">
               <li>
                 <span className="font-medium">3D Modelling & Texturing:</span>{" "}
-                Proficient in creating high-quality assets for real-time and
-                rendered environments.
+                Blender, 3ds Max, Adobe Substance Painter
               </li>
               <li>
-                <span className="font-medium">Shading & Look Development:</span>{" "}
-                Experience in setting up shaders and materials for realistic and
-                stylized aesthetics.
-              </li>
-              <li>
-                <span className="font-medium">Lighting & Rendering:</span>{" "}
-                Understanding of lighting principles and rendering techniques
-                for both real-time and pre-rendered workflows.
+                <span className="font-medium">Rendering:</span> Unreal Engine,
+                Corona, V-Ray, Cycles
               </li>
               <li>
                 <span className="font-medium">
-                  Scene Assembly & Optimization:
+                  Real-Time Design & Development:
                 </span>{" "}
-                Experience in assembling complex 3D environments while ensuring
-                optimal performance.
+                Unreal Engine, Unity, C#
               </li>
             </ul>
             <ul className="list-disc ml-5 mt-2 flex flex-col gap-1">
               <li>
-                <span className="font-medium">Compositing & Refinement:</span>{" "}
-                Basic knowledge of 2D compositing techniques for final render
-                polish.
+                <span className="font-medium">UI/UX:</span> Spatial design,
+                interaction design, user testing
               </li>
               <li>
-                <span className="font-medium">Programming & Scripting:</span>{" "}
-                Comfortable with Python and MEL scripting for automation and
-                workflow improvements.
+                <span className="font-medium">Web Development:</span> React,
+                TypeScript, TailwindCSS, HTMl, CSS
               </li>
               <li>
-                <span className="font-medium">Software Proficiency:</span> 3DS
-                Max, Corona Renderer, Unreal Engine, Unity, Blender, Houdini
-                (learning), Maya (familiar with).
-              </li>
-              <li>
-                <span className="font-medium">
-                  Artistic & Technical Knowledge:
-                </span>{" "}
-                Strong understanding of form, composition, lighting, and spatial
-                UX principles.
+                <span className="font-medium">Tools:</span> Photoshop,
+                Illustrator, DaVinci Resolve, Git, Trello, SourceTree
               </li>
             </ul>
           </div>
@@ -457,15 +454,40 @@ const CV: React.FC = () => {
           <AwardEntry {...DigitalHeritage} />
         </section>
 
+        {/* Education */}
+        <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
+          <h2 className="text-xl text-red-600 font-medium">Education</h2>
+          <EducationEntry {...Masters} />
+          <EducationEntry {...Undergrad} />
+        </section>
+
+        {/* Projects */}
+        <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
+          <h2 className="text-xl text-red-600 font-medium">Projects</h2>
+          <ProjectsEntry {...Mon58} />
+          <ProjectsEntry {...CaspianHouse} />
+          <ProjectsEntry {...Midnight} />
+          <ProjectsEntry {...BeatBox} />
+          <ProjectsEntry {...Habibi} />
+        </section>
+
         {/* References */}
         <section className="flex flex-col md:max-w-screen-md mx-auto my-5 px-5">
           <h2 className="my-3 text-xl text-red-600 font-medium">References</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <ReferenceEntry {...Shaun} />
             <ReferenceEntry {...Dave} />
-            <ReferenceEntry {...Sylvia} />
+            <ReferenceEntry {...Asha} />
           </div>
         </section>
+        <button
+          onClick={() => {
+            return handleDownloadPDF?.();
+          }}
+          className="fixed bottom-5 right-5 bg-red-600 text-white py-2 px-4 rounded shadow-md hover:bg-red-700 print:hidden"
+        >
+          Print / Save as PDF
+        </button>
       </section>
     </>
   );

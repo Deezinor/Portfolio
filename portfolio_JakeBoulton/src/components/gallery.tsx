@@ -3,6 +3,15 @@ import GalleryCard from "./galleryCard";
 
 const Gallery: React.FC = () => {
   const projects = [
+    // Savernake Knife
+    {
+      image: "./Assets/Images/Projects/Savernake/202504_3KnifeRender_V01.jpg",
+      title: "Savernake Knife",
+      description: "Product Modelling & Visualization | Blender",
+      bgColor: "bg-black",
+      link: "/SavernakeKnife",
+      extraClasses: "bg-contain",
+    },
     // Mon58
     {
       image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",

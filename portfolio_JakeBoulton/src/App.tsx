@@ -23,7 +23,6 @@ const Midnight_at_the_Pagoda = lazy(() => {
 const GoFish = lazy(() => {
   return import("./pages/projects/XR/GoFish");
 });
-
 const CaspianHouse = lazy(() => {
   return import("./pages/projects/Archviz/CaspianHouse");
 });
@@ -32,6 +31,9 @@ const Mon58 = lazy(() => {
 });
 const GS_Weapons = lazy(() => {
   return import("./pages/projects/3D Art/Goldsmiths_weapons");
+});
+const SavernakeKnife = lazy(() => {
+  return import("./pages/projects/3D Art/Savernake");
 });
 
 const CV = lazy(() => {
@@ -87,6 +89,7 @@ const App: React.FC = () => {
 
           {/* 3D Art Project */}
           <Route path="/GS_Weapons" element={<GS_Weapons />} />
+          <Route path="/SavernakeKnife" element={<SavernakeKnife />} />
 
           {/* Other */}
           <Route path="/CV" element={<CV />} />

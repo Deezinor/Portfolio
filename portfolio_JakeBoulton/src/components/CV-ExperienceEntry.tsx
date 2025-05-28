@@ -13,7 +13,7 @@ interface ExperienceEntryProp {
   dates: string;
   location: string;
   link?: string;
-  description: DescriptionSection[];
+  description?: DescriptionSection[];
 }
 
 const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
@@ -46,7 +46,7 @@ const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
 
         {/* Render flexible content: headings, paragraphs, and bullet lists */}
         <div className="mt-4 flex flex-col gap-3">
-          {description.map((section, index) => {
+          {description && description.map((section, index) => {
             return (
               <div key={index}>
                 {section.heading && (
