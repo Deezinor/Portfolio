@@ -4,6 +4,24 @@ import { Link } from "react-router-dom";
 
 const Gallery: React.FC = () => {
   const projects = [
+    // BeatBox Studio
+    {
+      image: "./Assets/Images/Projects/BeatBox_VR-Logo.png",
+      title: "BeatBox Studio",
+      description: "VR drumming simulation | Unity, Blender & Meta Quest 3",
+      bgColor: "bg-black",
+      link: "/Beatbox",
+      extraClasses: "bg-contain",
+    },
+    // Midnight at the Pagoda
+    {
+      image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
+      title: "Midnight at the Pagoda",
+      description: "Virtual Reality Digital Heritage Exhibit | Unity & Blender",
+      bgColor: "bg-black",
+      link: "/Midnight_at_the_Pagoda",
+      extraClasses: "bg-contain",
+    },
     // Mon58
     {
       image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
@@ -23,24 +41,6 @@ const Gallery: React.FC = () => {
       bgColor: "bg-black",
       link: "/CaspianHouse",
       extraClasses: "bg-cover",
-    },
-    // BeatBox Studio
-    {
-      image: "./Assets/Images/Projects/BeatBox_VR-Logo.png",
-      title: "BeatBox Studio",
-      description: "VR drumming simulation | Unity, Blender & Meta Quest 3",
-      bgColor: "bg-black",
-      link: "/Beatbox",
-      extraClasses: "bg-contain",
-    },
-    // Midnight at the Pagoda
-    {
-      image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
-      title: "Midnight at the Pagoda",
-      description: "Virtual Reality Digital Heritage Exhibit | Unity & Blender",
-      bgColor: "bg-black",
-      link: "/Midnight_at_the_Pagoda",
-      extraClasses: "bg-contain",
     },
   ];
 

@@ -174,7 +174,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
       </>
     ),
     media: media,
-    projectLogo: "https://placehold.co/600x400",
+    projectLogo: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
   };
 
   return (

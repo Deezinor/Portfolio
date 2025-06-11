@@ -55,7 +55,17 @@ const Projects: React.FC = () => {
       link: "/Beatbox",
       extraClasses: "bg-contain",
     },
-
+    
+    // Midnight at the Pagoda
+    {
+      image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
+      title: "Midnight at the Pagoda",
+      description: "Virtual Reality Digital Heritage Exhibit | Unity & Blender",
+      bgColor: "bg-black",
+      link: "/Midnight_at_the_Pagoda",
+      extraClasses: "bg-contain",
+    },
+    
     // Habibi
     {
       image: "./Assets/Images/Projects/Habibi-Logo.png",
@@ -64,16 +74,6 @@ const Projects: React.FC = () => {
         "XR Communication Tool | Unity, OpenAI, Blender & Meta Quest 3",
       bgColor: "bg-black",
       link: "/Habibi",
-      extraClasses: "bg-contain",
-    },
-
-    // Midnight at the Pagoda
-    {
-      image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
-      title: "Midnight at the Pagoda",
-      description: "Virtual Reality Digital Heritage Exhibit | Unity & Blender",
-      bgColor: "bg-black",
-      link: "/Midnight_at_the_Pagoda",
       extraClasses: "bg-contain",
     },
 

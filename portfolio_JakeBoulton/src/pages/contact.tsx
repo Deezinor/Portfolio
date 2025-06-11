@@ -6,14 +6,12 @@ const Contact: React.FC = () => {
   return (
     <section>
       <Header />
-      <section className="container mx-auto">
+      <section className="container mx-auto md:max-w-96 md:mt-20">
         <div className="flex flex-col justify-center mx-4 mb-8 gap-6">
           <div>
-            <p className="w-[40ch]">
-              Please feel free to contact <br />
-              using the details below <br />
-              if you wish to discuss job offer <br />
-              or future projects.
+            <p className="max-w-[40ch]">
+              Please feel free to contact using the details below if you wish to
+              discuss job offer or future projects.
             </p>
           </div>
           <div>

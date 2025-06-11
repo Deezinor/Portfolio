@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
           type="text"
           id="name"
           name="name"
-          className="w-72 border-gray-300 border-[1px] rounded-sm"
+          className="min-w-80 border-gray-300 border-[1px] rounded-sm"
           value={formData.name}
           onChange={handleChange}
           required
@@ -76,7 +76,7 @@ const ContactForm: React.FC = () => {
           type="email"
           id="email"
           name="email"
-          className="w-72 border-gray-300 border-[1px] rounded-sm"
+          className="min-w-80 border-gray-300 border-[1px] rounded-sm"
           value={formData.email}
           onChange={handleChange}
           required
@@ -91,7 +91,7 @@ const ContactForm: React.FC = () => {
         <textarea
           id="message"
           name="message"
-          className="border-gray-300 border-[1px] rounded-sm"
+          className="min-w-80 border-gray-300 border-[1px] rounded-sm"
           rows={5}
           value={formData.message}
           onChange={handleChange}

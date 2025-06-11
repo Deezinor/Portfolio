@@ -111,8 +111,9 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
       </section>
 
       {/* Role, Brief & Team */}
-      <section className="container mx-auto flex flex-col md:gap-6 lg:flex-row lg:w-3/4">
-        <div className="px-4 md:px-0 lg:w-1/2">
+      <section className="container mx-auto md:gap-6 lg:flex-row lg:w-3/4">
+        {/* <div className="px-4 md:px-0 lg:w-1/2"> */}
+        <div className="flex flex-wrap px-4 md:px-0">
           {roleTitle && (
             <>
               <h3 className="mb-2 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
@@ -124,7 +125,8 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
             </>
           )}
         </div>
-        <div className="px-4 md:px-0 lg:w-1/2">
+        {/* <div className="px-4 md:px-0 lg:w-1/2"> */}
+        <div className="px-4 md:px-0">
           {projectBrief && (
             <>
               <h3 className="mb-1 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
@@ -135,6 +137,8 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
               </p>
             </>
           )}
+        </div>
+        <div className="px-4 md:px-0">
           {teamMembers && (
             <>
               <h3 className="mb-1 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
@@ -150,14 +154,15 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
 
       {/* Media Grid (Images, Videos & Iframes) */}
       <section className="section">
-        <div className="flex flex-wrap justify-center items-center w-full md:w-3/4 mx-auto mt-12 gap-4">
+        {/* <div className="flex flex-wrap justify-center items-center w-full md:w-3/4 mx-auto mt-12 gap-4"> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center w-full md:w-3/4 mx-auto mt-12 gap-4">
           {media.map((item, index) => {
             return (
               <div
                 key={index}
                 className="flex justify-center items-center cursor-pointer"
                 style={{
-                  height: "35vh", // Fixed height
+                  height: "auto", // Fixed height
                   flex: "0 1 auto", // Allow natural width, no stretching
                   overflow: "hidden",
                 }}
