@@ -29,7 +29,10 @@ const data = {
       <span className="font-medium text-gray-950">BeatBox Studio</span> is a VR
       drumming simulator and educational platform, offering free-play,
       structured lessons, and rhythm-based game modes for players of all skill
-      levels.
+      levels. 
+      <br/>
+      <br/>
+      Contact me for updates on project&apos;s status and future plans.
     </>
   ),
   roleTitle: "Lead Artist and Designer",
