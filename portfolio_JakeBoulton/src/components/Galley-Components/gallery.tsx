@@ -45,8 +45,11 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <section className="section container mx-auto px-4" id="gallery">
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
+    <section className="section container mx-auto px-5 lg:px-20" id="gallery">
+      <div className="text-center mb-16 text-3xl md:text-4xl lg:text-5xl uppercase">
+        <h2 className="">Featured Work</h2>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
         {projects.map((project, index) => {
           return (
             <GalleryCard
@@ -57,11 +60,12 @@ const Gallery: React.FC = () => {
               extraClasses={project.extraClasses}
               link={project.link}
               bgColor={project.bgColor}
+              disableAnimation={true}
             />
           );
         })}
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center  mt-10 md:mt-16">
         <Link to="/projects" className="button button--black">View More</Link>
       </div>
     </section>

@@ -13,11 +13,13 @@ const Home: React.FC = () => {
 
   return (
     <div className="font-barlow">
-      <Hero />
-      {/* <Hero image={heroImage} /> */}
       <Header />
-      <Gallery />
+      <Hero />
+      <div className="mt-16 md:mt-24">
+        <Gallery />
+      </div>
 
+      {/* Back to Top */}
       <section className="container mx-auto text-center text-gray-600 my-28">
         <div
           className="cursor-pointer flex flex-col items-center"

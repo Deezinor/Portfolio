@@ -1,36 +1,64 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import HamburgerMenu from "./hamburgerMenu";
 import React from "react";
 
 const Header: React.FC = () => {
-  // const linkClasses = "text-base md:text-2xl";
+  const baseClasses =
+    "hover:text-black transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black";
+  const activeClasses = "text-black border-b-2 border-accent pb-1";
 
   return (
     <header className="container mx-auto" id="header">
-      <nav className="mx-4 my-8 flex justify-between items-center ">
-        <Link to="/">
+      <nav className="mx-4 my-8 flex justify-between items-center">
+        <NavLink to="/">
           <h1 className="text-4xl font-medium text-nowrap uppercase">
             Jake Boulton
           </h1>
-        </Link>
+        </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase  text-gray-600">
-          <Link to="/" className="hover:text-black">
+        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase text-gray-600">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""}`;
+            }}
+          >
             Home
-          </Link>
-          <Link to="/Projects" className="hover:text-black">
+          </NavLink>
+          <NavLink
+            to="/Projects"
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""}`;
+            }}
+          >
             Projects
-          </Link>
-          <Link to="/Gallery" className="hover:text-black">
+          </NavLink>
+          <NavLink
+            to="/Gallery"
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""}`;
+            }}
+          >
             Gallery
-          </Link>
-          <Link to="/cv" className="hover:text-black">
+          </NavLink>
+          <NavLink
+            to="/cv"
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""}`;
+            }}
+          >
             CV
-          </Link>
-          <Link to="/contact" className="button button--black">
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""} button button--black`;
+            }}
+          >
             Contact
-          </Link>
+          </NavLink>
         </div>
 
         {/* Hamburger Menu for Mobile */}

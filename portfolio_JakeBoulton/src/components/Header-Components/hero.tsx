@@ -6,68 +6,58 @@ const Hero: React.FC = () => {
   useEffect(() => {
     window.dispatchEvent(new Event("resize"));
   }, []);
+
   return (
     <section
       id="hero"
-      className="relative w-full h-[var(--vh)] py-24 text-center text-white bg-black"
-      // style={{
-      //   backgroundImage: `url(${image})`,
-      //   backgroundSize: "cover",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundPosition: "50% 20%",
-      // }}
+      className="relative w-full py-16 md:py-24 text-center text-white bg-black"
     >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-65"></div>
+      <div className="container mx-auto px-5 lg:px-20">
+        <h1 className="mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium">
+          Hi, I&apos;m Jake Boulton. <br /> 3D Artist, XR Designer and Problem Solver.
+        </h1>
 
-      <div className="relative z-10 mx-auto px-5 lg:px-40 text-center text-white">
-        <div className="flex justify-center">
-          <h1 className="mb-5 text-5xl sm:text-8xl">
-            Hi, I&apos;m Jake Boulton. <br /> Designer, Artist and Problem
-            Solver.
-          </h1>
-        </div>
-        <div className="flex justify-center">
+        {/* Image */}
+        <div className="flex justify-center mb-8">
           <img
             src="./Assets/Images/Jake_Boulton.JPG"
             alt="Jake Boulton wearing a graduation cap & gown and a blue suit."
-            className="h-96 rounded-lg"
+            className="h-64 sm:h-72 md:h-80 lg:h-96 rounded-lg object-cover"
           />
         </div>
-        <div className="flex justify-center">
-          <p className="w-[65ch] mt-5 text-base text-gray-300 md:text-lg lg:text-xl">
-            Welcome to my portfolio! I’m a Dunmow-based XR Designer & Artist
-            specializing in immersive, user-centered 3D experiences. From
-            virtual reality applications to interactive visualizations and
-            archviz. Explore my work and ideas!
-          </p>
-        </div>
-        <div className="mx-auto mt-5">
+
+        {/* Description */}
+        <p className="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl">
+          I design user-centred XR Experiences and 3D Assets — from VR Applications to
+          Interactive Visualisations and Archviz.
+        </p>
+
+        {/* Call to Action Button */}
+        <div className="mt-8">
           <Link
-            to="/contact"
-            className="button button--black-on-white text-base uppercase md:text-lg lg:text-xl"
+            to="/projects"
+            className="button button--accent text-base uppercase md:text-lg lg:text-xl"
           >
-            ask me a question
+            View Projects
           </Link>
         </div>
       </div>
-      {/* Arrow */}
+
+      {/* Scroll Arrow */}
       <button
         onClick={() => {
-          const headerElement = document.getElementById("header");
-          if (headerElement) {
-            const offset = 100; // Adjust this value to control how far off the top it stops
-            const elementPosition =
-              headerElement.getBoundingClientRect().top + window.scrollY;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
+          const galleryElement = document.getElementById("gallery");
+          if (galleryElement) {
+            const headerHeight =
+              document.getElementById("header")?.offsetHeight || 0;
+            const y =
+              galleryElement.getBoundingClientRect().top +
+              window.scrollY -
+              headerHeight;
+            window.scrollTo({ top: y, behavior: "smooth" });
           }
         }}
-        className="absolute bottom-5 left-1/2 z-10 transform -translate-x-1/2"
+        className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
       >
         <IoIosArrowDown className="text-3xl text-white" />
       </button>

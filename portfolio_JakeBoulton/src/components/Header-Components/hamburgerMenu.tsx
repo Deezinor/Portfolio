@@ -13,7 +13,10 @@ const HamburgerMenu: React.FC = () => {
       {/* Hamburger Icon */}
       <button
         onClick={toggleMenu}
-        className="block md:hidden p-2 text-gray-700 hover:text-black focus:outline-none"
+        aria-label="Open menu"
+        aria-expanded={isOpen}
+        aria-controls="mobile-menu"
+        className="block md:hidden p-2 text-gray-700 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
       >
         <svg
           className="w-8 h-8"
@@ -33,24 +36,33 @@ const HamburgerMenu: React.FC = () => {
 
       {/* Navigation Menu */}
       <div
-        className={`absolute z-[999] right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${
-          isOpen ? "block" : "hidden"
-        }`}
+        id="mobile-menu"
+        className={`absolute z-[999] right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${isOpen ? "block" : "hidden"}`}
       >
         <Link
           to="/"
+          onClick={() => {return setIsOpen(false)}}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Home
         </Link>
         <Link
+          to="/projects"
+          onClick={() => {return setIsOpen(false)}}
+          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
+        >
+          Projects
+        </Link>
+        <Link
           to="/about"
+          onClick={() => {return setIsOpen(false)}}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           About
         </Link>
         <Link
           to="/cv"
+          onClick={() => {return setIsOpen(false)}}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           CV

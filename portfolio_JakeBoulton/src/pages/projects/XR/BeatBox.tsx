@@ -95,6 +95,18 @@ const data = {
       </span>
     </>
   ),
+  awards: (
+      <>
+        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
+          <li>
+            Jury Prize - Innovate immersive Tech Awards 2024
+          </li>
+          <li>
+            Finalist - AWE Europe Start-Up Pitch Competition 2024
+          </li>
+        </ul>
+      </>
+    ),
   projectLogo: "./Assets/Images/Projects/BeatBox/BBVR-logo.gif",
   media: media, // Assign the explicitly typed media array
 };

@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       link: "/Beatbox",
       extraClasses: "bg-contain",
     },
-    
+
     // Midnight at the Pagoda
     {
       image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
@@ -65,7 +65,7 @@ const Projects: React.FC = () => {
       link: "/Midnight_at_the_Pagoda",
       extraClasses: "bg-contain",
     },
-    
+
     // Habibi
     {
       image: "./Assets/Images/Projects/Habibi-Logo.png",
@@ -102,8 +102,11 @@ const Projects: React.FC = () => {
   return (
     <>
       <Header />
-      <section className="section container mx-auto px-4" id="gallery">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2">
+      <section className="section container mx-auto mt-20 px-12" id="gallery">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl">Previous Projects</h1>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
           {projects.map((project, index) => {
             return (
               <GalleryCard

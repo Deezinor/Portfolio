@@ -4,7 +4,7 @@ import ProjectTemplate from "../../../components/ProjectTemplate";
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   {
     type: "image",
-    src: "./Assets/Images/Projects/Mon58/Kitchen_View_graded_1.1.1.png",
+    src: "./Assets/Images/Projects/Mon58/Kitchen_View_graded.png",
   },
   {
     type: "image",
@@ -14,6 +14,10 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
     type: "image",
     src: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
   },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Mon58/LivingSpace_Graded.png",
+  },
 ];
 
 const Mon58: React.FC = () => {
@@ -21,7 +25,7 @@ const Mon58: React.FC = () => {
     title: "Mon 58 House Associati",
     projectDescription: (
       <>
-        Mon 58 House Associati is a virtual recreation of an existing
+        Mon 58 House Associati is a digital recreation of an existing
         architectural project featured on ArchDaily, undertaken as a personal
         study to refine my skills in architectural visualization. Beyond
         rendering realism, this project focused on interpreting and translating

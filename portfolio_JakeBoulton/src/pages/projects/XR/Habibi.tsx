@@ -57,6 +57,13 @@ const Habibi: React.FC = () => {
         </span>
       </>
     ),
+    awards: (
+      <>
+        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
+          <li>Runner&apos;s Up - XR Hack Istanbul, Turkey 2024</li>
+        </ul>
+      </>
+    ),
     projectLogo: "./Assets/Images/Projects/Habibi-Logo.png",
     media: media,
   };

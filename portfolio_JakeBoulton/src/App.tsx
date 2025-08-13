@@ -17,7 +17,7 @@ const Habibi = lazy(() => {
   return import("./pages/projects/XR/Habibi");
 });
 const Altilium = lazy(() => {
-  return import("./pages/projects/XR/Altilium");
+  return import("./pages/projects/Product Design/Altilium");
 });
 const Midnight_at_the_Pagoda = lazy(() => {
   return import("./pages/projects/XR/Midnight_at_the_Pagoda");

@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'accent': '#E56B5D', // Example primary color
+      },
       fontFamily: {
         barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],
       },
