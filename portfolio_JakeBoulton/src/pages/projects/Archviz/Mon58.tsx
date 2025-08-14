@@ -18,6 +18,22 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
     type: "image",
     src: "./Assets/Images/Projects/Mon58/LivingSpace_Graded.png",
   },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Mon58/Model.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Mon58/SpiralStairs.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Mon58/KitchenIsland.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Mon58/Dishwasher.png",
+  },
 ];
 
 const Mon58: React.FC = () => {

@@ -4,18 +4,6 @@ import ProjectTemplate from "../../../components/ProjectTemplate";
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
   {
     type: "image",
-    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene.png",
-  },
-  {
-    type: "image",
-    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Model.png",
-  },
-  {
-    type: "image",
-    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Render.png",
-  },
-  {
-    type: "image",
     src: "./Assets/Images/Projects/Midnight at the Pagoda/FirstScene-TopDown.png",
   },
   {
@@ -27,12 +15,40 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
     src: "./Assets/Images/Projects/Midnight at the Pagoda/Lantern and podium.png",
   },
   {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Model.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Render.png",
+  },
+  {
     type: "video",
     src: "./Assets/Images/Projects/Midnight at the Pagoda/Scene2-turnaround.mkv",
   },
   {
     type: "iframe",
     src: "https://www.youtube.com/embed/jtHg_ufY7v4?si=VDCk3pXYdhQ2w-NB",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/Arch_Model.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/TempleTable.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/CalligraphyBrush.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/Midnight at the Pagoda/Scroll.png",
   },
 ];
 

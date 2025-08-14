@@ -20,6 +20,18 @@ const media: { type: "image" | "video" | "iframe"; src: string }[] = [
     type: "image",
     src: "./Assets/Images/Projects/BeatBox/DrumKit-NoTexture.png",
   },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/BeatBox/BarScene.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/BeatBox/BarSceneRender.png",
+  },
+  {
+    type: "image",
+    src: "./Assets/Images/Projects/BeatBox/TeamPhotoInnovate.JPG",
+  },
 ];
 
 const data = {
