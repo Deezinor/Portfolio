@@ -43,13 +43,21 @@ const Header: React.FC = () => {
           >
             Gallery
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/cv"
             className={({ isActive }) => {
               return `${baseClasses} ${isActive ? activeClasses : ""}`;
             }}
           >
             CV
+          </NavLink> */}
+          <NavLink
+            to="https://almostmakessense.blog"
+            className={({ isActive }) => {
+              return `${baseClasses} ${isActive ? activeClasses : ""}`;
+            }}
+          >
+            Blog
           </NavLink>
           <NavLink
             to="/contact"

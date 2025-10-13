@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
 
         {/* Description */}
         <p className="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl">
-          I design user-centred XR Experiences and 3D Assets — from VR Applications to
+          I design User-Centred XR Experiences and Create & Optimise 3D Assets — from VR Applications to
           Interactive Visualisations and Archviz.
         </p>
 

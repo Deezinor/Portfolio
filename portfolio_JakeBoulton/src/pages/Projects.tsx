@@ -12,30 +12,8 @@ const Projects: React.FC = () => {
       description: "Product Modelling & Visualization | Blender",
       bgColor: "bg-black",
       link: "/SavernakeKnife",
-      extraClasses: "bg-contain",
+      extraClasses: "bg-contain"
     },
-    // Mon58
-    {
-      image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
-      title: "Mon 58 House Associati",
-      description:
-        "Interior Architectural Visualization | Blender & DaVinci Resolve",
-      bgColor: "bg-black",
-      link: "/Mon58",
-      extraClasses: "bg-cover",
-    },
-
-    // Caspian House
-    {
-      image: "./Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
-      title: "Caspian House",
-      description:
-        "Interior Architectural Visualization | Blender & DaVinci Resolve",
-      bgColor: "bg-black",
-      link: "/CaspianHouse",
-      extraClasses: "bg-cover",
-    },
-
     // Goldsmiths Weapons Set
     {
       image: "./Assets/Images/Projects/GS_Weapons/GS_Weapons_Logo.png",
@@ -86,6 +64,28 @@ const Projects: React.FC = () => {
       link: "/GoFish",
       extraClasses: "bg-cover",
     },
+    // Mon58
+    {
+      image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
+      title: "Mon 58 House Associati",
+      description:
+        "Interior Architectural Visualization | Blender & DaVinci Resolve",
+      bgColor: "bg-black",
+      link: "/Mon58",
+      extraClasses: "bg-cover",
+    },
+
+    // Caspian House
+    {
+      image: "./Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
+      title: "Caspian House",
+      description:
+        "Interior Architectural Visualization | Blender & DaVinci Resolve",
+      bgColor: "bg-black",
+      link: "/CaspianHouse",
+      extraClasses: "bg-cover",
+    },
+
 
     // Altilium
     {

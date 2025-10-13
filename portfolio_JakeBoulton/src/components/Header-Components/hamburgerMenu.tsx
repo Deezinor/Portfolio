@@ -61,11 +61,11 @@ const HamburgerMenu: React.FC = () => {
           About
         </Link>
         <Link
-          to="/cv"
+          to="https://almostmakessense.blog"
           onClick={() => {return setIsOpen(false)}}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
-          CV
+          Blog
         </Link>
       </div>
     </div>
