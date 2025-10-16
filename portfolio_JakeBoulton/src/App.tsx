@@ -11,7 +11,7 @@ import Gallery from "./pages/ImageGallery";
 
 // Lazy-loaded pages (only loaded when visited)
 const Beatbox = lazy(() => {
-  return import("./pages/projects/XR/BeatBox");
+  return import("./pages/projects/XR/NewBeatBox");
 });
 const Habibi = lazy(() => {
   return import("./pages/projects/XR/Habibi");
@@ -45,8 +45,12 @@ const NotFoundPage = lazy(() => {
   return import("./pages/404");
 });
 
+// Test Page
+const TestPage = lazy(() => {
+  return import("./pages/TestPage");
+});
+
 const App: React.FC = () => {
-  
   useEffect(() => {
     const savedPosition = sessionStorage.getItem("scrollPosition");
     if (savedPosition) {
@@ -99,6 +103,9 @@ const App: React.FC = () => {
             {/* Other */}
             <Route path="/CV" element={<CV />} />
             <Route path="*" element={<NotFoundPage />} />
+
+            {/* Test Page */}
+            <Route path="/TestPage" element={<TestPage />} />
           </Routes>
         </Layout>
       </Suspense>

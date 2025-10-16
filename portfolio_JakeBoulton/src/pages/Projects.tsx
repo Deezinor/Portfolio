@@ -33,7 +33,6 @@ const Projects: React.FC = () => {
       link: "/Beatbox",
       extraClasses: "bg-contain",
     },
-
     // Midnight at the Pagoda
     {
       image: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
@@ -43,7 +42,6 @@ const Projects: React.FC = () => {
       link: "/Midnight_at_the_Pagoda",
       extraClasses: "bg-contain",
     },
-
     // Habibi
     {
       image: "./Assets/Images/Projects/Habibi-Logo.png",
@@ -54,7 +52,6 @@ const Projects: React.FC = () => {
       link: "/Habibi",
       extraClasses: "bg-contain",
     },
-
     // GoFish
     {
       image: "./Assets/Images/Projects/GoFish-Logo.png",
@@ -64,6 +61,7 @@ const Projects: React.FC = () => {
       link: "/GoFish",
       extraClasses: "bg-cover",
     },
+
     // Mon58
     {
       image: "./Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
@@ -74,7 +72,6 @@ const Projects: React.FC = () => {
       link: "/Mon58",
       extraClasses: "bg-cover",
     },
-
     // Caspian House
     {
       image: "./Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
@@ -85,7 +82,6 @@ const Projects: React.FC = () => {
       link: "/CaspianHouse",
       extraClasses: "bg-cover",
     },
-
 
     // Altilium
     {
