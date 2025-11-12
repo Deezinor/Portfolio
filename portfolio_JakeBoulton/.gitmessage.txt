@@ -5,19 +5,14 @@ Description (optional):
 - What problem does it solve?
 - Notes/side effects:
 
-# Guidance below is commented and will be ignored:
-# Types:
-#   feat, fix, refactor, style, docs, chore, test, perf
-# Keep summary ~72 chars; body wraps at ~72 as well.
 
-
-# Types:
-#   feat     - new feature
-#   fix      - bug fix
-#   refactor - code improvement (no behaviour change)
-#   style    - formatting or UI-only changes
-#   docs     - documentation updates
-#   chore    - maintenance/config updates
-#   test     - adding or updating tests
+ Types:
+   feat     - new feature
+   fix      - bug fix
+   refactor - code improvement (no behaviour change)
+   style    - formatting or UI-only changes
+   docs     - documentation updates
+   chore    - maintenance/config updates
+   test     - adding or updating tests
 #
 # Lines starting with # are ignored when you commit.
