@@ -20,4 +20,41 @@ export default [
       "arrow-body-style": ["error", "always"],
     },
   },
+  {
+    overrides: [
+      {
+        files: ["**/ModelViewer/**/*.{ts,tsx}"],
+        rules: {
+          "react/no-unknown-property": [
+            "error",
+            {
+              ignore: [
+                // R3F/three props
+                "args",
+                "attach",
+                "position",
+                "rotation",
+                "scale",
+                "intensity",
+                "color",
+                "fov",
+                "near",
+                "far",
+                "castShadow",
+                "receiveShadow",
+                "toneMapping",
+                "object",
+                "map",
+                "roughness",
+                "metalness",
+                "envMap",
+                "preset",
+                "makeDefault",
+              ],
+            },
+          ],
+        },
+      },
+    ],
+  },
 ];

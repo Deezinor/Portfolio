@@ -1,0 +1,18 @@
+type: <feat|fix|refactor|style|docs|chore|test|perf>: <short summary>
+
+Description (optional):
+- Why was this change made?
+- What problem does it solve?
+- Notes/side effects:
+
+
+ Types:
+   feat     - new feature
+   fix      - bug fix
+   refactor - code improvement (no behaviour change)
+   style    - formatting or UI-only changes
+   docs     - documentation updates
+   chore    - maintenance/config updates
+   test     - adding or updating tests
+#
+# Lines starting with # are ignored when you commit.
