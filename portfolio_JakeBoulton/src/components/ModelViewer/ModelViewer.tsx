@@ -32,19 +32,37 @@ function resolveSrc(src: string) {
   return `${base}${src.replace(/^\//, "")}`;
 }
 
-function GLTFModel({ url, scale = 1 }: { url: string; scale?: number }) {
+function GLTFModel({
+  url,
+  scale = 1,
+  wireframe = false,
+}: {
+  url: string;
+  scale?: number;
+  wireframe?: boolean;
+}) {
   const gltf = useGLTF(url, true);
+
   useMemo(() => {
     gltf.scene.traverse((obj: THREE.Object3D) => {
       if ((obj as THREE.Mesh).isMesh) {
         const m = obj as THREE.Mesh;
-        m.castShadow = false;
-        m.receiveShadow = false;
+        const mat = m.material as THREE.Material | THREE.Material[];
+        if (Array.isArray(mat)) {
+          mat.forEach(
+            (m) => ((m as THREE.MeshStandardMaterial).wireframe = wireframe)
+          );
+        } else {
+          (mat as THREE.MeshStandardMaterial).wireframe = wireframe;
+        }
+        //m.castShadow = false;
+        //m.receiveShadow = false;
         // Optional: ensure frustum cull sane for tiny/huge models
         // m.frustumCulled = true;
       }
     });
-  }, [gltf]);
+  }, [gltf, wireframe]);
+
   // eslint-disable-next-line react/no-unknown-property
   return <primitive object={gltf.scene} scale={scale} />;
 }
@@ -57,6 +75,8 @@ export default function ModelViewer({
   className = "w-full h-80 md:h-[60vh]",
 }: Props) {
   const url = resolveSrc(src);
+
+  const [isWireframe, setWireframe] = React.useState(false);
 
   return (
     <div
@@ -75,15 +95,25 @@ export default function ModelViewer({
           {/* Fit camera to model bounds regardless of model size */}
           <Bounds fit clip observe margin={1.5}>
             <Center>
-              <GLTFModel url={url} scale={scale} />
+              <GLTFModel url={url} scale={scale} wireframe={isWireframe} />
             </Center>
           </Bounds>
           <OrbitControls
             makeDefault
             enableDamping
             dampingFactor={0.05}
+            enablePan={true}
+            panSpeed={0.8}
             autoRotate={autoRotate}
             autoRotateSpeed={0.5}
+            mouseButtons={{
+              LEFT: THREE.MOUSE.ROTATE,
+              RIGHT: THREE.MOUSE.PAN,
+            }}
+            touches={{
+              ONE: THREE.TOUCH.ROTATE,
+              TWO: THREE.TOUCH.PAN,
+            }}
           />
         </Suspense>
       </Canvas>
@@ -91,6 +121,12 @@ export default function ModelViewer({
       <div className="pointer-events-none absolute bottom-2 right-3 text-xs text-zinc-500">
         Drag to orbit • Scroll to zoom
       </div>
+      <button
+        onClick={() => setWireframe((w) => !w)}
+        className="absolute bottom-7 right-2 rounded bg-white/80 px-3 py-1 text-xs font-medium text-zinc-700 border border-zinc-300 hover:bg-white"
+      >
+        {isWireframe ? "Shaded" : "Wireframe"}
+      </button>
     </div>
   );
 }
