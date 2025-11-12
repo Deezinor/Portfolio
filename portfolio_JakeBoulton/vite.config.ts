@@ -17,26 +17,28 @@
 //     }
 //   }
 // })
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { VitePWA } from 'vite-plugin-pwa';
-import viteCompression from 'vite-plugin-compression';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
+import { VitePWA } from "vite-plugin-pwa";
+import viteCompression from "vite-plugin-compression";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: "/",
   plugins: [
     react(),
     tsconfigPaths(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: "autoUpdate",
       manifest: {
-        name: 'Jake Boulton',
-        short_name: 'Portfolio',
-        description: 'Portfolio of Jake Boulton, a designer and problem solver.',
-        theme_color: '#ffffff',
+        name: "Jake Boulton",
+        short_name: "Portfolio",
+        description:
+          "Portfolio of Jake Boulton, a designer and problem solver.",
+        theme_color: "#ffffff",
         // // icons: [
         // //   {
         // //     src: '/pwa-192x192.png',
@@ -67,13 +69,22 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
   build: {
     sourcemap: true, // Enable source maps for better debugging
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+          if (id.includes("node_modules")) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
           }
         },
       },

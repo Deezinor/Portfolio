@@ -9,6 +9,11 @@
     "strict": true,
     "target": "ESNext",
     "module": "ESNext",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "skipLibCheck": true
   }
 }
