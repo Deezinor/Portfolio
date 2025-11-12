@@ -1,5 +1,5 @@
 // src/components/MediaGallery.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import {
   IoMdArrowDroprightCircle,
@@ -8,7 +8,7 @@ import {
 import { IoIosCloseCircle } from "react-icons/io";
 
 export type MediaItem = {
-  type: "image" | "video" | "iframe";
+  type: "image" | "video" | "iframe" | "model";
   src: string;
   caption?: string;
 };

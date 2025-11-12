@@ -1,6 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 
+// ===== External components =====
 import Header from "./Header-Components/header";
 import {
   IoMdArrowDroprightCircle,
@@ -9,10 +11,12 @@ import {
 import { IoIosCloseCircle } from "react-icons/io";
 import clsx from "clsx";
 
-interface MediaItem {
-  type: "image" | "video" | "iframe";
-  src: string;
-}
+// ===== Custom components =====
+import ModelViewer from "./ModelViewer/ModelViewer";
+import DebugViewer from "./ModelViewer/DebugViewer";
+import type { MediaItem, ImageItem } from "../types/media";
+import { div } from "three/tsl";
+
 
 interface ProjectTemplateProps {
   title: string;
@@ -54,17 +58,15 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
 
   const nextImage = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((prevIndex) => {
-        return (prevIndex! + 1) % media.length;
-      });
+      setSelectedIndex((prevIndex) => (prevIndex! + 1) % media.length);
     }
   };
 
   const prevImage = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((prevIndex) => {
-        return (prevIndex! - 1 + media.length) % media.length;
-      });
+      setSelectedIndex(
+        (prevIndex) => (prevIndex! - 1 + media.length) % media.length
+      );
     }
   };
 
@@ -76,19 +78,16 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
 
   useEffect(() => {
     if (!isOpen) return;
-
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeModal();
       else if (event.key === "ArrowRight") nextImage();
       else if (event.key === "ArrowLeft") prevImage();
     };
-
     document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      return document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, nextImage, prevImage]);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
+  // Render a model when item.type === "model"
   const renderMediaContent = (item: MediaItem, index: number) => {
     if (item.type === "image") {
       return (
@@ -100,6 +99,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
         />
       );
     }
+
     if (item.type === "video") {
       return (
         <video controls className="w-full h-auto block">
@@ -108,7 +108,22 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
         </video>
       );
     }
-    // iframe — give it a natural height via aspect ratio wrapper
+
+    if (item.type === "model") {
+      return (
+        <div className={item.tailwindHeightClass ?? "w-full h-[60vh]"}>
+          <ModelViewer
+            src={item.src}
+            envPreset={item.envPreset ?? "city"}
+            autoRotate={item.autoRotate ?? false}
+            className="w-full h-full rounded-lg"
+          />
+        </div>
+        // <div className={item.tailwindHeightClass ?? "w-full h-[60vh]"}><DebugViewer /></div>
+      );
+    }
+
+    // iframe — keep the 16:9 wrapper
     return (
       <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
         <iframe
@@ -202,7 +217,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
         </div>
       </section>
 
-      {/* Media (Single centers, Multiple = masonry/bento via CSS columns) */}
+      {/* Media (Single centres; Multiple = masonry/bento via CSS columns) */}
       <section className="section">
         {media.length === 1 ? (
           <div className="w-full md:w-3/4 mx-auto mt-12 flex justify-center">
@@ -222,9 +237,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
                     className={`mb-4 break-inside-avoid rounded-lg overflow-hidden hover:-translate-y-1 hover:shadow-md hover:shadow-gray-400 ${
                       clickable ? "cursor-pointer" : ""
                     }`}
-                    onClick={() => {
-                      return clickable && openModal(index);
-                    }}
+                    onClick={() => clickable && openModal(index)}
                   >
                     {renderMediaContent(item, index)}
                   </div>
@@ -235,34 +248,36 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
         )}
       </section>
 
-      {/* Lightbox Modal with Navigation */}
-      {isOpen && selectedIndex !== null && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
-          {...swipeHandlers}
-        >
-          <IoIosCloseCircle
-            className="absolute top-6 right-6 sm:top-10 sm:right-10 md:top-16 md:right-16 text-white text-4xl cursor-pointer"
-            onClick={closeModal}
-          />
+      {/* Lightbox Modal with Navigation (images only) */}
+      {isOpen &&
+        selectedIndex !== null &&
+        media[selectedIndex]?.type === "image" && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center z-50"
+            {...swipeHandlers}
+          >
+            <IoIosCloseCircle
+              className="absolute top-6 right-6 sm:top-10 sm:right-10 md:top-16 md:right-16 text-white text-4xl cursor-pointer"
+              onClick={closeModal}
+            />
 
-          <IoMdArrowDropleftCircle
-            className="hidden lg:flex absolute left-10 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
-            onClick={prevImage}
-          />
+            <IoMdArrowDropleftCircle
+              className="hidden lg:flex absolute left-10 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
+              onClick={prevImage}
+            />
 
-          <img
-            src={media[selectedIndex].src}
-            alt="Enlarged media"
-            className="max-w-[90vw] max-h-[80vh] object-contain"
-          />
+            <img
+              src={(media[selectedIndex] as ImageItem).src}
+              alt="Enlarged media"
+              className="max-w-[90vw] max-h-[80vh] object-contain"
+            />
 
-          <IoMdArrowDroprightCircle
-            className="hidden lg:flex absolute right-10 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
-            onClick={nextImage}
-          />
-        </div>
-      )}
+            <IoMdArrowDroprightCircle
+              className="hidden lg:flex absolute right-10 top-1/2 transform -translate-y-1/2 text-white text-4xl cursor-pointer"
+              onClick={nextImage}
+            />
+          </div>
+        )}
     </>
   );
 };
