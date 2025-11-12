@@ -130,3 +130,16 @@ export default function ModelViewer({
     </div>
   );
 }
+
+// Usage example:
+// import ModelViewer from "../components/ModelViewer/ModelViewer";
+//
+// <div>
+//   <ModelViewer
+//     src="./Assets/Models/TA_001-BambuLab_P1S_Model_V1.glb" // swap at runtime
+//     envPreset="city"
+//     //autoRotate
+//     scale={1}
+//     className="w-full h-[60vh]"
+//   />
+// </div>;
