@@ -14,21 +14,64 @@ interface InfoProps {
 function InfoRow({ label, value }: InfoProps) {
   return (
     <div className="flex items-baseline gap-2">
-      <h3 className="heading-h5 font-semibold leading-tight">{label}</h3>
-      <p className="text-base leading-tight text-gray-600">{value}</p>
+      <h3 className="heading-h6 font-semibold leading-tight">{label}</h3>
+      <p className="text-l leading-tight text-gray-700">{value}</p>
     </div>
   );
 }
 
 interface BreakdownProps {
-  imageUrl: string;
-  content?: string;
+  images: string[];
+  content?: React.ReactNode;
+  useGallery?: boolean;
+  imageSize?: string;
 }
-function ProcessBreakdownEntry({ imageUrl, content }: BreakdownProps) {
+function ProcessBreakdownEntry({
+  images = [],
+  content,
+  useGallery,
+  imageSize = "",
+}: BreakdownProps) {
+  const showGallery = useGallery && images.length > 0;
+
   return (
     <div className="p-4">
-      <img className="mb-2" src={imageUrl} alt="" />
-      {content && <p className="text-gray-600">{content}</p>}
+      {showGallery ? (
+        <MediaGallery
+          media={images.map((src) => {
+            return { type: "image", src };
+          })}
+        />
+      ) : (
+        images.length > 0 && (
+          <>
+            {images.length === 1 ? (
+              <img
+                src={images[0]}
+                alt=""
+                loading="lazy"
+                className={`${imageSize} "w-auto max-h-[80vh] rounded-lg object-cover mb-3"`}
+              />
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
+                {images.map((src, i) => {
+                  return (
+                    <img
+                      key={i}
+                      src={src}
+                      alt=""
+                      loading="lazy"
+                      className={`${imageSize}"w-full rounded-lg object-cover"`}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </>
+        )
+      )}
+
+      {content && <p className="mt-4 text-gray-600">{content}</p>}
     </div>
   );
 }
@@ -71,7 +114,7 @@ function Accordion({
                 return setOpen(isOpen ? null : i);
               }}
             >
-              <span className="pl-4 heading-h5">
+              <span className="pl-4 heading-h5 md:heading-h2">
                 {item.heading}
               </span>
               <svg
@@ -165,7 +208,7 @@ export default function ProjectPageTemplate({
 "
       >
         {/* Hero */}
-        <section className="section">
+        <section className="section px-6 md:px-2">
           <div className="container mx-auto mb-12">
             <h1 className="heading-h1">{title}</h1>
             {summary && <p className="mb-4">{summary}</p>}
@@ -180,9 +223,9 @@ export default function ProjectPageTemplate({
             )}
             {snapshot && snapshot.length > 0 && (
               <div className="flex flex-wrap items-end justify-between pt-8 gap-4">
-                {snapshot.map((item, i) => {return (
-                  <InfoRow key={i} {...item} />
-                )})}
+                {snapshot.map((item, i) => {
+                  return <InfoRow key={i} {...item} />;
+                })}
               </div>
             )}
           </div>
@@ -190,9 +233,11 @@ export default function ProjectPageTemplate({
 
         {/* Responsibilities */}
         {responsibilities?.length ? (
-          <section className="section">
+          <section className="section px-6 md:px-2">
             <div className="container mx-auto">
-              <h2 className="heading-h2 mb-2">Responsibilities</h2>
+              <h2 className="heading-h4 md:heading-h2 text-center mb-2">
+                Responsibilities
+              </h2>
               <ul className="list-disc pl-6 md:pl-12 space-y-1 text-gray-700">
                 {responsibilities.map((r, i) => {
                   return <li key={i}>{r}</li>;
@@ -204,9 +249,11 @@ export default function ProjectPageTemplate({
 
         {/* Process (Accordion) */}
         {process?.length ? (
-          <section className="section">
+          <section className="section px-6 md:px-2">
             <div className="container mx-auto">
-              <h2 className="heading-h2 mb-6">Process Breakdown</h2>
+              <h2 className="heading-h4 md:heading-h2 text-center mb-6">
+                Process Breakdown
+              </h2>
               <Accordion
                 defaultOpen={accordionDefaults.processOpen ?? 0}
                 items={process.map(({ heading, step }) => {
@@ -222,10 +269,12 @@ export default function ProjectPageTemplate({
 
         {/* Gallery */}
         {gallery?.length ? (
-          <section className="section">
+          <section className="section px-6 md:px-2">
             <div className="container mx-auto">
               <div className="flex justify-center mb-2">
-                <h2 className="heading-h2">{galleryTitle}</h2>
+                <h2 className="heading-h4 md:heading-h2 text-center">
+                  {galleryTitle}
+                </h2>
               </div>
               <MediaGallery media={gallery} />
             </div>
@@ -234,19 +283,25 @@ export default function ProjectPageTemplate({
 
         {/* Reflection */}
         {reflection?.worked || reflection?.didnt || reflection?.next ? (
-          <section className="section">
+          <section className="section px-6 md:px-2">
             <div className="container mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                 <div className="p-1 md:p-3 shadow-md shadow-gray-200 rounded-lg bg-white">
-                  <h3 className="heading-h3 mb-2">💬 What worked</h3>
+                  <h3 className="heading-h5 md:heading-h3 mb-2">
+                    💬 What worked
+                  </h3>
                   <p className="text-gray-600">{reflection?.worked}</p>
                 </div>
                 <div className="p-1 md:p-3 shadow-md shadow-gray-200 rounded-lg bg-white">
-                  <h3 className="heading-h3 mb-2">⚡ What didn&apos;t</h3>
+                  <h3 className="heading-h5 md:heading-h3 mb-2">
+                    ⚡ What didn&apos;t
+                  </h3>
                   <p className="text-gray-600">{reflection?.didnt}</p>
                 </div>
                 <div className="p-1 md:p-3 shadow-md shadow-gray-200 rounded-lg bg-white">
-                  <h3 className="heading-h3 mb-2">🚀 Next time</h3>
+                  <h3 className="heading-h5 md:heading-h3 mb-2">
+                    🚀 Next time
+                  </h3>
                   <p className="text-gray-600">{reflection?.next}</p>
                 </div>
               </div>
@@ -256,7 +311,7 @@ export default function ProjectPageTemplate({
 
         {/* Appendix */}
         {appendix?.length ? (
-          <section className="section">
+          <section className="section px-6 md:px-2">
             <div className="container mx-auto">
               <Accordion
                 defaultOpen={accordionDefaults.appendixOpen ?? null}

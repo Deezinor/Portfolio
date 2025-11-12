@@ -27,8 +27,8 @@ const data: ProjectPageData = {
       <p className="text-gray-600">
         <span className="font-medium">
           Authored performance budget and profiling plan
-        </span>
-        {" "}&#45;&#45; established clear targets for draw calls, texture memory, and
+        </span>{" "}
+        &#45;&#45; established clear targets for draw calls, texture memory, and
         frame time, enabling the team to make informed design and art decisions
         early in development.
       </p>
@@ -36,18 +36,76 @@ const data: ProjectPageData = {
   ],
 
   process: [
+    // Scene Design
     {
-      heading: "Early prototypes",
+      heading: "Scene Design",
       step: {
-        imageUrl: "https://placehold.co/800x600",
-        content: "Greybox kit, stick input mapping.",
+        images: ["./Assets/Images/Projects/BeatBox/BarScene.png"],
+        content: (
+          <>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>
+                Grey box each scene to get a sense of scale and atmosphere while
+                remaining time efficient
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </>
+        ),
       },
     },
+    // Asset Creation
     {
-      heading: "Iteration & feedback",
+      heading: "Asset Creation",
       step: {
-        imageUrl: "https://placehold.co/800x600",
-        content: "Latency, hit windows, and comfort.",
+        images: [
+          "./Assets/Images/Projects/BeatBox/DrumStick_NoTexture.png",
+          "./Assets/Images/Projects/BeatBox/DrumStick_textured.png",
+          "./Assets/Images/Projects/BeatBox/DrumKit-NoTexture.png",
+        ],
+        content: (
+          <ul className="list-disc pl-5 space-y-1">
+            <li>
+              Modelled and textured drum kit and accessories using{" "}
+              <span className="font-bold">Blender</span> and exporting into{" "}
+              <span className="font-bold">Unity</span> as{" "}
+              <span className="font-bold">FBXs files</span>.
+            </li>
+            <li>
+              Textures were created in{" "}
+              <span className="font-bold">Adobe Substance painter</span>.
+            </li>
+            <li>
+              For the sticks trying to maintain a polycount lower that{" "}
+              <span className="font-bold">400 Triangles</span> as it is hero
+              asset but a simple geometry.
+            </li>
+          </ul>
+        ),
+        useGallery: true,
+      },
+    },
+    // Multi-texture Kit
+    {
+      heading: "Multi-texture Kit",
+      step: {
+        images: ["./Assets/Images/Projects/BeatBox/TextureAtlas.png"],
+        content: <></>,
+      },
+    },
+    // Scene lighting
+    {
+      heading: "Scene Lighting",
+      step: {
+        images: ["./Assets/Images/Projects/BeatBox/BarSceneRender.png"],
+        content: (
+          <ul className="list-disc pl-5 space-y-1">
+            <li></li>
+          </ul>
+        ),
       },
     },
   ],
@@ -55,16 +113,17 @@ const data: ProjectPageData = {
   gallery: [
     {
       type: "image",
-      src: "https://placehold.co/1200x800",
-      caption: "Gameplay mock",
+      src: "./Assets/Images/Projects/BeatBox/BBVR-customize_environment.gif",
+      caption: "Customise Environment" ,
     },
     {
       type: "image",
-      src: "https://placehold.co/800x1200",
-      caption: "UI concept",
+      src: "./Assets/Images/Projects/BeatBox/DrumStick_NoTexture.png",
+      caption: "",
+      imageSize: "max-h-60",
     },
     { type: "video", src: "/Assets/Videos/demo.mp4" },
-    { type: "iframe", src: "https://www.youtube.com/embed/dQw4w9WgXcQ" },
+    { type: "iframe", src: "https://www.youtube.com/embed/dQw4w9WgXcQ"},
   ],
   galleryTitle: "Project Gallery",
 
@@ -94,7 +153,6 @@ const data: ProjectPageData = {
       ),
     },
   ],
-  appendixTitle: "Technical Appendix",
 };
 
 export default function BeatBoxPage() {
