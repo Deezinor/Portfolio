@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
           <div>
             <p className="max-w-[40ch]">
               Please feel free to contact using the details below if you wish to
-              discuss job offer or future projects.
+              discuss job offers or future projects.
             </p>
           </div>
           <div>
