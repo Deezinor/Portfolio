@@ -41,9 +41,9 @@ const data = {
       <span className="font-medium text-gray-950">BeatBox Studio</span> is a VR
       drumming simulator and educational platform, offering free-play,
       structured lessons, and rhythm-based game modes for players of all skill
-      levels. 
-      <br/>
-      <br/>
+      levels.
+      <br />
+      <br />
       Contact me for updates on project&apos;s status and future plans.
     </>
   ),
@@ -108,17 +108,13 @@ const data = {
     </>
   ),
   awards: (
-      <>
-        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
-          <li>
-            Jury Prize - Innovate immersive Tech Awards 2024
-          </li>
-          <li>
-            Finalist - AWE Europe Start-Up Pitch Competition 2024
-          </li>
-        </ul>
-      </>
-    ),
+    <>
+      <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
+        <li>Jury Prize - Innovate immersive Tech Awards 2024</li>
+        <li>Finalist - AWE Europe Start-Up Pitch Competition 2024</li>
+      </ul>
+    </>
+  ),
   projectLogo: "./Assets/Images/Projects/BeatBox/BBVR-logo.gif",
   media: media, // Assign the explicitly typed media array
 };

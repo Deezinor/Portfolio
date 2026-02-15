@@ -143,9 +143,7 @@ const CV: React.FC = () => {
             Executed the full pipeline independently—from modelling and
             texturing to final post-production.
           </li>
-          <li>
-            Tools: Blender, Substance Painter, DaVinci Resolve
-          </li>
+          <li>Tools: Blender, Substance Painter, DaVinci Resolve</li>
         </ul>
       </>
     ),

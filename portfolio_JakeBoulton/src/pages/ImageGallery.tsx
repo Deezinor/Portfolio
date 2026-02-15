@@ -37,8 +37,8 @@ const ImageGallery: React.FC = () => {
             new Set(
               imagesWithPath.flatMap((img) => {
                 return img.category;
-              })
-            )
+              }),
+            ),
           ),
         ];
 
@@ -56,7 +56,7 @@ const ImageGallery: React.FC = () => {
         ? images
         : images.filter((image) => {
             return image.category.includes(category);
-          })
+          }),
     );
   };
 

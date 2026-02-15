@@ -134,7 +134,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
             alt={`logo for ${title}`}
             className={clsx(
               "h-auto max-h-[50vh] max-w-full rounded-lg",
-              backgroundBoolean
+              backgroundBoolean,
             )}
           />
         </div>

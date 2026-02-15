@@ -99,25 +99,37 @@ body {
 
 @layer utilities {
   @keyframes slideUpSoft {
-    0%   { transform: translateY(80px); }
-    5%   { transform: translateY(80px); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(80px);
+    }
+    5% {
+      transform: translateY(80px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 
   @keyframes fadeInSoft {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   /* Combines both: slower, deliberate slide + gentle fade */
   .animate-card-in {
     animation:
       slideUpSoft 1.4s cubic-bezier(0.19, 1, 0.22, 1) both,
-      fadeInSoft  1.2s linear both;
+      fadeInSoft 1.2s linear both;
   }
 
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .animate-card-in { animation: none !important; }
+    .animate-card-in {
+      animation: none !important;
+    }
   }
 }

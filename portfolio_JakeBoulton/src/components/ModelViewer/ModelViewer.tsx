@@ -50,7 +50,7 @@ function GLTFModel({
         const mat = m.material as THREE.Material | THREE.Material[];
         if (Array.isArray(mat)) {
           mat.forEach(
-            (m) => ((m as THREE.MeshStandardMaterial).wireframe = wireframe)
+            (m) => ((m as THREE.MeshStandardMaterial).wireframe = wireframe),
           );
         } else {
           (mat as THREE.MeshStandardMaterial).wireframe = wireframe;

@@ -41,28 +41,36 @@ const HamburgerMenu: React.FC = () => {
       >
         <Link
           to="/"
-          onClick={() => {return setIsOpen(false)}}
+          onClick={() => {
+            return setIsOpen(false);
+          }}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Home
         </Link>
         <Link
           to="/projects"
-          onClick={() => {return setIsOpen(false)}}
+          onClick={() => {
+            return setIsOpen(false);
+          }}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Projects
         </Link>
         <Link
           to="/about"
-          onClick={() => {return setIsOpen(false)}}
+          onClick={() => {
+            return setIsOpen(false);
+          }}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           About
         </Link>
         <Link
           to="https://almostmakessense.blog"
-          onClick={() => {return setIsOpen(false)}}
+          onClick={() => {
+            return setIsOpen(false);
+          }}
           className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
         >
           Blog

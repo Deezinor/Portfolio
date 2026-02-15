@@ -2,9 +2,9 @@ import React from "react";
 import ProjectTemplate from "../../../components/ProjectTemplate";
 
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
 ];
 
 const Habibi: React.FC = () => {

@@ -1,107 +1,73 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
-import Layout from "./components/Layout";
+import { Layout, ErrorBoundary } from "./components";
 
-// Eager-loaded core pages (fast initial load)
+// Eager-loaded core pages
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+import Work from "./pages/Work";
+import Process from "./pages/Process";
+import About from "./pages/About";
 import Contact from "./pages/contact";
-import Gallery from "./pages/ImageGallery";
 
-// Lazy-loaded pages (only loaded when visited)
-const Beatbox = lazy(() => {
-  return import("./pages/projects/XR/BeatBox");
+// Lazy-loaded pages
+const ProjectDetail = lazy(() => {
+  return import("./pages/ProjectDetail");
 });
-const Habibi = lazy(() => {
-  return import("./pages/projects/XR/Habibi");
-});
-const Altilium = lazy(() => {
-  return import("./pages/projects/Product Design/Altilium");
-});
-const Midnight_at_the_Pagoda = lazy(() => {
-  return import("./pages/projects/XR/Midnight_at_the_Pagoda");
-});
-const GoFish = lazy(() => {
-  return import("./pages/projects/XR/GoFish");
-});
-const CaspianHouse = lazy(() => {
-  return import("./pages/projects/Archviz/CaspianHouse");
-});
-const Mon58 = lazy(() => {
-  return import("./pages/projects/Archviz/Mon58");
-});
-const GS_Weapons = lazy(() => {
-  return import("./pages/projects/3D Art/Goldsmiths_weapons");
-});
-const SavernakeKnife = lazy(() => {
-  return import("./pages/projects/3D Art/Savernake");
+const NotFound = lazy(() => {
+  return import("./pages/NotFound");
 });
 
-const CV = lazy(() => {
-  return import("./pages/CV");
-});
-const NotFoundPage = lazy(() => {
-  return import("./pages/404");
+// Legacy routes (for backward compatibility - will redirect)
+const LegacyProjectRoutes = lazy(() => {
+  return import("./components/LegacyRedirect");
 });
 
 const App: React.FC = () => {
-  
-  useEffect(() => {
-    const savedPosition = sessionStorage.getItem("scrollPosition");
-    if (savedPosition) {
-      window.scrollTo(0, parseInt(savedPosition, 10));
-      sessionStorage.removeItem("scrollPosition");
-    } else {
-      window.scrollTo(0, 0);
-    }
-
-    const saveScrollPosition = () => {
-      sessionStorage.setItem("scrollPosition", window.scrollY.toString());
-    };
-
-    window.addEventListener("beforeunload", saveScrollPosition);
-    return () => {
-      return window.removeEventListener("beforeunload", saveScrollPosition);
-    };
-  }, []);
   return (
     <Router>
       <ScrollToTop />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Layout>
-          <Routes>
-            {/* Eager-loaded pages */}
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/Gallery" element={<Gallery />} />
+      <ErrorBoundary>
+        <Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center">
+              Loading...
+            </div>
+          }
+        >
+          <Layout>
+            <Routes>
+              {/* Main Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/work" element={<Work />} />
+              <Route path="/work/:slug" element={<ProjectDetail />} />
+              <Route path="/process" element={<Process />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
 
-            {/* Lazy-Loaded Pages */}
-            {/* XR Projects */}
-            <Route path="/BeatBox" element={<Beatbox />} />
-            <Route
-              path="/Midnight_at_the_Pagoda"
-              element={<Midnight_at_the_Pagoda />}
-            />
-            <Route path="/Habibi" element={<Habibi />} />
-            <Route path="/Altilium" element={<Altilium />} />
-            <Route path="/GoFish" element={<GoFish />} />
+              {/* Legacy Redirects */}
+              <Route path="/projects" element={<Work />} />
+              <Route path="/BeatBox" element={<LegacyProjectRoutes />} />
+              <Route
+                path="/Midnight_at_the_Pagoda"
+                element={<LegacyProjectRoutes />}
+              />
+              <Route path="/Habibi" element={<LegacyProjectRoutes />} />
+              <Route path="/Altilium" element={<LegacyProjectRoutes />} />
+              <Route path="/GoFish" element={<LegacyProjectRoutes />} />
+              <Route path="/CaspianHouse" element={<LegacyProjectRoutes />} />
+              <Route path="/Mon58" element={<LegacyProjectRoutes />} />
+              <Route path="/GS_Weapons" element={<LegacyProjectRoutes />} />
+              <Route path="/SavernakeKnife" element={<LegacyProjectRoutes />} />
+              <Route path="/Gallery" element={<Work />} />
+              <Route path="/CV" element={<About />} />
 
-            {/* Archviz Projects */}
-            <Route path="/CaspianHouse" element={<CaspianHouse />} />
-            <Route path="/Mon58" element={<Mon58 />} />
-
-            {/* 3D Art Project */}
-            <Route path="/GS_Weapons" element={<GS_Weapons />} />
-            <Route path="/SavernakeKnife" element={<SavernakeKnife />} />
-
-            {/* Other */}
-            <Route path="/CV" element={<CV />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Layout>
-      </Suspense>
+              {/* 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </Suspense>
+      </ErrorBoundary>
     </Router>
   );
 };
