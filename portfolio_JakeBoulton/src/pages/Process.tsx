@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, Section, ScrollReveal, Button } from "../components";
+import {
+  Container,
+  Section,
+  ScrollReveal,
+  Button,
+  ProcessDiagram,
+} from "../components";
 import { Link } from "react-router-dom";
 
 const pillars = [
@@ -52,10 +58,13 @@ const tools = [
   { category: "3D & Assets", items: ["Blender", "PiXYZ", "Maya", "Substance"] },
   {
     category: "XR & Dev",
-    items: ["Unity", "Unreal", "React Three Fiber", "WebXR"],
+    items: ["Unity", "Unreal", "XR Interaction Toolkit", "Git"],
   },
-  { category: "AI & Automation", items: ["opencode", "Custom Scripts"] },
-  { category: "Code", items: ["TypeScript", "React", "Tailwind"] },
+  {
+    category: "AI & Automation",
+    items: ["opencode", "Custom Scripts", "n8n", "PAI"],
+  },
+  { category: "Code", items: ["TypeScript", "HTML", "Tailwind & CSS", "C#"] },
 ];
 
 const Process: React.FC = () => {
@@ -63,16 +72,16 @@ const Process: React.FC = () => {
     <>
       <Section spacing="large">
         <Container size="small">
-          <ScrollReveal>
+          <ScrollReveal priority>
             <h1 className="text-h1 uppercase tracking-tight mb-6">
               How I Work
             </h1>
           </ScrollReveal>
-          <ScrollReveal delay={0.1}>
+          <ScrollReveal priority delay={0.1}>
             <p className="text-body-lg text-muted">
               My approach combines technical expertise with creative
-              problem-solving to deliver optimised 3D assets and immersive
-              experiences.
+              problem-solving to deliver optimised 3D assets, Immersive
+              Experiences, and Efficient Workflow Tools.
             </p>
           </ScrollReveal>
         </Container>
@@ -133,8 +142,16 @@ const Process: React.FC = () => {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <div className="aspect-video bg-muted/20 border border-border flex items-center justify-center">
-                  <span className="text-muted">{pillar.title} Diagram</span>
+                <div className="bg-muted/10 border border-border h-full min-h-[280px] flex items-center justify-center p-4">
+                  <ProcessDiagram
+                    type={
+                      pillar.number === "01"
+                        ? "asset-optimisation"
+                        : pillar.number === "02"
+                          ? "experience-design"
+                          : "ai-workflow"
+                    }
+                  />
                 </div>
               </ScrollReveal>
             </div>
