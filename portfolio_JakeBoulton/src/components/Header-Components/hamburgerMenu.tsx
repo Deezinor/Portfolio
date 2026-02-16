@@ -9,14 +9,14 @@ const HamburgerMenu: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <>
       {/* Hamburger Icon */}
       <button
         onClick={toggleMenu}
         aria-label="Open menu"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
-        className="block md:hidden p-2 text-gray-700 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        className="block md:hidden p-2 text-muted hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <svg
           className="w-8 h-8"
@@ -34,35 +34,35 @@ const HamburgerMenu: React.FC = () => {
         </svg>
       </button>
 
-      {/* Navigation Menu */}
+      {/* Navigation Menu - Fixed overlay */}
       <div
         id="mobile-menu"
-        className={`absolute z-[999] right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 ${isOpen ? "block" : "hidden"}`}
+        className={`fixed z-[9999] top-[72px] right-0 left-0 mx-4 bg-background/98 backdrop-blur-md border border-border shadow-2xl rounded-lg py-4 ${isOpen ? "block" : "hidden"}`}
       >
         <Link
           to="/"
           onClick={() => {
             return setIsOpen(false);
           }}
-          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
+          className="block px-4 py-3 text-foreground hover:bg-muted/10 transition-colors"
         >
           Home
         </Link>
         <Link
-          to="/projects"
+          to="/work"
           onClick={() => {
             return setIsOpen(false);
           }}
-          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
+          className="block px-4 py-3 text-foreground hover:bg-muted/10 transition-colors"
         >
-          Projects
+          Work
         </Link>
         <Link
           to="/about"
           onClick={() => {
             return setIsOpen(false);
           }}
-          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
+          className="block px-4 py-3 text-foreground hover:bg-muted/10 transition-colors"
         >
           About
         </Link>
@@ -71,12 +71,21 @@ const HamburgerMenu: React.FC = () => {
           onClick={() => {
             return setIsOpen(false);
           }}
-          className="block px-4 py-2 text-gray-700 hover:underline hover:text-black"
+          className="block px-4 py-3 text-foreground hover:bg-muted/10 transition-colors"
         >
           Blog
         </Link>
+        <Link
+          to="/contact"
+          onClick={() => {
+            return setIsOpen(false);
+          }}
+          className="block px-4 py-3 text-foreground hover:bg-muted/10 transition-colors border-t border-border mt-2 pt-3"
+        >
+          Contact
+        </Link>
       </div>
-    </div>
+    </>
   );
 };
 

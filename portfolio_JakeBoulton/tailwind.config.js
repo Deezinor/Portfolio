@@ -13,22 +13,10 @@ export default {
     extend: {
       colors: {
         accent: "#E56B5D",
-        background: {
-          DEFAULT: "#FAFAFA",
-          dark: "#0A0A0A",
-        },
-        foreground: {
-          DEFAULT: "#1A1A1A",
-          dark: "#F5F5F5",
-        },
-        muted: {
-          DEFAULT: "#6B6B6B",
-          dark: "#999999",
-        },
-        border: {
-          DEFAULT: "#E5E5E5",
-          dark: "#2A2A2A",
-        },
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
       },
       fontFamily: {
         barlow: ['"Barlow"', ...defaultTheme.fontFamily.sans],

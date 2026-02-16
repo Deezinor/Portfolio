@@ -86,7 +86,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
       {/* Mobile text */}
       <div className="mx-auto text-center lg:hidden">
         <h3 className="mt-4 text-lg font-bold">{title}</h3>
-        <p className="text-base text-gray-600">{description}</p>
+        <p className="text-base text-muted">{description}</p>
       </div>
     </Link>
   );

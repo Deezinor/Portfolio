@@ -4,8 +4,8 @@ import React from "react";
 
 const Header: React.FC = () => {
   const baseClasses =
-    "hover:text-black transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black";
-  const activeClasses = "text-black border-b-2 border-accent pb-1";
+    "hover:text-foreground transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+  const activeClasses = "text-foreground border-b-2 border-accent pb-1";
 
   return (
     <header className="container mx-auto" id="header">
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase text-gray-600">
+        <div className="hidden md:flex md:gap-6 lg:gap-12 items-center text-base uppercase text-muted">
           <NavLink
             to="/"
             end

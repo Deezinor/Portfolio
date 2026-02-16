@@ -326,7 +326,7 @@ const CV: React.FC = () => {
   return (
     <>
       <Header />
-      <section className="container mx-auto bg-white" ref={contentRef}>
+      <section className="container mx-auto bg-background" ref={contentRef}>
         {/* "Header" */}
         <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto px-5 gap-3">
           <div className="flex flex-wrap items-end">

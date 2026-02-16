@@ -40,19 +40,19 @@ const GoFish: React.FC = () => {
       <>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <span className="font-medium text-black">UX Design:</span> I created
-            intuitive interfaces and interaction designs to ensure seamless and
-            engaging gameplay in the mixed reality environment.
+            <span className="font-medium text-foreground">UX Design:</span> I
+            created intuitive interfaces and interaction designs to ensure
+            seamless and engaging gameplay in the mixed reality environment.
           </li>
 
           <li>
-            <span className="font-medium text-black">2D/3D Art:</span> I
+            <span className="font-medium text-foreground">2D/3D Art:</span> I
             contributed to the artistic direction by designing both 2D and 3D
             assets for the project.
           </li>
 
           <li>
-            <span className="font-medium text-black">
+            <span className="font-medium text-foreground">
               Project Administration:
             </span>{" "}
             I managed administrative tasks, including maintaining the project on
@@ -61,8 +61,10 @@ const GoFish: React.FC = () => {
           </li>
 
           <li>
-            <span className="font-medium text-black">Concept Ideation:</span> I
-            worked closely with the team on brainstorming and ideation,
+            <span className="font-medium text-foreground">
+              Concept Ideation:
+            </span>{" "}
+            I worked closely with the team on brainstorming and ideation,
             introducing the overarching concept of developing a GoFish remake in
             XR, which was further refined and developed collaboratively.
           </li>
@@ -78,22 +80,22 @@ const GoFish: React.FC = () => {
     teamMembers: (
       <>
         Mai Ye{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Developer/Artist)
         </span>
         <br />
         Nathan Thomas-Benke{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Developer/Audio)
         </span>
         <br />
         Joshua Davies{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Lead Developer)
         </span>
         <br />
         Hwanjoon Jang{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Developer/QA)
         </span>
       </>
