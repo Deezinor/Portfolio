@@ -16,7 +16,9 @@
     team: string;
     featured: boolean;
 }
+
 export const projects: Project[] = [
+    // BeatBox
     {
         id: "beatbox",
         slug: "beatbox",
@@ -32,8 +34,26 @@ export const projects: Project[] = [
         roleDetails: ["Concept development", "3D asset creation", "Interaction design"],
         tools: ["Unity", "Blender", "Oculus SDK"],
         timeline: "6 months",
-        team: "Solo project",
+        team: "Group Project",
         featured: true,
     },
-    // Add all 8 projects here...
+    // Midnight
+    {
+        id: "midnight",
+        slug: "midnight",
+        title: "Midnight at the Pagoda",
+        category: "xr",
+        year: 2024,
+        thumbnail: "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene.png",
+        heroImage: "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Render.png",
+        description: "words god here...",
+        challenge: "Challange goes here...",
+        solution: "Solution goes here...",
+        role: "Lead XR Designer and Artist",
+        roleDetails: ["blah", "blah", "blah"],
+        tools: ["Unity", "Blender", "XR Interaction Toolkit"],
+        timeline: "3 months planning, Produced in 3 day hackathon",
+        team: "Joshua Davies, Hwanjoon Jang, Nathan Thomas-Benke, Mai Ye",
+        featured: true,
+    }
 ];
