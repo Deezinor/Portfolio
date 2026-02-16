@@ -754,9 +754,9 @@ const projects: Project[] = [
 
 **About Page:**
 
-- [ ] Write bio (2-3 paragraphs)
-- [ ] Prepare professional headshot
-- [ ] List work experience with dates
+- [x] Write bio (2-3 paragraphs)
+- [x] Prepare professional headshot
+- [x] List work experience with dates
 - [ ] List education
 - [ ] List any awards/recognition
 
