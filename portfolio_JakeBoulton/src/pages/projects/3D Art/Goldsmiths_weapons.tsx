@@ -138,7 +138,7 @@ const GS_Weapons: React.FC = () => {
         Concept art by Viviane Kosty{" "}
         <Link
           to="https://www.artstation.com/artwork/6OVeV"
-          className="underline hover:font-medium text-black"
+          className="underline hover:font-medium text-foreground"
         >
           found here
         </Link>

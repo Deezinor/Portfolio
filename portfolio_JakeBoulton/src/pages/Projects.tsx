@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
       description: "Product Modelling & Visualization | Blender",
       bgColor: "bg-black",
       link: "/SavernakeKnife",
-      extraClasses: "bg-contain"
+      extraClasses: "bg-contain",
     },
     // Goldsmiths Weapons Set
     {
@@ -86,7 +86,6 @@ const Projects: React.FC = () => {
       extraClasses: "bg-cover",
     },
 
-
     // Altilium
     {
       image: "./Assets/Images/Projects/Altilium-Logo.png",
@@ -104,7 +103,9 @@ const Projects: React.FC = () => {
       <Header />
       <section className="section container mx-auto mt-20 px-12" id="gallery">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl">Previous Projects</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl">
+            Previous Projects
+          </h1>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6">
           {projects.map((project, index) => {

@@ -134,7 +134,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
             alt={`logo for ${title}`}
             className={clsx(
               "h-auto max-h-[50vh] max-w-full rounded-lg",
-              backgroundBoolean
+              backgroundBoolean,
             )}
           />
         </div>
@@ -143,7 +143,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
           <h1 className="mb-2 text-4xl font-bold uppercase sm:text-5xl lg:text-6xl">
             {title}
           </h1>
-          <div className="mb-8 text-base text-gray-500 sm:text-xl">
+          <div className="mb-8 text-base text-muted sm:text-xl">
             {projectDescription}
           </div>
         </div>
@@ -157,7 +157,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
               <h3 className="mb-2 w-full text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
                 ROLE: {roleTitle}
               </h3>
-              <div className="mb-8 w-full text-base text-gray-500 sm:text-xl">
+              <div className="mb-8 w-full text-base text-muted sm:text-xl">
                 {roleDescription}
               </div>
             </>
@@ -170,7 +170,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
               <h3 className="mb-1 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
                 Project Brief
               </h3>
-              <p className="mb-8 text-base text-gray-500 sm:text-xl">
+              <p className="mb-8 text-base text-muted sm:text-xl">
                 {projectBrief}
               </p>
             </>
@@ -183,7 +183,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({
               <h3 className="mb-1 text-2xl font-bold uppercase sm:text-3xl lg:text-4xl">
                 Team:
               </h3>
-              <p className="mb-8 text-base text-gray-500 sm:text-xl">
+              <p className="mb-8 text-base text-muted sm:text-xl">
                 {teamMembers}
               </p>
             </>

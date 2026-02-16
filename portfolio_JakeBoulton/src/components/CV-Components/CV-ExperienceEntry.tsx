@@ -46,25 +46,26 @@ const ExperienceEntry: React.FC<ExperienceEntryProp> = ({
 
         {/* Render flexible content: headings, paragraphs, and bullet lists */}
         <div className="mt-4 flex flex-col gap-3">
-          {description && description.map((section, index) => {
-            return (
-              <div key={index}>
-                {section.heading && (
-                  <h5 className="font-normal">{section.heading}</h5>
-                )}
-                {section.paragraph && (
-                  <p className="mt-0 text-sm">{section.paragraph}</p>
-                )}
-                {section.bullets && section.bullets.length > 0 && (
-                  <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
-                    {section.bullets.map((item, idx) => {
-                      return <li key={idx}>{item}</li>;
-                    })}
-                  </ul>
-                )}
-              </div>
-            );
-          })}
+          {description &&
+            description.map((section, index) => {
+              return (
+                <div key={index}>
+                  {section.heading && (
+                    <h5 className="font-normal">{section.heading}</h5>
+                  )}
+                  {section.paragraph && (
+                    <p className="mt-0 text-sm">{section.paragraph}</p>
+                  )}
+                  {section.bullets && section.bullets.length > 0 && (
+                    <ul className="list-disc ml-5 mt-2 flex flex-col gap-1 text-sm">
+                      {section.bullets.map((item, idx) => {
+                        return <li key={idx}>{item}</li>;
+                      })}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
         </div>
       </div>
     </>

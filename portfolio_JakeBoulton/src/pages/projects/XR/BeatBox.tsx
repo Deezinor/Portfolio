@@ -38,12 +38,12 @@ const data = {
   title: "BeatBox Studio",
   projectDescription: (
     <>
-      <span className="font-medium text-gray-950">BeatBox Studio</span> is a VR
-      drumming simulator and educational platform, offering free-play,
+      <span className="font-medium text-foreground">BeatBox Studio</span> is a
+      VR drumming simulator and educational platform, offering free-play,
       structured lessons, and rhythm-based game modes for players of all skill
-      levels. 
-      <br/>
-      <br/>
+      levels.
+      <br />
+      <br />
       Contact me for updates on project&apos;s status and future plans.
     </>
   ),
@@ -51,7 +51,7 @@ const data = {
   roleDescription: (
     <>
       In this project, I served as the{" "}
-      <span className="font-medium text-gray-950">
+      <span className="font-medium text-foreground">
         Lead Artist and Designer
       </span>
       , overseeing the development and integration of 3D modelling, UI, and UX
@@ -87,38 +87,34 @@ const data = {
   teamMembers: (
     <>
       Mai Ye{" "}
-      <span className="text-italic text-sm uppercase text-gray-400">
+      <span className="text-italic text-sm uppercase text-muted">
         (Developer/Artist)
       </span>
       <br />
       Nathan Thomas-Benke{" "}
-      <span className="text-italic text-sm uppercase text-gray-400">
+      <span className="text-italic text-sm uppercase text-muted">
         (Developer/Audio)
       </span>
       <br />
       Joshua Davies{" "}
-      <span className="text-italic text-sm uppercase text-gray-400">
+      <span className="text-italic text-sm uppercase text-muted">
         (Lead Developer)
       </span>
       <br />
       Hwanjoon Jang{" "}
-      <span className="text-italic text-sm uppercase text-gray-400">
+      <span className="text-italic text-sm uppercase text-muted">
         (Developer/QA)
       </span>
     </>
   ),
   awards: (
-      <>
-        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
-          <li>
-            Jury Prize - Innovate immersive Tech Awards 2024
-          </li>
-          <li>
-            Finalist - AWE Europe Start-Up Pitch Competition 2024
-          </li>
-        </ul>
-      </>
-    ),
+    <>
+      <ul className="text-lg/[1.75] text-muted list-disc pl-5 space-y-2">
+        <li>Jury Prize - Innovate immersive Tech Awards 2024</li>
+        <li>Finalist - AWE Europe Start-Up Pitch Competition 2024</li>
+      </ul>
+    </>
+  ),
   projectLogo: "./Assets/Images/Projects/BeatBox/BBVR-logo.gif",
   media: media, // Assign the explicitly typed media array
 };

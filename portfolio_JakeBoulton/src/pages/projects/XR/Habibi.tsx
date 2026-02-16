@@ -2,9 +2,9 @@ import React from "react";
 import ProjectTemplate from "../../../components/ProjectTemplate";
 
 const media: { type: "image" | "video" | "iframe"; src: string }[] = [
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
-//   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
+  //   { type: "image", src: "https://via.placeholder.com/600x400" },
 ];
 
 const Habibi: React.FC = () => {
@@ -37,29 +37,29 @@ const Habibi: React.FC = () => {
     teamMembers: (
       <>
         Mai Ye{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Developer/Artist)
         </span>
         <br />
         Mohamed El Eryan{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Video Production/UX Design)
         </span>
         <br />
         Joshua Davies{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Lead Developer)
         </span>
         <br />
         Hwanjoon Jang{" "}
-        <span className="text-italic text-sm uppercase text-gray-400">
+        <span className="text-italic text-sm uppercase text-muted">
           (Developer/QA)
         </span>
       </>
     ),
     awards: (
       <>
-        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
+        <ul className="text-lg/[1.75] text-muted list-disc pl-5 space-y-2">
           <li>Runner&apos;s Up - XR Hack Istanbul, Turkey 2024</li>
         </ul>
       </>

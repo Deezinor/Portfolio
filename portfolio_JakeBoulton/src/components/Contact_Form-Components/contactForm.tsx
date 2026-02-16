@@ -11,7 +11,7 @@ const ContactForm: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => {
@@ -34,7 +34,7 @@ const ContactForm: React.FC = () => {
           email: formData.email,
           message: formData.message,
         },
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY!,
       )
       .then(
         () => {
@@ -45,7 +45,7 @@ const ContactForm: React.FC = () => {
         (error) => {
           setIsLoading(false);
           setSuccessMessage(`Failed to send message: ${error.text}`);
-        }
+        },
       );
   };
 

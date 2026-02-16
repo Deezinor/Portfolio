@@ -37,8 +37,8 @@ const ImageGallery: React.FC = () => {
             new Set(
               imagesWithPath.flatMap((img) => {
                 return img.category;
-              })
-            )
+              }),
+            ),
           ),
         ];
 
@@ -56,7 +56,7 @@ const ImageGallery: React.FC = () => {
         ? images
         : images.filter((image) => {
             return image.category.includes(category);
-          })
+          }),
     );
   };
 
@@ -74,8 +74,8 @@ const ImageGallery: React.FC = () => {
                 key={category}
                 className={`px-4 py-2 rounded-lg shadow-md ${
                   activeCategory === category
-                    ? "bg-black text-white"
-                    : "bg-gray-200"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted"
                 }`}
                 onClick={() => {
                   return handleFilter(category);

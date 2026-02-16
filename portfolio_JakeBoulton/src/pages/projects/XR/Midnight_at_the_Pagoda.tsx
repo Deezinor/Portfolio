@@ -77,7 +77,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             scene assembly within Unity.
           </p>
 
-          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-black font-medium">
+          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-foreground font-medium">
             Process & Approach
           </h3>
           <p>
@@ -96,7 +96,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             fully textured scenes to refine the look and feel of the experience.
           </p>
 
-          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-black font-medium">
+          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-foreground font-medium">
             UX & Interaction Design
           </h3>
           <p>
@@ -128,7 +128,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             </li>
           </ul>
 
-          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-black font-medium">
+          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-foreground font-medium">
             Tools & Technologies
           </h3>
           <ul className="list-disc pl-5 space-y-2">
@@ -152,7 +152,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
             </li>
           </ul>
 
-          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-black font-medium">
+          <h3 className="mt-6 mb-1 uppercase text-2xl/[1.5] text-foreground font-medium">
             Challenges & Impact
           </h3>
           <p>
@@ -177,22 +177,22 @@ const Midnight_at_the_Pagoda: React.FC = () => {
       <>
         <div className="text-lg/[1.75]">
           Mai Ye{" "}
-          <span className="text-italic text-sm uppercase text-gray-400">
+          <span className="text-italic text-sm uppercase text-muted">
             (Developer/Artist)
           </span>
           <br />
           Nathan Thomas-Benke{" "}
-          <span className="text-italic text-sm uppercase text-gray-400">
+          <span className="text-italic text-sm uppercase text-muted">
             (Developer/Audio)
           </span>
           <br />
           Joshua Davies{" "}
-          <span className="text-italic text-sm uppercase text-gray-400">
+          <span className="text-italic text-sm uppercase text-muted">
             (Lead Developer)
           </span>
           <br />
           Hwanjoon Jang{" "}
-          <span className="text-italic text-sm uppercase text-gray-400">
+          <span className="text-italic text-sm uppercase text-muted">
             (Developer/QA)
           </span>
         </div>
@@ -200,7 +200,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
     ),
     awards: (
       <>
-        <ul className="text-lg/[1.75] text-gray-500 list-disc pl-5 space-y-2">
+        <ul className="text-lg/[1.75] text-muted list-disc pl-5 space-y-2">
           <li>
             Best Use of Technology at the Digital heritage Hackathon, Nanjing,
             China 2024
@@ -210,7 +210,7 @@ const Midnight_at_the_Pagoda: React.FC = () => {
     ),
     media: media,
     projectLogo: "./Assets/Images/Projects/Midnight_at_the_Pagoda-Logo.png",
-    backgroundBoolean: "bg-black",
+    backgroundBoolean: "bg-foreground",
   };
 
   return (

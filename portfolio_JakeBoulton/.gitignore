@@ -1,4 +1,4 @@
-# Logs
+# --- Logs ---
 logs
 *.log
 npm-debug.log*
@@ -7,19 +7,66 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# --- Builds & caches ---
 node_modules
 dist
 dist-ssr
 *.local
-.env
+.vite          # if you ever enable a custom cache dir
+.eslintcache
+coverage
+.next
+.vercel
+.netlify
 
-# Editor directories and files
+# --- Env & config you don’t want public ---
+.env
+.env.*.local
+
+# --- Editors ---
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# --- OS cruft ---
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+desktop.ini
+._*
+
+# --- Portfolio / assets hygiene ---
+# Raw/source DCC files live here and stay out of Git
+Assets/source/**
+# Keep a placeholder so the folder exists
+!Assets/source/.keep
+
+# Exclude huge/working renders/exports – publish final web assets elsewhere
+Assets/exports/**
+!Assets/exports/.keep
+Assets/renders/**
+!Assets/renders/.keep
+
+# 3D DCC & backup formats (don’t version these)
+*.blend1
+*.blend2
+*.blend@
+*.max
+*.ma
+*.mb
+*.psd
+*.psb
+*.kra
+*.xcf
+*.bak
+*.tmp
+
+# Optional: if you only want small, web-ready models in Git,
+# you can allow a lightweight demo folder and ignore the rest:
+# (uncomment these two lines if you adopt this pattern)
+# assets/models/**
+# !assets/models/demo/**
+
+# If you use image-based lighting, keep only final, *small* HDRIs
+# and ignore working files (EXR, massive HDRs, etc.)
+*.exr
+# keep: small .hdr if genuinely needed for the web build

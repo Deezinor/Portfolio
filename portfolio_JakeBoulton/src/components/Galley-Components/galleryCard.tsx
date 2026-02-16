@@ -42,11 +42,13 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(el);
-    return () => {return observer.disconnect()};
+    return () => {
+      return observer.disconnect();
+    };
   }, [disableAnimation]);
 
   return (
@@ -60,14 +62,14 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           "group relative mx-auto w-full aspect-[16/9] overflow-hidden rounded-lg",
           bgColor,
           !disableAnimation && !isVisible && "opacity-0 translate-y-10",
-          !disableAnimation && isVisible && "animate-card-in"
+          !disableAnimation && isVisible && "animate-card-in",
         )}
       >
         {/* Image */}
         <div
           className={clsx(
             "absolute inset-0 bg-center bg-no-repeat transition-transform duration-300 motion-reduce:transition-none motion-reduce:transform-none group-hover:scale-[1.02]",
-            extraClasses
+            extraClasses,
           )}
           style={{ backgroundImage: `url(${image})` }}
         />
@@ -84,7 +86,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
       {/* Mobile text */}
       <div className="mx-auto text-center lg:hidden">
         <h3 className="mt-4 text-lg font-bold">{title}</h3>
-        <p className="text-base text-gray-600">{description}</p>
+        <p className="text-base text-muted">{description}</p>
       </div>
     </Link>
   );

@@ -14,7 +14,8 @@ const Hero: React.FC = () => {
     >
       <div className="container mx-auto px-5 lg:px-20">
         <h1 className="mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium">
-          Hi, I&apos;m Jake Boulton. <br /> 3D Artist, XR Designer and Problem Solver.
+          Hi, I&apos;m Jake Boulton. <br /> 3D Artist, XR Designer and Problem
+          Solver.
         </h1>
 
         {/* Image */}
@@ -27,9 +28,9 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Description */}
-        <p className="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl">
-          I design User-Centred XR Experiences and Create & Optimise 3D Assets — from VR Applications to
-          Interactive Visualisations and Archviz.
+        <p className="max-w-3xl mx-auto text-muted text-base sm:text-lg md:text-xl">
+          I design User-Centred XR Experiences and Create & Optimise 3D Assets —
+          from VR Applications to Interactive Visualisations and Archviz.
         </p>
 
         {/* Call to Action Button */}

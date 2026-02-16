@@ -44,7 +44,10 @@ const Altilium: React.FC = () => {
     roleDescription: (
       <>
         <div>
-          <p>Responsible for the design, development, and visualisation of the product.</p>
+          <p>
+            Responsible for the design, development, and visualisation of the
+            product.
+          </p>
         </div>
       </>
     ),

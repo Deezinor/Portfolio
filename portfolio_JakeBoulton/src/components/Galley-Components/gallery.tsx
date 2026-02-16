@@ -66,7 +66,9 @@ const Gallery: React.FC = () => {
         })}
       </div>
       <div className="flex justify-center  mt-10 md:mt-16">
-        <Link to="/projects" className="button button--black">View More</Link>
+        <Link to="/projects" className="button button--black">
+          View More
+        </Link>
       </div>
     </section>
   );
