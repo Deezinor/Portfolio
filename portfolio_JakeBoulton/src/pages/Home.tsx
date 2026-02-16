@@ -1,46 +1,51 @@
 import React from "react";
 import { Container, Section, ScrollReveal, Button } from "../components";
 import { Link } from "react-router-dom";
+import { projects } from "../data/Projects";
 
 const Home: React.FC = () => {
+  // Get featured projects (max 2)
+  const featuredProjects = projects
+    .filter((p) => {
+      return p.featured;
+    })
+    .slice(0, 2);
+
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Priority loading */}
       <Section spacing="large" className="flex items-center min-h-[80vh]">
         <Container>
-          <ScrollReveal>
-            <h1 className="text-hero font-semibold uppercase tracking-tight max-w-5xl mb-8">
-              I turn complex CAD and 3D models into XR-ready assets
-            </h1>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <p className="text-body-lg text-muted max-w-2xl mb-12">
-              High-fidelity visuals that run in real time. I also build AI
-              systems that make 3D development faster and smarter.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <Link to="/work">
-              <Button variant="primary" size="lg">
-                View Work →
-              </Button>
-            </Link>
-          </ScrollReveal>
+          {/* Hero content loads immediately without scroll animation */}
+          <h1 className="text-hero font-semibold uppercase tracking-tight max-w-5xl mb-8">
+            I turn complex CAD and 3D models into XR-ready assets
+          </h1>
+          <p className="text-body-lg text-muted max-w-2xl mb-12">
+            High-fidelity visuals that run in real time. I also build AI systems
+            that make 3D development faster and smarter.
+          </p>
+          <Link to="/work">
+            <Button variant="primary" size="lg">
+              View Work →
+            </Button>
+          </Link>
         </Container>
       </Section>
 
       {/* Introduction Section */}
       <Section>
         <Container size="small">
-          <ScrollReveal>
+          {/* Above-fold intro text */}
+          <ScrollReveal priority>
             <p className="text-h3 font-light mb-16">
-              I'm an XR Technical Artist specializing in asset optimisation,
-              experience design, and AI workflow efficiency.
+              I&apos;m an XR Technical Artist specializing in asset
+              optimisation, experience design, and AI workflow efficiency.
             </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            <ScrollReveal delay={0.1}>
+            {/* First pillar loads immediately */}
+            <ScrollReveal priority>
               <div className="border-t border-border pt-6">
                 <h3 className="text-h3 uppercase tracking-wider mb-4">
                   Asset Optimisation
@@ -52,7 +57,7 @@ const Home: React.FC = () => {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.2}>
+            <ScrollReveal delay={0.1}>
               <div className="border-t border-border pt-6">
                 <h3 className="text-h3 uppercase tracking-wider mb-4">
                   Experience Design
@@ -64,7 +69,7 @@ const Home: React.FC = () => {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
+            <ScrollReveal delay={0.1}>
               <div className="border-t border-border pt-6">
                 <h3 className="text-h3 uppercase tracking-wider mb-4">
                   AI Workflow
@@ -97,17 +102,50 @@ const Home: React.FC = () => {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Placeholder for featured projects */}
-            <ScrollReveal delay={0.1}>
-              <div className="aspect-video bg-muted/20 border border-border flex items-center justify-center">
-                <span className="text-muted">Project 1</span>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <div className="aspect-video bg-muted/20 border border-border flex items-center justify-center">
-                <span className="text-muted">Project 2</span>
-              </div>
-            </ScrollReveal>
+            {/* Featured projects */}
+            {featuredProjects.map((project, index) => {
+              return (
+                <ScrollReveal key={project.id} delay={index * 0.1}>
+                  <Link to={`/work/${project.slug}`} className="block group">
+                    <div className="aspect-video bg-muted/20 border border-border overflow-hidden">
+                      {project.thumbnail ? (
+                        <img
+                          src={project.thumbnail}
+                          alt={project.title}
+                          className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+                            project.thumbnailFit === "contain"
+                              ? "object-contain"
+                              : "object-cover"
+                          }`}
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-muted">{project.title}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="mt-3">
+                      <p className="text-caption uppercase tracking-wider text-muted">
+                        {project.category === "xr"
+                          ? "XR Experience"
+                          : project.category === "archviz"
+                            ? "Archviz"
+                            : project.category === "3d-art"
+                              ? "3D Art"
+                              : project.category === "product-design"
+                                ? "Product Design"
+                                : project.category}{" "}
+                        • {project.year}
+                      </p>
+                      <h3 className="text-h3 uppercase tracking-wider mt-1">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </Container>
       </Section>
@@ -132,14 +170,25 @@ const Home: React.FC = () => {
                 "opencode",
                 "TypeScript",
                 "Tailwind",
-              ].map((tool) => (
-                <span
-                  key={tool}
-                  className="px-4 py-2 border border-border text-sm uppercase tracking-wider text-muted"
-                >
-                  {tool}
-                </span>
-              ))}
+                "C#",
+                "Adobe Suite",
+                "Git/GitHub",
+                "Claude AI",
+                "Substance Painter",
+                "Figma",
+                "3DS Max",
+                "ComfyUI",
+                "DaVinci Resolve"  
+              ].map((tool) => {
+                return (
+                  <span
+                    key={tool}
+                    className="px-4 py-2 border border-border text-sm uppercase tracking-wider text-muted"
+                  >
+                    {tool}
+                  </span>
+                );
+              })}
             </div>
           </ScrollReveal>
         </Container>
@@ -150,21 +199,17 @@ const Home: React.FC = () => {
         <Container className="text-center">
           <ScrollReveal>
             <h2 className="text-h1 uppercase tracking-tight mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <p className="text-body-lg mb-8 max-w-xl mx-auto opacity-80">
-              Have a project in mind? I'd love to hear about it.
+              Have a project in mind? I&apos;d love to hear about it.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <Link to="/contact">
-              <Button
-                variant="secondary"
-                size="lg"
-                className="border-background text-background hover:bg-background hover:text-foreground"
-              >
+              <Button variant="accent" size="lg">
                 Get in Touch
               </Button>
             </Link>

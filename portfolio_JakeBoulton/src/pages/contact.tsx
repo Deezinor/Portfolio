@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Container, Section, ScrollReveal, Button } from "../components";
+import {
+  Container,
+  Section,
+  ScrollReveal,
+  Button,
+  Accordion,
+} from "../components";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -45,9 +51,10 @@ const Contact: React.FC = () => {
       return { ...prev, [name]: value };
     });
   };
+  let myEmail = "jboulton@proton.me";
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("jboultonwork@gmail.com");
+    navigator.clipboard.writeText(myEmail);
     // Could add toast notification here
   };
 
@@ -141,7 +148,11 @@ const Contact: React.FC = () => {
                       Asset Optimisation
                     </option>
                     <option value="xr-experience">XR Experience</option>
-                    <option value="ai-workflow">AI Workflow Consulting</option>
+                    <option value="xr-experience">3D Art</option>
+                    <option value="xr-experience">
+                      Product Design & Consulting
+                    </option>
+                    {/*<option value="ai-workflow">AI Workflow Consulting</option>*/}
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -219,7 +230,7 @@ const Contact: React.FC = () => {
                       onClick={copyEmail}
                       className="text-body hover:text-accent transition-colors"
                     >
-                      jboultonwork@gmail.com
+                      {myEmail}
                     </button>
                     <p className="text-small text-muted mt-1">Click to copy</p>
                   </div>
@@ -283,47 +294,27 @@ const Contact: React.FC = () => {
             </h2>
           </ScrollReveal>
 
-          <div className="space-y-8">
-            <ScrollReveal delay={0.1}>
-              <div className="border-t border-border pt-6">
-                <h3 className="text-h3 uppercase tracking-wider mb-3">
-                  What types of projects do you accept?
-                </h3>
-                <p className="text-body text-muted">
-                  I specialise in asset optimisation for XR, VR/AR experience
-                  design, and AI workflow consulting for 3D teams. I'm
-                  particularly interested in projects that push the boundaries
-                  of real-time 3D.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <div className="border-t border-border pt-6">
-                <h3 className="text-h3 uppercase tracking-wider mb-3">
-                  What's your typical process?
-                </h3>
-                <p className="text-body text-muted">
-                  I start with a discovery call to understand your needs, then
-                  provide a detailed proposal. Once approved, I work in
-                  iterative sprints with regular check-ins to ensure we're
-                  aligned.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.3}>
-              <div className="border-t border-border pt-6">
-                <h3 className="text-h3 uppercase tracking-wider mb-3">
-                  Do you work remotely?
-                </h3>
-                <p className="text-body text-muted">
-                  Yes, I work with clients globally. I collaborate effectively
-                  across time zones.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal delay={0.1}>
+            <Accordion
+              items={[
+                {
+                  question: "What types of projects do you accept?",
+                  answer:
+                    "I specialise in asset optimisation for XR, VR/AR experience design, and 3D art. I'm particularly interested in projects that push the boundaries of real-time 3D.",
+                },
+                {
+                  question: "What's your typical process?",
+                  answer:
+                    "I start with a discovery call to understand your needs, then provide a proposal and quote. Once approved, I work in iterative sprints with regular check-ins to ensure we're aligned.",
+                },
+                {
+                  question: "Do you work remotely?",
+                  answer:
+                    "Yes, I work with clients globally. I collaborate effectively across time zones and am comfortable with asynchronous communication.",
+                },
+              ]}
+            />
+          </ScrollReveal>
         </Container>
       </Section>
     </>

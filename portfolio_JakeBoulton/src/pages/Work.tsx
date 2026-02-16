@@ -1,66 +1,52 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Container, Section, ScrollReveal, Card } from "../components";
 import { Link } from "react-router-dom";
+import { projects } from "../data/Projects";
 
-const projects = [
-  {
-    id: 1,
-    title: "BeatBox",
-    category: "XR Experience",
-    year: "2024",
-    size: "large",
-  },
-  {
-    id: 2,
-    title: "Habibi",
-    category: "XR Experience",
-    year: "2024",
-    size: "small",
-  },
-  {
-    id: 3,
-    title: "Midnight at the Pagoda",
-    category: "XR Experience",
-    year: "2023",
-    size: "small",
-  },
-  {
-    id: 4,
-    title: "Altilium",
-    category: "Product Design",
-    year: "2023",
-    size: "wide",
-  },
-  {
-    id: 5,
-    title: "Caspian House",
-    category: "Archviz",
-    year: "2023",
-    size: "tall",
-  },
-  { id: 6, title: "Mon58", category: "Archviz", year: "2023", size: "small" },
-  {
-    id: 7,
-    title: "GS Weapons",
-    category: "3D Art",
-    year: "2023",
-    size: "large",
-  },
-  {
-    id: 8,
-    title: "Savernake Knife",
-    category: "3D Art",
-    year: "2023",
-    size: "small",
-  },
+const filters = [
+  { key: "all", label: "All" },
+  { key: "xr", label: "XR Experiences" },
+  { key: "asset-optimisation", label: "Asset Optimisation" },
+  { key: "archviz", label: "Archviz" },
+  { key: "3d-art", label: "3D Art" },
+  { key: "product-design", label: "Product Design" },
+];
+
+const categoryLabels: Record<string, string> = {
+  xr: "XR Experience",
+  "asset-optimisation": "Asset Optimisation",
+  archviz: "Archviz",
+  "3d-art": "3D Art",
+  "product-design": "Product Design",
+};
+
+// Define heights for masonry items (in pixels, will be converted to aspect ratios)
+const projectLayouts = [
+  { height: "large", aspect: "aspect-[4/5]" }, // Large - taller
+  { height: "small", aspect: "aspect-video" }, // Small - standard video
+  { height: "small", aspect: "aspect-video" }, // Small
+  { height: "wide", aspect: "aspect-[21/9]" }, // Wide - panoramic
+  { height: "tall", aspect: "aspect-[3/5]" }, // Tall - very tall
+  { height: "small", aspect: "aspect-video" }, // Small
+  { height: "large", aspect: "aspect-[4/5]" }, // Large
+  { height: "small", aspect: "aspect-video" }, // Small
 ];
 
 const Work: React.FC = () => {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filteredProjects = useMemo(() => {
+    return activeFilter === "all"
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
+  }, [activeFilter]);
+
   return (
     <>
       <Section spacing="large">
         <Container>
-          <ScrollReveal>
+          {/* Priority: Load immediately, no scroll animation */}
+          <ScrollReveal priority>
             <h1 className="text-h1 uppercase tracking-tight mb-4">
               Selected Work
             </h1>
@@ -74,71 +60,74 @@ const Work: React.FC = () => {
 
       <Section spacing="small">
         <Container>
-          {/* Filter Tabs */}
-          <ScrollReveal>
+          {/* Filter Tabs - Priority */}
+          <ScrollReveal priority>
             <div className="flex flex-wrap gap-4 mb-12">
-              {[
-                "All",
-                "XR Experiences",
-                "Asset Optimisation",
-                "Archviz",
-                "3D Art",
-              ].map((filter, index) => (
+              {filters.map((filter) => (
                 <button
-                  key={filter}
+                  key={filter.key}
+                  onClick={() => setActiveFilter(filter.key)}
                   className={`text-sm uppercase tracking-wider px-4 py-2 border transition-colors duration-200 ${
-                    index === 0
+                    activeFilter === filter.key
                       ? "border-foreground bg-foreground text-background"
                       : "border-border text-muted hover:border-foreground hover:text-foreground"
                   }`}
                 >
-                  {filter}
+                  {filter.label}
                 </button>
               ))}
             </div>
           </ScrollReveal>
 
-          {/* Bento Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {projects.map((project, index) => {
-              const sizeClasses = {
-                large: "md:col-span-2 md:row-span-2",
-                small: "md:col-span-1 md:row-span-1",
-                wide: "md:col-span-2 md:row-span-1",
-                tall: "md:col-span-1 md:row-span-2",
-              };
-
-              const aspectClasses = {
-                large: "aspect-square",
-                small: "aspect-video",
-                wide: "aspect-video",
-                tall: "aspect-[3/4]",
-              };
+          {/* Masonry Grid */}
+          <div
+            className="columns-1 md:columns-2 lg:columns-3 gap-6"
+            style={{ columnFill: "balance" }}
+          >
+            {filteredProjects.map((project, index) => {
+              const layout = projectLayouts[index % projectLayouts.length];
+              // First 3 items load immediately (above-fold), others animate
+              const isPriority = index < 3;
 
               return (
-                <ScrollReveal key={project.id} delay={index * 0.05}>
-                  <Link
-                    to={`/work/${project.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  >
-                    <Card
-                      className={
-                        sizeClasses[project.size as keyof typeof sizeClasses]
-                      }
-                    >
-                      <div
-                        className={`relative ${aspectClasses[project.size as keyof typeof aspectClasses]} bg-muted/20`}
-                      >
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-muted">{project.title}</span>
-                        </div>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent">
-                          <p className="text-caption uppercase tracking-wider text-muted mb-1">
-                            {project.category} • {project.year}
-                          </p>
-                          <h3 className="text-h3 uppercase tracking-wider">
-                            {project.title}
-                          </h3>
-                        </div>
+                <ScrollReveal
+                  key={project.id}
+                  priority={isPriority}
+                  delay={isPriority ? 0 : 0.05}
+                  className="break-inside-avoid mb-6"
+                >
+                  <Link to={`/work/${project.slug}`} className="block">
+                    <Card className="overflow-hidden" hover={true}>
+                      <div className={`relative ${layout.aspect} bg-muted/30`}>
+                        {project.thumbnail ? (
+                          <img
+                            src={project.thumbnail}
+                            alt={project.title}
+                            className={`absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+                              project.thumbnailFit === "contain"
+                                ? "object-contain"
+                                : "object-cover"
+                            }`}
+                            loading={isPriority ? "eager" : "lazy"}
+                            decoding={isPriority ? "sync" : "async"}
+                            style={{
+                              objectPosition:
+                                project.thumbnailPosition || "center center",
+                            }}
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center bg-muted/20">
+                            <span className="text-muted">{project.title}</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-4 border-t border-border">
+                        <p className="text-caption uppercase tracking-wider text-muted mb-1">
+                          {categoryLabels[project.category]} • {project.year}
+                        </p>
+                        <h3 className="text-h3 uppercase tracking-wider">
+                          {project.title}
+                        </h3>
                       </div>
                     </Card>
                   </Link>
@@ -146,6 +135,14 @@ const Work: React.FC = () => {
               );
             })}
           </div>
+
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-body text-muted">
+                No projects found in this category.
+              </p>
+            </div>
+          )}
         </Container>
       </Section>
     </>
