@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         {/* Image */}
         <div className="flex justify-center mb-8">
           <img
-            src="./Assets/Images/Jake_Boulton.JPG"
+            src="./Assets/Images/Jake_Boulton.jpg"
             alt="Jake Boulton wearing a graduation cap & gown and a blue suit."
             className="h-64 sm:h-72 md:h-80 lg:h-96 rounded-lg object-cover"
           />

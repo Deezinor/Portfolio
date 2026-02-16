@@ -331,7 +331,7 @@ const CV: React.FC = () => {
         <section className="flex flex-wrap justify-between items-center md:max-w-screen-md mx-auto px-5 gap-3">
           <div className="flex flex-wrap items-end">
             <img
-              src="./Assets/Images/Jake_Boulton.JPG"
+              src="./Assets/Images/Jake_Boulton.jpg"
               alt="Jake Boulton wearing a graduation cap & gown and a blue suit."
               className="mr-4 sm:h-auto sm:w-dvw md:h-32 md:w-auto"
             />

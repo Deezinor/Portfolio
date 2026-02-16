@@ -67,10 +67,15 @@ const About: React.FC = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             <ScrollReveal priority>
-              <div className="aspect-[3/4] bg-muted/20 border border-border flex items-center justify-center">
+              <div className="aspect-[3/4] bg-muted/20 border border-border flex items-center justify-center overflow-hidden">
                 <img
-                  src="/Assets/Images/Jake_Boulton.JPG"
-                  alt="Profile Photo"
+                  src="/Assets/Images/Jake_Boulton.jpg"
+                  alt="Jake Boulton - XR Technical Artist"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    console.error("Failed to load profile image:", e);
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
               </div>
             </ScrollReveal>
