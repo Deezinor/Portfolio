@@ -2,9 +2,11 @@ import React, { useState, useMemo } from "react";
 import { Container, Section, ScrollReveal, Card } from "../components";
 import { Link } from "react-router-dom";
 import { projects } from "../data/Projects";
+import { systemProjects } from "../data/SystemProjects";
 
 const filters = [
   { key: "all", label: "All" },
+  { key: "system", label: "Systems" },
   { key: "xr", label: "XR Experiences" },
   { key: "asset-optimisation", label: "Asset Optimisation" },
   { key: "archviz", label: "Archviz" },
@@ -13,6 +15,7 @@ const filters = [
 ];
 
 const categoryLabels: Record<string, string> = {
+  system: "System",
   xr: "XR Experience",
   "asset-optimisation": "Asset Optimisation",
   archviz: "Archviz",
@@ -36,9 +39,15 @@ const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredProjects = useMemo(() => {
-    return activeFilter === "all"
-      ? projects
-      : projects.filter((p) => p.category === activeFilter);
+    if (activeFilter === "all") {
+      return [...projects, ...systemProjects];
+    }
+    if (activeFilter === "system") {
+      return systemProjects;
+    }
+    return projects.filter((p) => {
+      return p.category === activeFilter;
+    });
   }, [activeFilter]);
 
   return (
@@ -63,19 +72,23 @@ const Work: React.FC = () => {
           {/* Filter Tabs - Priority */}
           <ScrollReveal priority>
             <div className="flex flex-wrap gap-4 mb-12">
-              {filters.map((filter) => (
-                <button
-                  key={filter.key}
-                  onClick={() => setActiveFilter(filter.key)}
-                  className={`text-sm uppercase tracking-wider px-4 py-2 border transition-colors duration-200 ${
-                    activeFilter === filter.key
-                      ? "border-foreground bg-foreground text-background"
-                      : "border-border text-muted hover:border-foreground hover:text-foreground"
-                  }`}
-                >
-                  {filter.label}
-                </button>
-              ))}
+              {filters.map((filter) => {
+                return (
+                  <button
+                    key={filter.key}
+                    onClick={() => {
+                      return setActiveFilter(filter.key);
+                    }}
+                    className={`text-sm uppercase tracking-wider px-4 py-2 border transition-colors duration-200 ${
+                      activeFilter === filter.key
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border text-muted hover:border-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {filter.label}
+                  </button>
+                );
+              })}
             </div>
           </ScrollReveal>
 
@@ -86,8 +99,8 @@ const Work: React.FC = () => {
           >
             {filteredProjects.map((project, index) => {
               const layout = projectLayouts[index % projectLayouts.length];
-              // First 3 items load immediately (above-fold), others animate
               const isPriority = index < 3;
+              const isSystemProject = "tagline" in project;
 
               return (
                 <ScrollReveal
@@ -123,11 +136,18 @@ const Work: React.FC = () => {
                       </div>
                       <div className="p-4 border-t border-border">
                         <p className="text-caption uppercase tracking-wider text-muted mb-1">
-                          {categoryLabels[project.category]} • {project.year}
+                          {isSystemProject
+                            ? "System"
+                            : `${categoryLabels[project.category]} • ${project.year}`}
                         </p>
                         <h3 className="text-h3 uppercase tracking-wider">
                           {project.title}
                         </h3>
+                        {isSystemProject && "tagline" in project && (
+                          <p className="text-sm text-muted mt-1 line-clamp-2">
+                            {(project as { tagline: string }).tagline}
+                          </p>
+                        )}
                       </div>
                     </Card>
                   </Link>
