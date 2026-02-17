@@ -43,8 +43,8 @@ const App: React.FC = () => {
 {/* Main Routes */}
               <Route path="/" element={<Home />} />
               <Route path="/work" element={<Work />} />
-              <Route path="/work/unity-workflow-ai-system" element={<SystemProjectTemplate />} />
-              <Route path="/work/:slug" element={<ProjectDetail />} />
+              <Route path="/work/:slug" element={<SystemProjectTemplate />} />
+              <Route path="/work-legacy/:slug" element={<ProjectDetail />} />
               <Route path="/process" element={<Process />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />

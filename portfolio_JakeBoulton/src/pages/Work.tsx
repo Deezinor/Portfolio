@@ -109,7 +109,14 @@ const Work: React.FC = () => {
                   delay={isPriority ? 0 : 0.05}
                   className="break-inside-avoid mb-6"
                 >
-                  <Link to={`/work/${project.slug}`} className="block">
+                  <Link
+                    to={
+                      isSystemProject
+                        ? `/work/${project.slug}`
+                        : `/work-detail/${project.slug}`
+                    }
+                    className="block"
+                  >
                     <Card className="overflow-hidden" hover={true}>
                       <div className={`relative ${layout.aspect} bg-muted/30`}>
                         {project.thumbnail ? (

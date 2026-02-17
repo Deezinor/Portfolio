@@ -1,5 +1,5 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import Container from "./ui/Container";
 import Section from "./layout/Section";
@@ -10,23 +10,19 @@ import { IoMdArrowBack } from "react-icons/io";
 
 const SystemProjectTemplate: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  console.log("SystemProjectTemplate received slug:", slug);
+  const navigate = useNavigate();
   const project = systemProjects.find((p) => {
     return p.slug === slug;
   });
-  console.log("Found project:", project);
+
+  useEffect(() => {
+    if (!project && slug) {
+      navigate(`/work-detail/${slug}`);
+    }
+  }, [project, slug, navigate]);
 
   if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-h2 mb-4">Project Not Found</h1>
-          <Link to="/work" className="text-accent hover:underline">
-            Back to Work
-          </Link>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   const renderExampleContent = (example: SystemProject["examples"][0]) => {
