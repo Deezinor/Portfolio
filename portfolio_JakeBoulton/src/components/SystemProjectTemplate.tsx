@@ -10,9 +10,11 @@ import { IoMdArrowBack } from "react-icons/io";
 
 const SystemProjectTemplate: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  console.log("SystemProjectTemplate received slug:", slug);
   const project = systemProjects.find((p) => {
-  return p.slug === slug;
-});
+    return p.slug === slug;
+  });
+  console.log("Found project:", project);
 
   if (!project) {
     return (
