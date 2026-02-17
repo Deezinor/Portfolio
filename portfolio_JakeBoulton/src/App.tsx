@@ -17,6 +17,9 @@ const ProjectDetail = lazy(() => {
 const NotFound = lazy(() => {
   return import("./pages/NotFound");
 });
+const SystemProjectTemplate = lazy(() => {
+  return import("./components/SystemProjectTemplate");
+});
 
 // Legacy routes (for backward compatibility - will redirect)
 const LegacyProjectRoutes = lazy(() => {
@@ -37,9 +40,10 @@ const App: React.FC = () => {
         >
           <Layout>
             <Routes>
-              {/* Main Routes */}
+{/* Main Routes */}
               <Route path="/" element={<Home />} />
               <Route path="/work" element={<Work />} />
+              <Route path="/work/unity-workflow-ai-system" element={<SystemProjectTemplate />} />
               <Route path="/work/:slug" element={<ProjectDetail />} />
               <Route path="/process" element={<Process />} />
               <Route path="/about" element={<About />} />
