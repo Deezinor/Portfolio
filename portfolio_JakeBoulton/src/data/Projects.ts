@@ -26,6 +26,7 @@ export interface Project {
         | "3d-art"
         | "product-design";
     year: number;
+    date?: string; // ISO format YYYY-MM-DD for sorting
     thumbnail: string;
     thumbnailFit?: "cover" | "contain"; // How thumbnail should fit: cover (fill+crop) or contain (show all+letterbox)
     thumbnailPosition?: string; // CSS object-position value, e.g., "center top", "left center", "20% 40%"
@@ -53,6 +54,7 @@ export const projects: Project[] = [
         title: "BeatBox",
         category: "xr",
         year: 2024,
+        date: "2024-02",
         thumbnail: "/Assets/Images/Projects/BeatBox_VR-Logo.png",
         thumbnailFit: "contain",
         heroImage: "/Assets/Images/Projects/BeatBox_VR-Logo.png",
@@ -148,6 +150,7 @@ export const projects: Project[] = [
         title: "Midnight at the Pagoda",
         category: "xr",
         year: 2024,
+        date: "2024-05",
         thumbnail: "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene.png",
         heroImage:
             "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Render.png",
@@ -238,6 +241,7 @@ export const projects: Project[] = [
         title: "Habibi",
         category: "xr",
         year: 2024,
+        date: "2024-09",
         thumbnail: "/Assets/Images/Projects/Habibi-Logo.png",
         heroImage: "/Assets/Images/Projects/Habibi-Logo.png",
         description:
@@ -265,6 +269,7 @@ export const projects: Project[] = [
         title: "Caspian House",
         category: "archviz",
         year: 2024,
+        date: "2025-03",
         thumbnail: "/Assets/Images/Projects/CaspianHouse/Kitchen_001.png",
         heroImage: "/Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
         description:
@@ -304,6 +309,7 @@ export const projects: Project[] = [
         title: "Mon58",
         category: "archviz",
         year: 2024,
+        date: "2025-04",
         thumbnail: "/Assets/Images/Projects/Mon58/Kitchen_View_graded.png",
         heroImage: "/Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
         description:
@@ -385,12 +391,14 @@ export const projects: Project[] = [
             },
         ],
     },
+    // Altilium
     {
         id: "altilium",
         slug: "altilium",
         title: "Altilium",
         category: "product-design",
         year: 2024,
+        date: "2020-01",
         thumbnail: "/Assets/Images/Projects/Altilium-Logo.png",
         heroImage: "/Assets/Images/Projects/Altilium-Logo.png",
         description:
@@ -471,6 +479,7 @@ export const projects: Project[] = [
         title: "GoFish",
         category: "xr",
         year: 2024,
+        date: "2024-08",
         thumbnail: "/Assets/Images/Projects/GoFish-Logo.png",
         heroImage: "/Assets/Images/Projects/GoFish-Logo.png",
         description:
@@ -555,6 +564,7 @@ export const projects: Project[] = [
         title: "Savernake",
         category: "3d-art",
         year: 2024,
+        date: "2025-04",
         thumbnail: "/Assets/Images/Projects/Savernake/202504_3KnifeRender_V01.jpg",
         heroImage: "/Assets/Images/Projects/Savernake/202504_3KnifeRender_V01.jpg",
         description:
@@ -589,6 +599,7 @@ export const projects: Project[] = [
         title: "GS Weapons",
         category: "3d-art",
         year: 2024,
+        date: "2023-10",
         thumbnail: "/Assets/Images/Projects/GS_Weapons/GS_Weapons_Logo.png",
         thumbnailFit: "contain",
         heroImage: "/Assets/Images/Projects/GS_Weapons/GS_Weapons_Logo.png",
@@ -773,12 +784,14 @@ export const projects: Project[] = [
             },
         ],
     },
+    // Qa Bottle
     {
         id: "qa-bottle",
         slug: "qa-bottle",
         title: "QA Bottle",
         category: "3d-art",
         year: 2025,
+        date: "2025-04",
         thumbnail: "/Assets/Images/Projects/QaBottle/Render_01.png",
         heroImage: "/Assets/Images/Projects/QaBottle/Render_01.png",
         description: "Product visualisation practice project creating a digital version of a moisturiser bottle from reference images.",

@@ -39,14 +39,21 @@ const Work: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredProjects = useMemo(() => {
+    let result;
     if (activeFilter === "all") {
-      return [...projects, ...systemProjects];
+      result = [...projects, ...systemProjects];
+    } else if (activeFilter === "system") {
+      result = systemProjects;
+    } else {
+      result = projects.filter((p) => {
+        return p.category === activeFilter;
+      });
     }
-    if (activeFilter === "system") {
-      return systemProjects;
-    }
-    return projects.filter((p) => {
-      return p.category === activeFilter;
+
+    return result.sort((a, b) => {
+      const dateA = "date" in a ? (a as { date?: string }).date || "" : "";
+      const dateB = "date" in b ? (b as { date?: string }).date || "" : "";
+      return dateB.localeCompare(dateA);
     });
   }, [activeFilter]);
 

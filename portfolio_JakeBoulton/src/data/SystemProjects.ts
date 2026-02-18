@@ -14,6 +14,7 @@ export interface SystemProject {
   slug: string;
   title: string;
   tagline: string;
+  date?: string; // ISO format YYYY-MM-DD for sorting
   thumbnail: string;
   thumbnailFit?: "cover" | "contain";
   thumbnailPosition?: string;
@@ -30,11 +31,13 @@ export interface SystemProject {
 }
 
 export const systemProjects: SystemProject[] = [
+    // Unity Workflow AI
   {
     id: "unity-workflow-ai",
     slug: "unity-workflow-ai-system",
     title: "Unity Workflow AI System",
     tagline: "AI-powered session management for Unity developers",
+    date: "2026-02",
     thumbnail: "/Assets/Images/Projects/Unity Closer/UnityCloserThumbnail.png",
     thumbnailFit: "contain",
     heroImage: "/Assets/Images/Projects/Unity Closer/ArchiTool_Workspace.png",
