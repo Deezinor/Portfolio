@@ -9,16 +9,11 @@ import Work from "./pages/Work";
 import Process from "./pages/Process";
 import About from "./pages/About";
 import Contact from "./pages/contact";
+import ProjectRouter from "./components/ProjectRouter";
 
 // Lazy-loaded pages
-const ProjectDetail = lazy(() => {
-  return import("./pages/ProjectDetail");
-});
 const NotFound = lazy(() => {
   return import("./pages/NotFound");
-});
-const SystemProjectTemplate = lazy(() => {
-  return import("./components/SystemProjectTemplate");
 });
 
 // Legacy routes (for backward compatibility - will redirect)
@@ -43,8 +38,7 @@ const App: React.FC = () => {
 {/* Main Routes */}
               <Route path="/" element={<Home />} />
               <Route path="/work" element={<Work />} />
-              <Route path="/work/:slug" element={<SystemProjectTemplate />} />
-              <Route path="/work-legacy/:slug" element={<ProjectDetail />} />
+              <Route path="/work/:slug" element={<ProjectRouter />} />
               <Route path="/process" element={<Process />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
