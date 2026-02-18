@@ -9,6 +9,7 @@ import Work from "./pages/Work";
 import Process from "./pages/Process";
 import About from "./pages/About";
 import Contact from "./pages/contact";
+import Sitemap from "./pages/Sitemap";
 import ProjectRouter from "./components/ProjectRouter";
 
 // Lazy-loaded pages
@@ -42,6 +43,7 @@ const App: React.FC = () => {
               <Route path="/process" element={<Process />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/sitemap" element={<Sitemap />} />
 
               {/* Legacy Redirects */}
               <Route path="/projects" element={<Work />} />

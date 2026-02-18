@@ -106,7 +106,10 @@ const Home: React.FC = () => {
             {featuredProjects.map((project, index) => {
               return (
                 <ScrollReveal key={project.id} delay={index * 0.1}>
-                  <Link to={`/work/${project.slug}`} className="block group">
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
+                  >
                     <div className="aspect-video bg-muted/20 border border-border overflow-hidden">
                       {project.thumbnail ? (
                         <img

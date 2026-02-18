@@ -84,7 +84,7 @@ const ProjectDetail: React.FC = () => {
           <ScrollReveal priority>
             <Link
               to="/work"
-              className="text-caption uppercase tracking-wider text-muted hover:text-accent transition-colors"
+              className="text-caption uppercase tracking-wider text-muted hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
               ← Back to Work
             </Link>
@@ -94,8 +94,23 @@ const ProjectDetail: React.FC = () => {
 
       <Section spacing="small">
         <Container>
-          {/* Hero Image - Priority loading */}
+          {/* Title and Tagline - Priority */}
           <ScrollReveal priority>
+            <div className="flex flex-wrap gap-4 mb-4">
+              <span className="text-caption uppercase tracking-wider text-muted">
+                {categoryLabels[project.category]} • {project.year}
+              </span>
+            </div>
+            <h1 className="text-hero uppercase tracking-tight mb-4">
+              {project.title}
+            </h1>
+            <p className="text-body-lg text-accent mb-8">
+              {project.tagline || project.description}
+            </p>
+          </ScrollReveal>
+
+          {/* Hero Image - Priority loading */}
+          <ScrollReveal priority delay={0.1}>
             <div
               className="aspect-video bg-muted/30 border border-border flex items-center justify-center mb-8 cursor-pointer overflow-hidden group"
               onClick={() => {
@@ -122,18 +137,6 @@ const ProjectDetail: React.FC = () => {
               )}
             </div>
           </ScrollReveal>
-
-          {/* Project Info - Priority */}
-          <ScrollReveal priority>
-            <div className="flex flex-wrap gap-4 mb-4">
-              <span className="text-caption uppercase tracking-wider text-muted">
-                {categoryLabels[project.category]} • {project.year}
-              </span>
-            </div>
-            <h1 className="text-hero uppercase tracking-tight mb-8">
-              {project.title}
-            </h1>
-          </ScrollReveal>
         </Container>
       </Section>
 
@@ -153,10 +156,13 @@ const ProjectDetail: React.FC = () => {
 
               {project.challenge && (
                 <ScrollReveal delay={0.1}>
-                  <h3 className="text-caption uppercase tracking-wider text-muted mb-2 mt-8">
-                    Challenge
+                  <span className="text-caption text-accent uppercase tracking-wider">
+                    The Challenge
+                  </span>
+                  <h3 className="text-h3 uppercase tracking-wider mt-2 mb-6">
+                    What I Needed to Solve
                   </h3>
-                  <p className="text-body text-muted mb-6">
+                  <p className="text-body-lg text-muted mb-6">
                     {project.challenge}
                   </p>
                 </ScrollReveal>
@@ -164,10 +170,13 @@ const ProjectDetail: React.FC = () => {
 
               {project.solution && (
                 <ScrollReveal delay={0.2}>
-                  <h3 className="text-caption uppercase tracking-wider text-muted mb-2 mt-6">
-                    Solution
+                  <span className="text-caption text-accent uppercase tracking-wider">
+                    The Solution
+                  </span>
+                  <h3 className="text-h3 uppercase tracking-wider mt-2 mb-6">
+                    How I Solved It
                   </h3>
-                  <p className="text-body text-muted">{project.solution}</p>
+                  <p className="text-body-lg text-muted">{project.solution}</p>
                 </ScrollReveal>
               )}
             </div>

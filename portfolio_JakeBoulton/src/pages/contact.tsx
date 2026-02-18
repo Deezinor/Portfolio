@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
       return { ...prev, [name]: value };
     });
   };
-  let myEmail = "jboulton@proton.me";
+  const myEmail = "jboulton@proton.me";
 
   const copyEmail = () => {
     navigator.clipboard.writeText(myEmail);
@@ -64,14 +64,14 @@ const Contact: React.FC = () => {
         <Container size="small">
           <ScrollReveal>
             <h1 className="text-h1 uppercase tracking-tight mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <p className="text-body-lg text-muted mb-4">
-              Have a project in mind? I'd love to hear about it. Whether it's
+              Have a project in mind? I&apos;d love to hear about it. Whether it&apos;s
               asset optimisation, XR development, or AI workflow
-              consulting—let's discuss.
+              consulting—let&apos;s discuss.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
 
                 {submitStatus === "success" && (
                   <p className="text-accent">
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </p>
                 )}
               </form>
@@ -226,20 +226,30 @@ const Contact: React.FC = () => {
                     <h3 className="text-caption uppercase tracking-wider text-muted mb-2">
                       Email
                     </h3>
-                    <button
-                      onClick={copyEmail}
-                      className="text-body hover:text-accent transition-colors"
+                    <a
+                      href={`mailto:${myEmail}`}
+                      className="text-body hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1 block"
                     >
                       {myEmail}
+                    </a>
+                    <button
+                      onClick={copyEmail}
+                      className="text-small text-muted hover:text-foreground transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 mt-1"
+                    >
+                      Click to copy
                     </button>
-                    <p className="text-small text-muted mt-1">Click to copy</p>
                   </div>
 
                   <div>
                     <h3 className="text-caption uppercase tracking-wider text-muted mb-2">
                       Phone
                     </h3>
-                    <p className="text-body">+44 7565 312 904</p>
+                    <a
+                      href="tel:+447565312904"
+                      className="text-body hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
+                    >
+                      +44 7565 312 904
+                    </a>
                   </div>
 
                   <div>
@@ -247,10 +257,10 @@ const Contact: React.FC = () => {
                       LinkedIn
                     </h3>
                     <a
-                      href="https://linkedin.com/in/jakeboulton"
+                      href="https://www.linkedin.com/in/jake-m-boulton/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-body hover:text-accent transition-colors"
+                      className="text-body hover:text-accent transition-colors focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
                     >
                       linkedin.com/in/jakeboulton →
                     </a>
@@ -303,9 +313,9 @@ const Contact: React.FC = () => {
                     "I specialise in asset optimisation for XR, VR/AR experience design, and 3D art. I'm particularly interested in projects that push the boundaries of real-time 3D.",
                 },
                 {
-                  question: "What's your typical process?",
+                  question: "What&apos;s your typical process?",
                   answer:
-                    "I start with a discovery call to understand your needs, then provide a proposal and quote. Once approved, I work in iterative sprints with regular check-ins to ensure we're aligned.",
+                    "I start with a discovery call to understand your needs, then provide a proposal and quote. Once approved, I work in iterative sprints with regular check-ins to ensure we&apos;re aligned.",
                 },
                 {
                   question: "Do you work remotely?",

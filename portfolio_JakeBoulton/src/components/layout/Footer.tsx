@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Container from "../ui/Container";
 
 const Footer: React.FC = () => {
@@ -12,11 +13,17 @@ const Footer: React.FC = () => {
             © {currentYear} Jake Boulton. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
+            <Link
+              to="/sitemap"
+              className="text-sm text-muted hover:text-foreground transition-colors duration-200 focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
+            >
+              Sitemap
+            </Link>
             <a
-              href="https://linkedin.com/in/jakeboulton"
+              href="https://www.linkedin.com/in/jake-m-boulton/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted hover:text-foreground transition-colors duration-200"
+              className="text-sm text-muted hover:text-foreground transition-colors duration-200 focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
               LinkedIn
             </a>
@@ -24,7 +31,7 @@ const Footer: React.FC = () => {
               href="https://almostmakessense.blog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted hover:text-foreground transition-colors duration-200"
+              className="text-sm text-muted hover:text-foreground transition-colors duration-200 focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
               Blog →
             </a>

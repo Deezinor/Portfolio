@@ -6,7 +6,6 @@ import Section from "./layout/Section";
 import ScrollReveal from "./ui/ScrollReveal";
 import { systemProjects, SystemProject } from "../data/SystemProjects";
 import { Link } from "react-router-dom";
-import { IoMdArrowBack } from "react-icons/io";
 
 const SystemProjectTemplate: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,7 +16,7 @@ const SystemProjectTemplate: React.FC = () => {
 
   useEffect(() => {
     if (!project && slug) {
-      navigate(`/work-detail/${slug}`);
+      navigate(`/work/${slug}`);
     }
   }, [project, slug, navigate]);
 
@@ -51,10 +50,9 @@ const SystemProjectTemplate: React.FC = () => {
           <ScrollReveal priority>
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 text-muted hover:text-foreground mb-8 transition-colors"
+              className="inline-flex items-center gap-2 text-muted hover:text-foreground mb-8 transition-colors focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
-              <IoMdArrowBack />
-              <span>Back to Work</span>
+              ← Back to Work
             </Link>
           </ScrollReveal>
 
@@ -247,10 +245,9 @@ const SystemProjectTemplate: React.FC = () => {
           <ScrollReveal>
             <Link
               to="/work"
-              className="inline-flex items-center gap-2 text-accent hover:underline"
+              className="inline-flex items-center gap-2 text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
-              <IoMdArrowBack />
-              <span>View All Projects</span>
+              ← View All Projects
             </Link>
           </ScrollReveal>
         </Container>

@@ -19,6 +19,7 @@ export interface Project {
     id: string;
     slug: string;
     title: string;
+    tagline?: string;
     category:
         | "xr"
         | "asset-optimisation"
@@ -59,6 +60,7 @@ export const projects: Project[] = [
         thumbnailFit: "contain",
         heroImage: "/Assets/Images/Projects/BeatBox_VR-Logo.png",
         heroFit: "contain",
+        tagline: "Award-winning VR drumming simulator",
         description:
             "Originally a Masters degree project, BeatBox Studio is an award winning VR " +
             "drumming simulator and educational platform, offering free-play, structured" +
@@ -154,6 +156,7 @@ export const projects: Project[] = [
         thumbnail: "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene.png",
         heroImage:
             "/Assets/Images/Projects/Midnight at the Pagoda/FinalScene-Render.png",
+        tagline: "Digital heritage VR exhibit",
         description:
             "A digital heritage VR exhibit exploring the history of Buddhism in China, featuring the Porcelain Tower and Great Bao'en Temple in Nanjing. Created for the 2024 DIGITAL HERITAGE – IMMERSIVE CULTURAL HERITAGE INNOVATOR CONTEST with the winning project to be developed and launched at the temple site.",
         challenge:
@@ -244,6 +247,7 @@ export const projects: Project[] = [
         date: "2024-09",
         thumbnail: "/Assets/Images/Projects/Habibi-Logo.png",
         heroImage: "/Assets/Images/Projects/Habibi-Logo.png",
+        tagline: "VR connection for long-distance couples",
         description:
             "A shared virtual wall for long-distance couples to communicate asynchronously. Partners can leave notes, upload images, and use AI-powered image generation to create and share visual moments together, fostering connection across distance through a persistent shared space.",
         challenge:
@@ -272,6 +276,7 @@ export const projects: Project[] = [
         date: "2025-03",
         thumbnail: "/Assets/Images/Projects/CaspianHouse/Kitchen_001.png",
         heroImage: "/Assets/Images/Projects/CaspianHouse/CaspianHouse_viewport.png",
+        tagline: "Residential archviz visualization",
         description:
             "A personal architectural visualization project creating a digital twin of a residential interior. Focused on accurate material representation, lighting, and spatial atmosphere to practice photorealistic rendering techniques.",
         challenge:
@@ -312,6 +317,7 @@ export const projects: Project[] = [
         date: "2025-04",
         thumbnail: "/Assets/Images/Projects/Mon58/Kitchen_View_graded.png",
         heroImage: "/Assets/Images/Projects/Mon58/Mon58-LogoImage_02.png",
+        tagline: "Modern house digital twin",
         description:
             "A digital twin practice project recreating the Mon58 house by Associati architects. Using architectural plans and reference imagery to build an accurate 3D visualization of this modern residential space.",
         challenge:
@@ -401,6 +407,7 @@ export const projects: Project[] = [
         date: "2020-01",
         thumbnail: "/Assets/Images/Projects/Altilium-Logo.png",
         heroImage: "/Assets/Images/Projects/Altilium-Logo.png",
+        tagline: "Portable camping induction stove",
         description:
             "A portable induction stove concept designed for camping and outdoor use, exploring future battery technology (solid-state batteries) to create a safer cooking solution. Final year product design degree project focused on reducing campsite fire risks while maintaining cooking functionality.",
         challenge:
@@ -482,6 +489,7 @@ export const projects: Project[] = [
         date: "2024-08",
         thumbnail: "/Assets/Images/Projects/GoFish-Logo.png",
         heroImage: "/Assets/Images/Projects/GoFish-Logo.png",
+        tagline: "VR card game with fishing mechanics",
         description:
             "A mixed reality recreation of the classic card game Go Fish, reimagined for VR. Players sit around a virtual table playing cards, but instead of simply 'going fish' from the deck, they physically fish with a rod into virtual water to catch their cards, adding tactile fun to the classic game.",
         challenge:
@@ -567,6 +575,7 @@ export const projects: Project[] = [
         date: "2025-04",
         thumbnail: "/Assets/Images/Projects/Savernake/202504_3KnifeRender_V01.jpg",
         heroImage: "/Assets/Images/Projects/Savernake/202504_3KnifeRender_V01.jpg",
+        tagline: "Rapid knife product visualization",
         description:
             "A rapid knife visualization project completed in a single day to demonstrate modeling and rendering capabilities for a job application. Based on product imagery from the Savernake brand website, recreated to showcase technical speed and quality.",
         challenge:
@@ -604,6 +613,7 @@ export const projects: Project[] = [
         thumbnailFit: "contain",
         heroImage: "/Assets/Images/Projects/GS_Weapons/GS_Weapons_Logo.png",
         heroFit: "contain",
+        tagline: "Detailed 3D weapon collection",
         description:
             "A collection of detailed 3D weapon models created as coursework for a university modeling and animation module, showcasing hard-surface modeling, texturing, and rendering techniques. Based on concept art reference to practice translating 2D designs into 3D assets.",
         challenge:
@@ -794,6 +804,7 @@ export const projects: Project[] = [
         date: "2025-04",
         thumbnail: "/Assets/Images/Projects/QaBottle/Render_01.png",
         heroImage: "/Assets/Images/Projects/QaBottle/Render_01.png",
+        tagline: "Product visualisation practice",
         description: "Product visualisation practice project creating a digital version of a moisturiser bottle from reference images.",
         challenge: "Model, material, light, and render a product entirely in Blender with no external tools - producing client-ready renders.",
         solution: "Clean product renders achieving professional quality suitable for client delivery.",

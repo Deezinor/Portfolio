@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Container, Section, ScrollReveal, Card } from "../components";
 import { Link } from "react-router-dom";
-import { projects } from "../data/Projects";
+import { projects, Project } from "../data/Projects";
 import { systemProjects } from "../data/SystemProjects";
 
 const filters = [
@@ -107,7 +107,10 @@ const Work: React.FC = () => {
             {filteredProjects.map((project, index) => {
               const layout = projectLayouts[index % projectLayouts.length];
               const isPriority = index < 3;
-              const isSystemProject = "tagline" in project;
+              const projectIds = projects.map((p) => {
+                return p.id;
+              });
+              const isSystemProject = !projectIds.includes(project.id);
 
               return (
                 <ScrollReveal
@@ -116,7 +119,10 @@ const Work: React.FC = () => {
                   delay={isPriority ? 0 : 0.05}
                   className="break-inside-avoid mb-6"
                 >
-                  <Link to={`/work/${project.slug}`} className="block">
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-lg"
+                  >
                     <Card className="overflow-hidden" hover={true}>
                       <div className={`relative ${layout.aspect} bg-muted/30`}>
                         {project.thumbnail ? (
@@ -145,14 +151,18 @@ const Work: React.FC = () => {
                         <p className="text-caption uppercase tracking-wider text-muted mb-1">
                           {isSystemProject
                             ? "System"
-                            : `${categoryLabels[project.category]} • ${project.year}`}
+                            : categoryLabels[(project as Project).category]}
+                          {" • "}
+                          {isSystemProject
+                            ? (project as { date?: string }).date?.slice(0, 4) || "2026"
+                            : (project as Project).year}
                         </p>
                         <h3 className="text-h3 uppercase tracking-wider">
                           {project.title}
                         </h3>
-                        {isSystemProject && "tagline" in project && (
+                        {"tagline" in project && project.tagline && (
                           <p className="text-sm text-muted mt-1 line-clamp-2">
-                            {(project as { tagline: string }).tagline}
+                            {project.tagline}
                           </p>
                         )}
                       </div>

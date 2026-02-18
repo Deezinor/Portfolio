@@ -16,8 +16,12 @@ const Header: React.FC = () => {
   ];
 
   const baseClasses =
-    "text-sm uppercase tracking-wider transition-colors duration-200 hover:text-accent";
+    "text-sm uppercase tracking-wider transition-colors duration-200 hover:text-accent focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1 py-0.5 -my-0.5";
   const activeClasses = "text-accent";
+
+  const handleMenuToggle = () => {
+    return setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <>
@@ -27,24 +31,26 @@ const Header: React.FC = () => {
             {/* Logo */}
             <NavLink
               to="/"
-              className="text-lg md:text-xl font-semibold uppercase tracking-wider text-foreground"
+              className="text-lg md:text-xl font-semibold uppercase tracking-wider text-foreground hover:text-accent focus-visible:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded px-1 -mx-1"
             >
               Jake Boulton
             </NavLink>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <NavLink
-                  key={link.to}
-                  to={link.to}
-                  className={({ isActive }) => {
-                    return clsx(baseClasses, isActive && activeClasses);
-                  }}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+              {navLinks.map((link) => {
+                return (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    className={({ isActive }) => {
+                      return clsx(baseClasses, isActive && activeClasses);
+                    }}
+                  >
+                    {link.label}
+                  </NavLink>
+                );
+              })}
               <ThemeToggle />
             </div>
 
@@ -52,8 +58,8 @@ const Header: React.FC = () => {
             <div className="flex items-center gap-4 md:hidden">
               <ThemeToggle />
               <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-foreground"
+                onClick={handleMenuToggle}
+                className="p-2 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
                 aria-label="Toggle menu"
                 aria-expanded={isMenuOpen}
               >
@@ -87,23 +93,27 @@ const Header: React.FC = () => {
       {isMenuOpen && (
         <div className="fixed inset-x-0 top-16 bottom-0 bg-background border-b border-border shadow-2xl z-[100] md:hidden overflow-y-auto">
           <Container className="flex flex-col py-8 gap-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                onClick={() => setIsMenuOpen(false)}
-                className={({ isActive }) => {
-                  return clsx(
-                    "text-lg uppercase tracking-wider transition-colors duration-200 py-2 px-4 rounded-lg",
-                    isActive
-                      ? "text-accent bg-accent/10"
-                      : "text-foreground hover:text-accent hover:bg-muted/10",
-                  );
-                }}
-              >
-                {link.label}
-              </NavLink>
-            ))}
+            {navLinks.map((link) => {
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => {
+                    return setIsMenuOpen(false);
+                  }}
+                  className={({ isActive }) => {
+                    return clsx(
+                      "text-lg uppercase tracking-wider transition-colors duration-200 py-2 px-4 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                      isActive
+                        ? "text-accent bg-accent/10"
+                        : "text-foreground hover:text-accent hover:bg-muted/10",
+                    );
+                  }}
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
           </Container>
         </div>
       )}
